@@ -10,19 +10,19 @@ TerminalordersMerchantlevelApi terminalordersMerchantlevelApi = client.Terminalo
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Billing Entities](../../doc/controllers/terminalorders-merchantlevel.md#get-merchants-merchant-id-billing-entities)
-* [Get-Merchants-Merchant Id-Shipping Locations](../../doc/controllers/terminalorders-merchantlevel.md#get-merchants-merchant-id-shipping-locations)
-* [Post-Merchants-Merchant Id-Shipping Locations](../../doc/controllers/terminalorders-merchantlevel.md#post-merchants-merchant-id-shipping-locations)
-* [Get-Merchants-Merchant Id-Terminal Models](../../doc/controllers/terminalorders-merchantlevel.md#get-merchants-merchant-id-terminal-models)
-* [Get-Merchants-Merchant Id-Terminal Orders](../../doc/controllers/terminalorders-merchantlevel.md#get-merchants-merchant-id-terminal-orders)
-* [Post-Merchants-Merchant Id-Terminal Orders](../../doc/controllers/terminalorders-merchantlevel.md#post-merchants-merchant-id-terminal-orders)
-* [Get-Merchants-Merchant Id-Terminal Orders-Order Id](../../doc/controllers/terminalorders-merchantlevel.md#get-merchants-merchant-id-terminal-orders-order-id)
-* [Patch-Merchants-Merchant Id-Terminal Orders-Order Id](../../doc/controllers/terminalorders-merchantlevel.md#patch-merchants-merchant-id-terminal-orders-order-id)
-* [Post-Merchants-Merchant Id-Terminal Orders-Order Id-Cancel](../../doc/controllers/terminalorders-merchantlevel.md#post-merchants-merchant-id-terminal-orders-order-id-cancel)
-* [Get-Merchants-Merchant Id-Terminal Products](../../doc/controllers/terminalorders-merchantlevel.md#get-merchants-merchant-id-terminal-products)
+* [List Merchant Billing Entities](../../doc/controllers/terminalorders-merchantlevel.md#list-merchant-billing-entities)
+* [List Merchant Shipping Locations](../../doc/controllers/terminalorders-merchantlevel.md#list-merchant-shipping-locations)
+* [Create Merchant Shipping Location](../../doc/controllers/terminalorders-merchantlevel.md#create-merchant-shipping-location)
+* [List Merchant Terminal Models](../../doc/controllers/terminalorders-merchantlevel.md#list-merchant-terminal-models)
+* [List Merchant Terminal Orders](../../doc/controllers/terminalorders-merchantlevel.md#list-merchant-terminal-orders)
+* [Create Merchant Terminal Order](../../doc/controllers/terminalorders-merchantlevel.md#create-merchant-terminal-order)
+* [Get Merchant Terminal Order](../../doc/controllers/terminalorders-merchantlevel.md#get-merchant-terminal-order)
+* [Update Merchant Terminal Order](../../doc/controllers/terminalorders-merchantlevel.md#update-merchant-terminal-order)
+* [Cancel Merchant Terminal Order](../../doc/controllers/terminalorders-merchantlevel.md#cancel-merchant-terminal-order)
+* [List Merchant Terminal Products](../../doc/controllers/terminalorders-merchantlevel.md#list-merchant-terminal-products)
 
 
-# Get-Merchants-Merchant Id-Billing Entities
+# List Merchant Billing Entities
 
 Returns the billing entities of the merchant account identified in the path.
 A billing entity is a legal entity where we charge orders to. An order for terminal products must contain the ID of a billing entity.
@@ -35,7 +35,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdBillingEntitiesAsync(
+ListMerchantBillingEntitiesAsync(
     string merchantId,
     string name = null)
 ```
@@ -57,7 +57,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<BillingEntitiesResponse> result = await terminalOrdersMerchantLevelApi.GetMerchantsMerchantIdBillingEntitiesAsync(merchantId);
+    ApiResponse<BillingEntitiesResponse> result = await terminalOrdersMerchantLevelApi.ListMerchantBillingEntitiesAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -101,7 +101,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Shipping Locations
+# List Merchant Shipping Locations
 
 Returns the shipping locations for the merchant account identified in the path.
 A shipping location includes the address where orders can be delivered, and an ID which you need to specify when ordering terminal products.
@@ -114,7 +114,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdShippingLocationsAsync(
+ListMerchantShippingLocationsAsync(
     string merchantId,
     string name = null,
     int? offset = null,
@@ -140,7 +140,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<ShippingLocationsResponse> result = await terminalOrdersMerchantLevelApi.GetMerchantsMerchantIdShippingLocationsAsync(merchantId);
+    ApiResponse<ShippingLocationsResponse> result = await terminalOrdersMerchantLevelApi.ListMerchantShippingLocationsAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -189,7 +189,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Shipping Locations
+# Create Merchant Shipping Location
 
 Creates a shipping location for the merchant account identified in the path. A shipping location defines an address where orders can be shipped to.
 
@@ -200,7 +200,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostMerchantsMerchantIdShippingLocationsAsync(
+CreateMerchantShippingLocationAsync(
     string merchantId,
     Models.ShippingLocation body = null)
 ```
@@ -243,7 +243,7 @@ ShippingLocation body = new ShippingLocation
 
 try
 {
-    ApiResponse<ShippingLocation> result = await terminalOrdersMerchantLevelApi.PostMerchantsMerchantIdShippingLocationsAsync(
+    ApiResponse<ShippingLocation> result = await terminalOrdersMerchantLevelApi.CreateMerchantShippingLocationAsync(
         merchantId,
         body
     );
@@ -291,7 +291,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Terminal Models
+# List Merchant Terminal Models
 
 Returns the payment terminal models that the merchant account identified in the path has access to. The response includes the terminal model ID, which can be used as a query parameter when getting a list of terminals or a list of products for ordering.
 
@@ -303,7 +303,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdTerminalModelsAsync(
+ListMerchantTerminalModelsAsync(
     string merchantId)
 ```
 
@@ -323,7 +323,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<TerminalModelsResponse> result = await terminalOrdersMerchantLevelApi.GetMerchantsMerchantIdTerminalModelsAsync(merchantId);
+    ApiResponse<TerminalModelsResponse> result = await terminalOrdersMerchantLevelApi.ListMerchantTerminalModelsAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -507,7 +507,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Terminal Orders
+# List Merchant Terminal Orders
 
 Returns a list of terminal products orders for the merchant account identified in the path.
 
@@ -519,7 +519,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdTerminalOrdersAsync(
+ListMerchantTerminalOrdersAsync(
     string merchantId,
     string customerOrderReference = null,
     string status = null,
@@ -547,7 +547,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<TerminalOrdersResponse> result = await terminalOrdersMerchantLevelApi.GetMerchantsMerchantIdTerminalOrdersAsync(merchantId);
+    ApiResponse<TerminalOrdersResponse> result = await terminalOrdersMerchantLevelApi.ListMerchantTerminalOrdersAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -668,7 +668,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Terminal Orders
+# Create Merchant Terminal Order
 
 Creates an order for payment terminal products for the merchant account identified in the path.
 
@@ -681,7 +681,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostMerchantsMerchantIdTerminalOrdersAsync(
+CreateMerchantTerminalOrderAsync(
     string merchantId,
     Models.TerminalOrderRequest body = null)
 ```
@@ -725,7 +725,7 @@ TerminalOrderRequest body = new TerminalOrderRequest
 
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.PostMerchantsMerchantIdTerminalOrdersAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.CreateMerchantTerminalOrderAsync(
         merchantId,
         body
     );
@@ -803,7 +803,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Terminal Orders-Order Id
+# Get Merchant Terminal Order
 
 Returns the details of the terminal products order identified in the path.
 
@@ -815,7 +815,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdTerminalOrdersOrderIdAsync(
+GetMerchantTerminalOrderAsync(
     string merchantId,
     string orderId)
 ```
@@ -838,7 +838,7 @@ string merchantId = "merchantId6";
 string orderId = "orderId2";
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.GetMerchantsMerchantIdTerminalOrdersOrderIdAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.GetMerchantTerminalOrderAsync(
         merchantId,
         orderId
     );
@@ -916,7 +916,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Terminal Orders-Order Id
+# Update Merchant Terminal Order
 
 Updates the terminal products order identified in the path.
 Updating is only possible while the order has the status **Placed**.
@@ -932,7 +932,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchMerchantsMerchantIdTerminalOrdersOrderIdAsync(
+UpdateMerchantTerminalOrderAsync(
     string merchantId,
     string orderId,
     Models.TerminalOrderRequest body = null)
@@ -982,7 +982,7 @@ TerminalOrderRequest body = new TerminalOrderRequest
 
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.PatchMerchantsMerchantIdTerminalOrdersOrderIdAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.UpdateMerchantTerminalOrderAsync(
         merchantId,
         orderId,
         body
@@ -1067,7 +1067,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Terminal Orders-Order Id-Cancel
+# Cancel Merchant Terminal Order
 
 Cancels the terminal products order identified in the path.
 Cancelling is only possible while the order has the status **Placed**.
@@ -1080,7 +1080,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostMerchantsMerchantIdTerminalOrdersOrderIdCancelAsync(
+CancelMerchantTerminalOrderAsync(
     string merchantId,
     string orderId)
 ```
@@ -1103,7 +1103,7 @@ string merchantId = "merchantId6";
 string orderId = "orderId2";
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.PostMerchantsMerchantIdTerminalOrdersOrderIdCancelAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersMerchantLevelApi.CancelMerchantTerminalOrderAsync(
         merchantId,
         orderId
     );
@@ -1181,7 +1181,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Terminal Products
+# List Merchant Terminal Products
 
 Returns a country-specific list of payment terminal packages and parts that the merchant account identified in the path has access to.
 
@@ -1193,7 +1193,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdTerminalProductsAsync(
+ListMerchantTerminalProductsAsync(
     string merchantId,
     string country,
     string terminalModelId = null,
@@ -1222,7 +1222,7 @@ string merchantId = "merchantId6";
 string country = "country4";
 try
 {
-    ApiResponse<TerminalProductsResponse> result = await terminalOrdersMerchantLevelApi.GetMerchantsMerchantIdTerminalProductsAsync(
+    ApiResponse<TerminalProductsResponse> result = await terminalOrdersMerchantLevelApi.ListMerchantTerminalProductsAsync(
         merchantId,
         country
     );

@@ -10,22 +10,22 @@ MyApIcredentialApi myApIcredentialApi = client.MyApIcredentialApi;
 
 ## Methods
 
-* [Get-Me](../../doc/controllers/my-ap-icredential.md#get-me)
-* [Get-Me-Allowed Origins](../../doc/controllers/my-ap-icredential.md#get-me-allowed-origins)
-* [Post-Me-Allowed Origins](../../doc/controllers/my-ap-icredential.md#post-me-allowed-origins)
-* [Delete-Me-Allowed Origins-Origin Id](../../doc/controllers/my-ap-icredential.md#delete-me-allowed-origins-origin-id)
-* [Get-Me-Allowed Origins-Origin Id](../../doc/controllers/my-ap-icredential.md#get-me-allowed-origins-origin-id)
-* [Post-Me-Generate Client Key](../../doc/controllers/my-ap-icredential.md#post-me-generate-client-key)
+* [Get My Api Credential](../../doc/controllers/my-ap-icredential.md#get-my-api-credential)
+* [List My Allowed Origins](../../doc/controllers/my-ap-icredential.md#list-my-allowed-origins)
+* [Create My Allowed Origin](../../doc/controllers/my-ap-icredential.md#create-my-allowed-origin)
+* [Delete My Allowed Origin](../../doc/controllers/my-ap-icredential.md#delete-my-allowed-origin)
+* [Get My Allowed Origin](../../doc/controllers/my-ap-icredential.md#get-my-allowed-origin)
+* [Generate My Client Key](../../doc/controllers/my-ap-icredential.md#generate-my-client-key)
 
 
-# Get-Me
+# Get My Api Credential
 
 Returns your [API credential](https://docs.adyen.com/development-resources/api-credentials) details based on the API Key you used in the request.
 
 You can make this request with any of the Management API roles.
 
 ```csharp
-GetMeAsync()
+GetMyApiCredentialAsync()
 ```
 
 ## Response Type
@@ -37,7 +37,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<MeApiCredential> result = await myApiCredentialApi.GetMeAsync();
+    ApiResponse<MeApiCredential> result = await myApiCredentialApi.GetMyApiCredentialAsync();
 }
 catch (ApiException e)
 {
@@ -60,14 +60,14 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Me-Allowed Origins
+# List My Allowed Origins
 
 Returns the list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) of your [API credential](https://docs.adyen.com/development-resources/api-credentials) based on the API key you used in the request.
 
 You can make this request with any of the Management API roles.
 
 ```csharp
-GetMeAllowedOriginsAsync()
+ListMyAllowedOriginsAsync()
 ```
 
 ## Response Type
@@ -79,7 +79,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<AllowedOriginsResponse> result = await myApiCredentialApi.GetMeAllowedOriginsAsync();
+    ApiResponse<AllowedOriginsResponse> result = await myApiCredentialApi.ListMyAllowedOriginsAsync();
 }
 catch (ApiException e)
 {
@@ -102,7 +102,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Me-Allowed Origins
+# Create My Allowed Origin
 
 Adds an allowed origin to the list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) of your API credential.
 The API key from the request is used to identify the [API credential](https://docs.adyen.com/development-resources/api-credentials).
@@ -110,7 +110,7 @@ The API key from the request is used to identify the [API credential](https://do
 You can make this request with any of the Management API roles.
 
 ```csharp
-PostMeAllowedOriginsAsync(
+CreateMyAllowedOriginAsync(
     Models.CreateAllowedOriginRequest body = null)
 ```
 
@@ -134,7 +134,7 @@ CreateAllowedOriginRequest body = new CreateAllowedOriginRequest
 
 try
 {
-    ApiResponse<AllowedOrigin> result = await myApiCredentialApi.PostMeAllowedOriginsAsync(body);
+    ApiResponse<AllowedOrigin> result = await myApiCredentialApi.CreateMyAllowedOriginAsync(body);
 }
 catch (ApiException e)
 {
@@ -157,7 +157,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Delete-Me-Allowed Origins-Origin Id
+# Delete My Allowed Origin
 
 Removes the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) specified in the path.
 The API key from the request is used to identify the [API credential](https://docs.adyen.com/development-resources/api-credentials).
@@ -165,7 +165,7 @@ The API key from the request is used to identify the [API credential](https://do
 You can make this request with any of the Management API roles.
 
 ```csharp
-DeleteMeAllowedOriginsOriginIdAsync(
+DeleteMyAllowedOriginAsync(
     string originId)
 ```
 
@@ -185,7 +185,7 @@ DeleteMeAllowedOriginsOriginIdAsync(
 string originId = "originId6";
 try
 {
-    await myApiCredentialApi.DeleteMeAllowedOriginsOriginIdAsync(originId);
+    await myApiCredentialApi.DeleteMyAllowedOriginAsync(originId);
 }
 catch (ApiException e)
 {
@@ -208,7 +208,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Me-Allowed Origins-Origin Id
+# Get My Allowed Origin
 
 Returns the details of the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) specified in the path.
 The API key from the request is used to identify the [API credential](https://docs.adyen.com/development-resources/api-credentials).
@@ -216,7 +216,7 @@ The API key from the request is used to identify the [API credential](https://do
 You can make this request with any of the Management API roles.
 
 ```csharp
-GetMeAllowedOriginsOriginIdAsync(
+GetMyAllowedOriginAsync(
     string originId)
 ```
 
@@ -236,7 +236,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string originId = "originId6";
 try
 {
-    ApiResponse<AllowedOrigin> result = await myApiCredentialApi.GetMeAllowedOriginsOriginIdAsync(originId);
+    ApiResponse<AllowedOrigin> result = await myApiCredentialApi.GetMyAllowedOriginAsync(originId);
 }
 catch (ApiException e)
 {
@@ -259,7 +259,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Me-Generate Client Key
+# Generate My Client Key
 
 Generates a new [client key](https://docs.adyen.com/development-resources/client-side-authentication/) used to authenticate requests from your payment environment.
 You can use the new client key a few minutes after generating it.
@@ -270,7 +270,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—API credentials read and write
 
 ```csharp
-PostMeGenerateClientKeyAsync()
+GenerateMyClientKeyAsync()
 ```
 
 ## Response Type
@@ -282,7 +282,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<GenerateClientKeyResponse> result = await myApiCredentialApi.PostMeGenerateClientKeyAsync();
+    ApiResponse<GenerateClientKeyResponse> result = await myApiCredentialApi.GenerateMyClientKeyAsync();
 }
 catch (ApiException e)
 {

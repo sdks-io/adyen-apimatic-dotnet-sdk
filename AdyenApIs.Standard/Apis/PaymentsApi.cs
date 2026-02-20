@@ -47,10 +47,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CardDetailsResponse response from the API call.</returns>
-        public ApiResponse<Models.CardDetailsResponse> PostCardDetails(
+        public ApiResponse<Models.CardDetailsResponse> GetCardDetails(
                 string idempotencyKey = null,
                 Models.CardDetailsRequest body = null)
-            => CoreHelper.RunTask(PostCardDetailsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(GetCardDetailsAsync(idempotencyKey, body));
 
         /// <summary>
         /// <![CDATA[
@@ -77,7 +77,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CardDetailsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CardDetailsResponse>> PostCardDetailsAsync(
+        public async Task<ApiResponse<Models.CardDetailsResponse>> GetCardDetailsAsync(
                 string idempotencyKey = null,
                 Models.CardDetailsRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -100,10 +100,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethodsResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentMethodsResponse> PostPaymentMethods(
+        public ApiResponse<Models.PaymentMethodsResponse> GetPaymentMethods(
                 string idempotencyKey = null,
                 Models.PaymentMethodsRequest body = null)
-            => CoreHelper.RunTask(PostPaymentMethodsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(GetPaymentMethodsAsync(idempotencyKey, body));
 
         /// <summary>
         /// Retrieves the list of available payment methods for the transaction, based on the transaction information like amount, country, and currency.
@@ -112,7 +112,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethodsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentMethodsResponse>> PostPaymentMethodsAsync(
+        public async Task<ApiResponse<Models.PaymentMethodsResponse>> GetPaymentMethodsAsync(
                 string idempotencyKey = null,
                 Models.PaymentMethodsRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -144,10 +144,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentResponse> PostPayments(
+        public ApiResponse<Models.PaymentResponse> CreatePayment(
                 string idempotencyKey = null,
                 Models.PaymentRequest body = null)
-            => CoreHelper.RunTask(PostPaymentsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(CreatePaymentAsync(idempotencyKey, body));
 
         /// <summary>
         /// Sends payment parameters (like amount, country, and currency) together with other required input details collected from the shopper. To know more about required parameters for specific payment methods, refer to our [payment method guides](https://docs.adyen.com/payment-methods). .
@@ -159,7 +159,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentResponse>> PostPaymentsAsync(
+        public async Task<ApiResponse<Models.PaymentResponse>> CreatePaymentAsync(
                 string idempotencyKey = null,
                 Models.PaymentRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -188,10 +188,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentDetailsResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentDetailsResponse> PostPaymentsDetails(
+        public ApiResponse<Models.PaymentDetailsResponse> GetPaymentDetails(
                 string idempotencyKey = null,
                 Models.PaymentDetailsRequest body = null)
-            => CoreHelper.RunTask(PostPaymentsDetailsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(GetPaymentDetailsAsync(idempotencyKey, body));
 
         /// <summary>
         /// Submits details for a payment created using `/payments`. This step is only needed when no final state has been reached on the `/payments` request, for example when the shopper was redirected to another page to complete the payment.
@@ -200,7 +200,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentDetailsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentDetailsResponse>> PostPaymentsDetailsAsync(
+        public async Task<ApiResponse<Models.PaymentDetailsResponse>> GetPaymentDetailsAsync(
                 string idempotencyKey = null,
                 Models.PaymentDetailsRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -233,10 +233,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CreateCheckoutSessionResponse response from the API call.</returns>
-        public ApiResponse<Models.CreateCheckoutSessionResponse> PostSessions(
+        public ApiResponse<Models.CreateCheckoutSessionResponse> CreateCheckoutSession(
                 string idempotencyKey = null,
                 Models.CreateCheckoutSessionRequest body = null)
-            => CoreHelper.RunTask(PostSessionsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(CreateCheckoutSessionAsync(idempotencyKey, body));
 
         /// <summary>
         /// <![CDATA[
@@ -249,7 +249,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CreateCheckoutSessionResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CreateCheckoutSessionResponse>> PostSessionsAsync(
+        public async Task<ApiResponse<Models.CreateCheckoutSessionResponse>> CreateCheckoutSessionAsync(
                 string idempotencyKey = null,
                 Models.CreateCheckoutSessionRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -272,10 +272,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="sessionId">Required parameter: A unique identifier of the session..</param>
         /// <param name="sessionResult">Required parameter: The `sessionResult` value from the Drop-in or Component..</param>
         /// <returns>Returns the ApiResponse of Models.SessionResultResponse response from the API call.</returns>
-        public ApiResponse<Models.SessionResultResponse> GetSessionsSessionId(
+        public ApiResponse<Models.SessionResultResponse> GetCheckoutSession(
                 string sessionId,
                 string sessionResult)
-            => CoreHelper.RunTask(GetSessionsSessionIdAsync(sessionId, sessionResult));
+            => CoreHelper.RunTask(GetCheckoutSessionAsync(sessionId, sessionResult));
 
         /// <summary>
         /// Returns the status of the payment session with the `sessionId` and `sessionResult` specified in the path.
@@ -284,7 +284,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="sessionResult">Required parameter: The `sessionResult` value from the Drop-in or Component..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SessionResultResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.SessionResultResponse>> GetSessionsSessionIdAsync(
+        public async Task<ApiResponse<Models.SessionResultResponse>> GetCheckoutSessionAsync(
                 string sessionId,
                 string sessionResult,
                 CancellationToken cancellationToken = default)

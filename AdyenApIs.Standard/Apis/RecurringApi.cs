@@ -29,10 +29,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CheckoutForwardResponse response from the API call.</returns>
-        public ApiResponse<Models.CheckoutForwardResponse> PostForward(
+        public ApiResponse<Models.CheckoutForwardResponse> ForwardRequest(
                 string idempotencyKey = null,
                 Models.CheckoutForwardRequest body = null)
-            => CoreHelper.RunTask(PostForwardAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(ForwardRequestAsync(idempotencyKey, body));
 
         /// <summary>
         /// Forwards the payment details you stored with Adyen to a third-party that you specify and returns the response from the third-party. Supports forwarding stored card details or [network tokens](https://docs.adyen.com/online-payments/network-tokenization). For more information, see [Forward stored payment details](https://docs.adyen.com/online-payments/tokenization/forward-payment-details).
@@ -41,7 +41,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CheckoutForwardResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CheckoutForwardResponse>> PostForwardAsync(
+        public async Task<ApiResponse<Models.CheckoutForwardResponse>> ForwardRequestAsync(
                 string idempotencyKey = null,
                 Models.CheckoutForwardRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -64,10 +64,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="shopperReference">Optional parameter: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address..</param>
         /// <param name="merchantAccount">Optional parameter: Your merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.ListStoredPaymentMethodsResponse response from the API call.</returns>
-        public ApiResponse<Models.ListStoredPaymentMethodsResponse> GetStoredPaymentMethods(
+        public ApiResponse<Models.ListStoredPaymentMethodsResponse> ListStoredPaymentMethods(
                 string shopperReference = null,
                 string merchantAccount = null)
-            => CoreHelper.RunTask(GetStoredPaymentMethodsAsync(shopperReference, merchantAccount));
+            => CoreHelper.RunTask(ListStoredPaymentMethodsAsync(shopperReference, merchantAccount));
 
         /// <summary>
         /// Lists the tokens for stored payment details for the shopper identified in the path, if there are any available. The token ID can be used with payment requests for the shopper's payment. A summary of the stored details is included.
@@ -76,7 +76,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantAccount">Optional parameter: Your merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListStoredPaymentMethodsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListStoredPaymentMethodsResponse>> GetStoredPaymentMethodsAsync(
+        public async Task<ApiResponse<Models.ListStoredPaymentMethodsResponse>> ListStoredPaymentMethodsAsync(
                 string shopperReference = null,
                 string merchantAccount = null,
                 CancellationToken cancellationToken = default)
@@ -98,10 +98,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.StoredPaymentMethodResource response from the API call.</returns>
-        public ApiResponse<Models.StoredPaymentMethodResource> PostStoredPaymentMethods(
+        public ApiResponse<Models.StoredPaymentMethodResource> CreateStoredPaymentMethod(
                 string idempotencyKey = null,
                 Models.StoredPaymentMethodRequest body = null)
-            => CoreHelper.RunTask(PostStoredPaymentMethodsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(CreateStoredPaymentMethodAsync(idempotencyKey, body));
 
         /// <summary>
         /// Creates a token to store the shopper's payment details. This token can be used for the shopper's future payments.
@@ -110,7 +110,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.StoredPaymentMethodResource response from the API call.</returns>
-        public async Task<ApiResponse<Models.StoredPaymentMethodResource>> PostStoredPaymentMethodsAsync(
+        public async Task<ApiResponse<Models.StoredPaymentMethodResource>> CreateStoredPaymentMethodAsync(
                 string idempotencyKey = null,
                 Models.StoredPaymentMethodRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -133,11 +133,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storedPaymentMethodId">Required parameter: The unique identifier of the token..</param>
         /// <param name="shopperReference">Required parameter: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address..</param>
         /// <param name="merchantAccount">Required parameter: Your merchant account..</param>
-        public void DeleteStoredPaymentMethodsStoredPaymentMethodId(
+        public void DeleteStoredPaymentMethod(
                 string storedPaymentMethodId,
                 string shopperReference,
                 string merchantAccount)
-            => CoreHelper.RunVoidTask(DeleteStoredPaymentMethodsStoredPaymentMethodIdAsync(storedPaymentMethodId, shopperReference, merchantAccount));
+            => CoreHelper.RunVoidTask(DeleteStoredPaymentMethodAsync(storedPaymentMethodId, shopperReference, merchantAccount));
 
         /// <summary>
         /// Deletes the token identified in the path. The token can no longer be used with payment requests.
@@ -147,7 +147,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantAccount">Required parameter: Your merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task DeleteStoredPaymentMethodsStoredPaymentMethodIdAsync(
+        public async Task DeleteStoredPaymentMethodAsync(
                 string storedPaymentMethodId,
                 string shopperReference,
                 string merchantAccount,

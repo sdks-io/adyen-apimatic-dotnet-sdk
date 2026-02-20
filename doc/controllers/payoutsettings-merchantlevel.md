@@ -10,14 +10,14 @@ PayoutsettingsMerchantlevelApi payoutsettingsMerchantlevelApi = client.Payoutset
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Payout Settings](../../doc/controllers/payoutsettings-merchantlevel.md#get-merchants-merchant-id-payout-settings)
-* [Post-Merchants-Merchant Id-Payout Settings](../../doc/controllers/payoutsettings-merchantlevel.md#post-merchants-merchant-id-payout-settings)
-* [Delete-Merchants-Merchant Id-Payout Settings-Payout Settings Id](../../doc/controllers/payoutsettings-merchantlevel.md#delete-merchants-merchant-id-payout-settings-payout-settings-id)
-* [Get-Merchants-Merchant Id-Payout Settings-Payout Settings Id](../../doc/controllers/payoutsettings-merchantlevel.md#get-merchants-merchant-id-payout-settings-payout-settings-id)
-* [Patch-Merchants-Merchant Id-Payout Settings-Payout Settings Id](../../doc/controllers/payoutsettings-merchantlevel.md#patch-merchants-merchant-id-payout-settings-payout-settings-id)
+* [List Payout Settings](../../doc/controllers/payoutsettings-merchantlevel.md#list-payout-settings)
+* [Create Payout Setting](../../doc/controllers/payoutsettings-merchantlevel.md#create-payout-setting)
+* [Delete Payout Setting](../../doc/controllers/payoutsettings-merchantlevel.md#delete-payout-setting)
+* [Get Payout Setting](../../doc/controllers/payoutsettings-merchantlevel.md#get-payout-setting)
+* [Update Payout Setting](../../doc/controllers/payoutsettings-merchantlevel.md#update-payout-setting)
 
 
-# Get-Merchants-Merchant Id-Payout Settings
+# List Payout Settings
 
 Returns the list of payout settings for the merchant account identified in the path.
 
@@ -28,7 +28,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Payout account settings read
 
 ```csharp
-GetMerchantsMerchantIdPayoutSettingsAsync(
+ListPayoutSettingsAsync(
     string merchantId)
 ```
 
@@ -48,7 +48,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<PayoutSettingsResponse> result = await payoutSettingsMerchantLevelApi.GetMerchantsMerchantIdPayoutSettingsAsync(merchantId);
+    ApiResponse<PayoutSettingsResponse> result = await payoutSettingsMerchantLevelApi.ListPayoutSettingsAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -71,7 +71,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Payout Settings
+# Create Payout Setting
 
 Sends a request to add a payout setting for the merchant account specified in the path. A payout setting links the merchant account to the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments) that contains the details of the payout bank account. Adyen verifies the bank account before allowing and enabling the payout setting.
 
@@ -84,7 +84,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Payout account settings read and write
 
 ```csharp
-PostMerchantsMerchantIdPayoutSettingsAsync(
+CreatePayoutSettingAsync(
     string merchantId,
     Models.PayoutSettingsRequest body = null)
 ```
@@ -106,7 +106,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<PayoutSettings> result = await payoutSettingsMerchantLevelApi.PostMerchantsMerchantIdPayoutSettingsAsync(merchantId);
+    ApiResponse<PayoutSettings> result = await payoutSettingsMerchantLevelApi.CreatePayoutSettingAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -129,7 +129,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Delete-Merchants-Merchant Id-Payout Settings-Payout Settings Id
+# Delete Payout Setting
 
 Deletes the payout setting identified in the path.
 
@@ -140,7 +140,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Payout account settings read and write
 
 ```csharp
-DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+DeletePayoutSettingAsync(
     string merchantId,
     string payoutSettingsId)
 ```
@@ -163,7 +163,7 @@ string merchantId = "merchantId6";
 string payoutSettingsId = "payoutSettingsId6";
 try
 {
-    await payoutSettingsMerchantLevelApi.DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+    await payoutSettingsMerchantLevelApi.DeletePayoutSettingAsync(
         merchantId,
         payoutSettingsId
     );
@@ -189,7 +189,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Payout Settings-Payout Settings Id
+# Get Payout Setting
 
 Returns the payout setting identified in the path.
 
@@ -200,7 +200,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Payout account settings read
 
 ```csharp
-GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+GetPayoutSettingAsync(
     string merchantId,
     string payoutSettingsId)
 ```
@@ -223,7 +223,7 @@ string merchantId = "merchantId6";
 string payoutSettingsId = "payoutSettingsId6";
 try
 {
-    ApiResponse<PayoutSettings> result = await payoutSettingsMerchantLevelApi.GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+    ApiResponse<PayoutSettings> result = await payoutSettingsMerchantLevelApi.GetPayoutSettingAsync(
         merchantId,
         payoutSettingsId
     );
@@ -249,7 +249,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Payout Settings-Payout Settings Id
+# Update Payout Setting
 
 Updates the payout setting identified in the path. You can enable or disable the payout setting.
 
@@ -260,7 +260,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Payout account settings read and write
 
 ```csharp
-PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+UpdatePayoutSettingAsync(
     string merchantId,
     string payoutSettingsId,
     Models.UpdatePayoutSettingsRequest body = null)
@@ -285,7 +285,7 @@ string merchantId = "merchantId6";
 string payoutSettingsId = "payoutSettingsId6";
 try
 {
-    ApiResponse<PayoutSettings> result = await payoutSettingsMerchantLevelApi.PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+    ApiResponse<PayoutSettings> result = await payoutSettingsMerchantLevelApi.UpdatePayoutSettingAsync(
         merchantId,
         payoutSettingsId
     );

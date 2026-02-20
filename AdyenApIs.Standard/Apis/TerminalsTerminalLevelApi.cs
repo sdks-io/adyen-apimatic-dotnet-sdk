@@ -39,7 +39,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 20 items on a page..</param>
         /// <returns>Returns the ApiResponse of Models.ListTerminalsResponse response from the API call.</returns>
-        public ApiResponse<Models.ListTerminalsResponse> GetTerminals(
+        public ApiResponse<Models.ListTerminalsResponse> ListTerminals(
                 string searchQuery = null,
                 string otpQuery = null,
                 string countries = null,
@@ -48,7 +48,7 @@ namespace AdyenApIs.Standard.Apis
                 string brandModels = null,
                 int? pageNumber = null,
                 int? pageSize = null)
-            => CoreHelper.RunTask(GetTerminalsAsync(searchQuery, otpQuery, countries, merchantIds, storeIds, brandModels, pageNumber, pageSize));
+            => CoreHelper.RunTask(ListTerminalsAsync(searchQuery, otpQuery, countries, merchantIds, storeIds, brandModels, pageNumber, pageSize));
 
         /// <summary>
         /// Returns the payment terminals that the API credential has access to and that match the query parameters. .
@@ -66,7 +66,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 20 items on a page..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListTerminalsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListTerminalsResponse>> GetTerminalsAsync(
+        public async Task<ApiResponse<Models.ListTerminalsResponse>> ListTerminalsAsync(
                 string searchQuery = null,
                 string otpQuery = null,
                 string countries = null,
@@ -109,10 +109,10 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="terminalId">Required parameter: The unique identifier of the payment terminal..</param>
         /// <param name="body">Optional parameter: .</param>
-        public void PostTerminalsTerminalIdReassign(
+        public void ReassignTerminal(
                 string terminalId,
                 Models.TerminalReassignmentRequest body = null)
-            => CoreHelper.RunVoidTask(PostTerminalsTerminalIdReassignAsync(terminalId, body));
+            => CoreHelper.RunVoidTask(ReassignTerminalAsync(terminalId, body));
 
         /// <summary>
         /// Reassigns a payment terminal to a company account, merchant account, merchant account inventory, or a store.
@@ -124,7 +124,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task PostTerminalsTerminalIdReassignAsync(
+        public async Task ReassignTerminalAsync(
                 string terminalId,
                 Models.TerminalReassignmentRequest body = null,
                 CancellationToken cancellationToken = default)

@@ -10,13 +10,13 @@ UsersCompanylevelApi usersCompanylevelApi = client.UsersCompanylevelApi;
 
 ## Methods
 
-* [Get-Companies-Company Id-Users](../../doc/controllers/users-companylevel.md#get-companies-company-id-users)
-* [Post-Companies-Company Id-Users](../../doc/controllers/users-companylevel.md#post-companies-company-id-users)
-* [Get-Companies-Company Id-Users-User Id](../../doc/controllers/users-companylevel.md#get-companies-company-id-users-user-id)
-* [Patch-Companies-Company Id-Users-User Id](../../doc/controllers/users-companylevel.md#patch-companies-company-id-users-user-id)
+* [List Company Users](../../doc/controllers/users-companylevel.md#list-company-users)
+* [Create Company User](../../doc/controllers/users-companylevel.md#create-company-user)
+* [Get Company User](../../doc/controllers/users-companylevel.md#get-company-user)
+* [Update Company User](../../doc/controllers/users-companylevel.md#update-company-user)
 
 
-# Get-Companies-Company Id-Users
+# List Company Users
 
 Returns the list of users for the `companyId` identified in the path.
 
@@ -25,7 +25,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-GetCompaniesCompanyIdUsersAsync(
+ListCompanyUsersAsync(
     string companyId,
     int? pageNumber = null,
     int? pageSize = null,
@@ -51,7 +51,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<ListCompanyUsersResponse> result = await usersCompanyLevelApi.GetCompaniesCompanyIdUsersAsync(companyId);
+    ApiResponse<ListCompanyUsersResponse> result = await usersCompanyLevelApi.ListCompanyUsersAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -74,7 +74,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Users
+# Create Company User
 
 Creates the user for the `companyId` identified in the path.
 
@@ -83,7 +83,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-PostCompaniesCompanyIdUsersAsync(
+CreateCompanyUserAsync(
     string companyId,
     Models.CreateCompanyUserRequest body = null)
 ```
@@ -127,7 +127,7 @@ CreateCompanyUserRequest body = new CreateCompanyUserRequest
 
 try
 {
-    ApiResponse<CreateCompanyUserResponse> result = await usersCompanyLevelApi.PostCompaniesCompanyIdUsersAsync(
+    ApiResponse<CreateCompanyUserResponse> result = await usersCompanyLevelApi.CreateCompanyUserAsync(
         companyId,
         body
     );
@@ -181,7 +181,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Users-User Id
+# Get Company User
 
 Returns user details for the `userId` and the `companyId` identified in the path.
 
@@ -190,7 +190,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-GetCompaniesCompanyIdUsersUserIdAsync(
+GetCompanyUserAsync(
     string companyId,
     string userId)
 ```
@@ -213,7 +213,7 @@ string companyId = "companyId0";
 string userId = "userId0";
 try
 {
-    ApiResponse<CompanyUser> result = await usersCompanyLevelApi.GetCompaniesCompanyIdUsersUserIdAsync(
+    ApiResponse<CompanyUser> result = await usersCompanyLevelApi.GetCompanyUserAsync(
         companyId,
         userId
     );
@@ -239,7 +239,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Companies-Company Id-Users-User Id
+# Update Company User
 
 Updates user details for the `userId` and the `companyId` identified in the path.
 
@@ -248,7 +248,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-PatchCompaniesCompanyIdUsersUserIdAsync(
+UpdateCompanyUserAsync(
     string companyId,
     string userId,
     Models.UpdateCompanyUserRequest body = null)
@@ -273,7 +273,7 @@ string companyId = "companyId0";
 string userId = "userId0";
 try
 {
-    ApiResponse<CompanyUser> result = await usersCompanyLevelApi.PatchCompaniesCompanyIdUsersUserIdAsync(
+    ApiResponse<CompanyUser> result = await usersCompanyLevelApi.UpdateCompanyUserAsync(
         companyId,
         userId
     );

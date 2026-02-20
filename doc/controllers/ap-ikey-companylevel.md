@@ -9,7 +9,7 @@ ApIkeyCompanylevelApi apIkeyCompanylevelApi = client.ApIkeyCompanylevelApi;
 `ApIkeyCompanylevelApi`
 
 
-# Post-Companies-Company Id-Api Credentials-Api Credential Id-Generate Api Key
+# Generate Company Api Key
 
 Returns a new API key for the API credential. You can use the new API key a few minutes after generating it. The old API key stops working 24 hours after generating a new one.
 
@@ -18,7 +18,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKeyAsync(
+GenerateCompanyApiKeyAsync(
     string companyId,
     string apiCredentialId)
 ```
@@ -41,7 +41,7 @@ string companyId = "companyId0";
 string apiCredentialId = "apiCredentialId8";
 try
 {
-    ApiResponse<GenerateApiKeyResponse> result = await apiKeyCompanyLevelApi.PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKeyAsync(
+    ApiResponse<GenerateApiKeyResponse> result = await apiKeyCompanyLevelApi.GenerateCompanyApiKeyAsync(
         companyId,
         apiCredentialId
     );

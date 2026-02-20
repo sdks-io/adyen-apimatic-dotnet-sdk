@@ -10,13 +10,13 @@ ApIcredentialsMerchantlevelApi apIcredentialsMerchantlevelApi = client.ApIcreden
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Api Credentials](../../doc/controllers/ap-icredentials-merchantlevel.md#get-merchants-merchant-id-api-credentials)
-* [Post-Merchants-Merchant Id-Api Credentials](../../doc/controllers/ap-icredentials-merchantlevel.md#post-merchants-merchant-id-api-credentials)
-* [Get-Merchants-Merchant Id-Api Credentials-Api Credential Id](../../doc/controllers/ap-icredentials-merchantlevel.md#get-merchants-merchant-id-api-credentials-api-credential-id)
-* [Patch-Merchants-Merchant Id-Api Credentials-Api Credential Id](../../doc/controllers/ap-icredentials-merchantlevel.md#patch-merchants-merchant-id-api-credentials-api-credential-id)
+* [List Merchant Api Credentials](../../doc/controllers/ap-icredentials-merchantlevel.md#list-merchant-api-credentials)
+* [Create Merchant Api Credential](../../doc/controllers/ap-icredentials-merchantlevel.md#create-merchant-api-credential)
+* [Get Merchant Api Credential](../../doc/controllers/ap-icredentials-merchantlevel.md#get-merchant-api-credential)
+* [Update Merchant Api Credential](../../doc/controllers/ap-icredentials-merchantlevel.md#update-merchant-api-credential)
 
 
-# Get-Merchants-Merchant Id-Api Credentials
+# List Merchant Api Credentials
 
 Returns the list of [API credentials](https://docs.adyen.com/development-resources/api-credentials) for the merchant account. The list is grouped into pages as defined by the query parameters.
 
@@ -25,7 +25,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-GetMerchantsMerchantIdApiCredentialsAsync(
+ListMerchantApiCredentialsAsync(
     string merchantId,
     int? pageNumber = null,
     int? pageSize = null)
@@ -49,7 +49,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<ListMerchantApiCredentialsResponse> result = await apiCredentialsMerchantLevelApi.GetMerchantsMerchantIdApiCredentialsAsync(merchantId);
+    ApiResponse<ListMerchantApiCredentialsResponse> result = await apiCredentialsMerchantLevelApi.ListMerchantApiCredentialsAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -444,7 +444,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Api Credentials
+# Create Merchant Api Credential
 
 Creates an [API credential](https://docs.adyen.com/development-resources/api-credentials) for the company account identified in the path. In the request, you can specify the roles and allowed origins for the new API credential.
 
@@ -463,7 +463,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PostMerchantsMerchantIdApiCredentialsAsync(
+CreateMerchantApiCredentialAsync(
     string merchantId,
     Models.CreateMerchantApiCredentialRequest body = null)
 ```
@@ -497,7 +497,7 @@ CreateMerchantApiCredentialRequest body = new CreateMerchantApiCredentialRequest
 
 try
 {
-    ApiResponse<CreateApiCredentialResponse> result = await apiCredentialsMerchantLevelApi.PostMerchantsMerchantIdApiCredentialsAsync(
+    ApiResponse<CreateApiCredentialResponse> result = await apiCredentialsMerchantLevelApi.CreateMerchantApiCredentialAsync(
         merchantId,
         body
     );
@@ -568,7 +568,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Api Credentials-Api Credential Id
+# Get Merchant Api Credential
 
 Returns the [API credential](https://docs.adyen.com/development-resources/api-credentials) identified in the path.
 
@@ -577,7 +577,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-GetMerchantsMerchantIdApiCredentialsApiCredentialIdAsync(
+GetMerchantApiCredentialAsync(
     string merchantId,
     string apiCredentialId)
 ```
@@ -600,7 +600,7 @@ string merchantId = "merchantId6";
 string apiCredentialId = "apiCredentialId8";
 try
 {
-    ApiResponse<ApiCredential> result = await apiCredentialsMerchantLevelApi.GetMerchantsMerchantIdApiCredentialsApiCredentialIdAsync(
+    ApiResponse<ApiCredential> result = await apiCredentialsMerchantLevelApi.GetMerchantApiCredentialAsync(
         merchantId,
         apiCredentialId
     );
@@ -658,7 +658,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Api Credentials-Api Credential Id
+# Update Merchant Api Credential
 
 Changes the API credential's roles, or allowed origins. The request has the new values for the fields you want to change. The response contains the full updated API credential, including the new values from the request.
 
@@ -667,7 +667,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PatchMerchantsMerchantIdApiCredentialsApiCredentialIdAsync(
+UpdateMerchantApiCredentialAsync(
     string merchantId,
     string apiCredentialId,
     Models.UpdateMerchantApiCredentialRequest body = null)
@@ -697,7 +697,7 @@ UpdateMerchantApiCredentialRequest body = new UpdateMerchantApiCredentialRequest
 
 try
 {
-    ApiResponse<ApiCredential> result = await apiCredentialsMerchantLevelApi.PatchMerchantsMerchantIdApiCredentialsApiCredentialIdAsync(
+    ApiResponse<ApiCredential> result = await apiCredentialsMerchantLevelApi.UpdateMerchantApiCredentialAsync(
         merchantId,
         apiCredentialId,
         body

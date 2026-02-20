@@ -10,20 +10,20 @@ UtilityApi utilityApi = client.UtilityApi;
 
 ## Methods
 
-* [Post-Apple Pay-Sessions](../../doc/controllers/utility.md#post-apple-pay-sessions)
-* [Post-Origin Keys](../../doc/controllers/utility.md#post-origin-keys)
-* [Post-Paypal-Update Order](../../doc/controllers/utility.md#post-paypal-update-order)
-* [Post-Validate Shopper Id](../../doc/controllers/utility.md#post-validate-shopper-id)
+* [Get Apple Pay Session](../../doc/controllers/utility.md#get-apple-pay-session)
+* [Generate Origin Keys](../../doc/controllers/utility.md#generate-origin-keys)
+* [Update Pay Pal Order](../../doc/controllers/utility.md#update-pay-pal-order)
+* [Validate Shopper Id](../../doc/controllers/utility.md#validate-shopper-id)
 
 
-# Post-Apple Pay-Sessions
+# Get Apple Pay Session
 
 You need to use this endpoint if you have an API-only integration with Apple Pay which uses Adyen's Apple Pay certificate.
 
 The endpoint returns the Apple Pay session data which you need to complete the [Apple Pay session validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab=adyen-certificate-validation_1#complete-apple-pay-session-validation).
 
 ```csharp
-PostApplePaySessionsAsync(
+GetApplePaySessionAsync(
     string idempotencyKey = null,
     Models.ApplePaySessionRequest body = null)
 ```
@@ -51,7 +51,7 @@ ApplePaySessionRequest body = new ApplePaySessionRequest
 
 try
 {
-    ApiResponse<ApplePaySessionResponse> result = await utilityApi.PostApplePaySessionsAsync(
+    ApiResponse<ApplePaySessionResponse> result = await utilityApi.GetApplePaySessionAsync(
         null,
         body
     );
@@ -71,7 +71,7 @@ catch (ApiException e)
 ```
 
 
-# Post-Origin Keys
+# Generate Origin Keys
 
 **This endpoint is deprecated.**
 
@@ -80,7 +80,7 @@ This operation takes the origin domains and returns a JSON object containing the
 > If you're still using origin key for your Web Drop-in or Components integration, we recommend [switching to client key](https://docs.adyen.com/development-resources/client-side-authentication/migrate-from-origin-key-to-client-key). This allows you to use a single key for all origins, add or remove origins without generating a new key, and detect the card type from the number entered in your payment form.
 
 ```csharp
-PostOriginKeysAsync(
+GenerateOriginKeysAsync(
     string idempotencyKey = null,
     Models.UtilityRequest body = null)
 ```
@@ -111,7 +111,7 @@ UtilityRequest body = new UtilityRequest
 
 try
 {
-    ApiResponse<UtilityResponse> result = await utilityApi.PostOriginKeysAsync(
+    ApiResponse<UtilityResponse> result = await utilityApi.GenerateOriginKeysAsync(
         null,
         body
     );
@@ -149,12 +149,12 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Paypal-Update Order
+# Update Pay Pal Order
 
 Updates the order for PayPal Express Checkout. This can be used to update the PayPal lightbox with an updated amount and delivery methods based on the delivery address.
 
 ```csharp
-PostPaypalUpdateOrderAsync(
+UpdatePayPalOrderAsync(
     string idempotencyKey = null,
     Models.PaypalUpdateOrderRequest body = null)
 ```
@@ -213,7 +213,7 @@ PaypalUpdateOrderRequest body = new PaypalUpdateOrderRequest
 
 try
 {
-    ApiResponse<PaypalUpdateOrderResponse> result = await utilityApi.PostPaypalUpdateOrderAsync(
+    ApiResponse<PaypalUpdateOrderResponse> result = await utilityApi.UpdatePayPalOrderAsync(
         null,
         body
     );
@@ -248,14 +248,14 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Validate Shopper Id
+# Validate Shopper Id
 
 Validates the shopperId.
 
 :information_source: **Note** This endpoint does not require authentication.
 
 ```csharp
-PostValidateShopperIdAsync(
+ValidateShopperIdAsync(
     Models.ValidateShopperIdRequest body)
 ```
 
@@ -283,7 +283,7 @@ ValidateShopperIdRequest body = new ValidateShopperIdRequest
 
 try
 {
-    ApiResponse<ValidateShopperIdResponse> result = await utilityApi.PostValidateShopperIdAsync(body);
+    ApiResponse<ValidateShopperIdResponse> result = await utilityApi.ValidateShopperIdAsync(body);
 }
 catch (ApiException e)
 {

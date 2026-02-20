@@ -10,17 +10,17 @@ OrdersApi ordersApi = client.OrdersApi;
 
 ## Methods
 
-* [Post-Orders](../../doc/controllers/orders.md#post-orders)
-* [Post-Orders-Cancel](../../doc/controllers/orders.md#post-orders-cancel)
-* [Post-Payment Methods-Balance](../../doc/controllers/orders.md#post-payment-methods-balance)
+* [Create Order](../../doc/controllers/orders.md#create-order)
+* [Cancel Order](../../doc/controllers/orders.md#cancel-order)
+* [Get Payment Method Balance](../../doc/controllers/orders.md#get-payment-method-balance)
 
 
-# Post-Orders
+# Create Order
 
 Creates an order to be used for partial payments. Make a POST `/orders` call before making a `/payments` call when processing payments with different payment methods.
 
 ```csharp
-PostOrdersAsync(
+CreateOrderAsync(
     string idempotencyKey = null,
     Models.CreateOrderRequest body = null)
 ```
@@ -52,7 +52,7 @@ CreateOrderRequest body = new CreateOrderRequest
 
 try
 {
-    ApiResponse<CreateOrderResponse> result = await ordersApi.PostOrdersAsync(
+    ApiResponse<CreateOrderResponse> result = await ordersApi.CreateOrderAsync(
         null,
         body
     );
@@ -98,12 +98,12 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Orders-Cancel
+# Cancel Order
 
 Cancels an order. Cancellation of an order results in an automatic rollback of all payments made in the order, either by canceling or refunding the payment, depending on the type of payment method.
 
 ```csharp
-PostOrdersCancelAsync(
+CancelOrderAsync(
     string idempotencyKey = null,
     Models.CancelOrderRequest body = null)
 ```
@@ -134,7 +134,7 @@ CancelOrderRequest body = new CancelOrderRequest
 
 try
 {
-    ApiResponse<CancelOrderResponse> result = await ordersApi.PostOrdersCancelAsync(
+    ApiResponse<CancelOrderResponse> result = await ordersApi.CancelOrderAsync(
         null,
         body
     );
@@ -169,12 +169,12 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Payment Methods-Balance
+# Get Payment Method Balance
 
 Retrieves the balance remaining on a shopper's gift card. To check a gift card's balance, make a POST `/paymentMethods/balance` call and include the gift card's details inside a `paymentMethod` object.
 
 ```csharp
-PostPaymentMethodsBalanceAsync(
+GetPaymentMethodBalanceAsync(
     string idempotencyKey = null,
     Models.BalanceCheckRequest body = null)
 ```
@@ -211,7 +211,7 @@ BalanceCheckRequest body = new BalanceCheckRequest
 
 try
 {
-    ApiResponse<BalanceCheckResponse> result = await ordersApi.PostPaymentMethodsBalanceAsync(
+    ApiResponse<BalanceCheckResponse> result = await ordersApi.GetPaymentMethodBalanceAsync(
         null,
         body
     );

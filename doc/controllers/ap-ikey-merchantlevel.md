@@ -9,7 +9,7 @@ ApIkeyMerchantlevelApi apIkeyMerchantlevelApi = client.ApIkeyMerchantlevelApi;
 `ApIkeyMerchantlevelApi`
 
 
-# Post-Merchants-Merchant Id-Api Credentials-Api Credential Id-Generate Api Key
+# Generate Merchant Api Key
 
 Returns a new API key for the API credential. You can use the new API key a few minutes after generating it. The old API key stops working 24 hours after generating a new one.
 
@@ -18,7 +18,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyAsync(
+GenerateMerchantApiKeyAsync(
     string merchantId,
     string apiCredentialId)
 ```
@@ -41,7 +41,7 @@ string merchantId = "merchantId6";
 string apiCredentialId = "apiCredentialId8";
 try
 {
-    ApiResponse<GenerateApiKeyResponse> result = await apiKeyMerchantLevelApi.PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyAsync(
+    ApiResponse<GenerateApiKeyResponse> result = await apiKeyMerchantLevelApi.GenerateMerchantApiKeyAsync(
         merchantId,
         apiCredentialId
     );

@@ -10,13 +10,13 @@ ApIcredentialsCompanylevelApi apIcredentialsCompanylevelApi = client.ApIcredenti
 
 ## Methods
 
-* [Get-Companies-Company Id-Api Credentials](../../doc/controllers/ap-icredentials-companylevel.md#get-companies-company-id-api-credentials)
-* [Post-Companies-Company Id-Api Credentials](../../doc/controllers/ap-icredentials-companylevel.md#post-companies-company-id-api-credentials)
-* [Get-Companies-Company Id-Api Credentials-Api Credential Id](../../doc/controllers/ap-icredentials-companylevel.md#get-companies-company-id-api-credentials-api-credential-id)
-* [Patch-Companies-Company Id-Api Credentials-Api Credential Id](../../doc/controllers/ap-icredentials-companylevel.md#patch-companies-company-id-api-credentials-api-credential-id)
+* [List Company Api Credentials](../../doc/controllers/ap-icredentials-companylevel.md#list-company-api-credentials)
+* [Create Company Api Credential](../../doc/controllers/ap-icredentials-companylevel.md#create-company-api-credential)
+* [Get Company Api Credential](../../doc/controllers/ap-icredentials-companylevel.md#get-company-api-credential)
+* [Update Company Api Credential](../../doc/controllers/ap-icredentials-companylevel.md#update-company-api-credential)
 
 
-# Get-Companies-Company Id-Api Credentials
+# List Company Api Credentials
 
 Returns the list of [API credentials](https://docs.adyen.com/development-resources/api-credentials) for the company account. The list is grouped into pages as defined by the query parameters.
 
@@ -25,7 +25,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-GetCompaniesCompanyIdApiCredentialsAsync(
+ListCompanyApiCredentialsAsync(
     string companyId,
     int? pageNumber = null,
     int? pageSize = null)
@@ -49,7 +49,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<ListCompanyApiCredentialsResponse> result = await apiCredentialsCompanyLevelApi.GetCompaniesCompanyIdApiCredentialsAsync(companyId);
+    ApiResponse<ListCompanyApiCredentialsResponse> result = await apiCredentialsCompanyLevelApi.ListCompanyApiCredentialsAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -420,7 +420,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Api Credentials
+# Create Company Api Credential
 
 Creates an [API credential](https://docs.adyen.com/development-resources/api-credentials) for the company account identified in the path. In the request, you can specify which merchant accounts the new API credential will have access to, as well as its roles and allowed origins.
 
@@ -439,7 +439,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PostCompaniesCompanyIdApiCredentialsAsync(
+CreateCompanyApiCredentialAsync(
     string companyId,
     Models.CreateCompanyApiCredentialRequest body = null)
 ```
@@ -479,7 +479,7 @@ CreateCompanyApiCredentialRequest body = new CreateCompanyApiCredentialRequest
 
 try
 {
-    ApiResponse<CreateCompanyApiCredentialResponse> result = await apiCredentialsCompanyLevelApi.PostCompaniesCompanyIdApiCredentialsAsync(
+    ApiResponse<CreateCompanyApiCredentialResponse> result = await apiCredentialsCompanyLevelApi.CreateCompanyApiCredentialAsync(
         companyId,
         body
     );
@@ -555,7 +555,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Api Credentials-Api Credential Id
+# Get Company Api Credential
 
 Returns the [API credential](https://docs.adyen.com/development-resources/api-credentials) identified in the path.
 
@@ -564,7 +564,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-GetCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(
+GetCompanyApiCredentialAsync(
     string companyId,
     string apiCredentialId)
 ```
@@ -587,7 +587,7 @@ string companyId = "companyId0";
 string apiCredentialId = "apiCredentialId8";
 try
 {
-    ApiResponse<CompanyApiCredential> result = await apiCredentialsCompanyLevelApi.GetCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(
+    ApiResponse<CompanyApiCredential> result = await apiCredentialsCompanyLevelApi.GetCompanyApiCredentialAsync(
         companyId,
         apiCredentialId
     );
@@ -668,7 +668,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Companies-Company Id-Api Credentials-Api Credential Id
+# Update Company Api Credential
 
 Changes the API credential's roles, merchant account access, or allowed origins. The request has the new values for the fields you want to change. The response contains the full updated API credential, including the new values from the request.
 
@@ -677,7 +677,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PatchCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(
+UpdateCompanyApiCredentialAsync(
     string companyId,
     string apiCredentialId,
     Models.UpdateCompanyApiCredentialRequest body = null)
@@ -707,7 +707,7 @@ UpdateCompanyApiCredentialRequest body = new UpdateCompanyApiCredentialRequest
 
 try
 {
-    ApiResponse<CompanyApiCredential> result = await apiCredentialsCompanyLevelApi.PatchCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(
+    ApiResponse<CompanyApiCredential> result = await apiCredentialsCompanyLevelApi.UpdateCompanyApiCredentialAsync(
         companyId,
         apiCredentialId,
         body

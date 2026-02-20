@@ -9,7 +9,7 @@ TerminalactionsTerminallevelApi terminalactionsTerminallevelApi = client.Termina
 `TerminalactionsTerminallevelApi`
 
 
-# Post-Terminals-Schedule Actions
+# Schedule Terminal Actions
 
 Schedules a [terminal action](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api) by specifying the action and the terminals that the action must be applied to.
 
@@ -26,7 +26,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostTerminalsScheduleActionsAsync(
+ScheduleTerminalActionsAsync(
     Models.ScheduleTerminalActionsRequest body = null)
 ```
 
@@ -64,7 +64,7 @@ ScheduleTerminalActionsRequest body = new ScheduleTerminalActionsRequest
 
 try
 {
-    ApiResponse<ScheduleTerminalActionsResponse> result = await terminalActionsTerminalLevelApi.PostTerminalsScheduleActionsAsync(body);
+    ApiResponse<ScheduleTerminalActionsResponse> result = await terminalActionsTerminalLevelApi.ScheduleTerminalActionsAsync(body);
 }
 catch (ApiException e)
 {

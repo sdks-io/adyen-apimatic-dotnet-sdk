@@ -10,13 +10,13 @@ TerminalsettingsMerchantlevelApi terminalsettingsMerchantlevelApi = client.Termi
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Terminal Logos](../../doc/controllers/terminalsettings-merchantlevel.md#get-merchants-merchant-id-terminal-logos)
-* [Patch-Merchants-Merchant Id-Terminal Logos](../../doc/controllers/terminalsettings-merchantlevel.md#patch-merchants-merchant-id-terminal-logos)
-* [Get-Merchants-Merchant Id-Terminal Settings](../../doc/controllers/terminalsettings-merchantlevel.md#get-merchants-merchant-id-terminal-settings)
-* [Patch-Merchants-Merchant Id-Terminal Settings](../../doc/controllers/terminalsettings-merchantlevel.md#patch-merchants-merchant-id-terminal-settings)
+* [Get Merchant Terminal Logo](../../doc/controllers/terminalsettings-merchantlevel.md#get-merchant-terminal-logo)
+* [Update Merchant Terminal Logo](../../doc/controllers/terminalsettings-merchantlevel.md#update-merchant-terminal-logo)
+* [Get Merchant Terminal Settings](../../doc/controllers/terminalsettings-merchantlevel.md#get-merchant-terminal-settings)
+* [Update Merchant Terminal Settings](../../doc/controllers/terminalsettings-merchantlevel.md#update-merchant-terminal-settings)
 
 
-# Get-Merchants-Merchant Id-Terminal Logos
+# Get Merchant Terminal Logo
 
 Returns the logo that is configured for a specific payment terminal model at the merchant account identified in the path.
 The logo is returned as a Base64-encoded string. You need to Base64-decode the string to get the actual image file.
@@ -30,7 +30,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdTerminalLogosAsync(
+GetMerchantTerminalLogoAsync(
     string merchantId,
     string model)
 ```
@@ -53,7 +53,7 @@ string merchantId = "merchantId6";
 string model = "model2";
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsMerchantLevelApi.GetMerchantsMerchantIdTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsMerchantLevelApi.GetMerchantTerminalLogoAsync(
         merchantId,
         model
     );
@@ -87,7 +87,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Terminal Logos
+# Update Merchant Terminal Logo
 
 Updates the logo for a specific payment terminal model at the merchant account identified in the path. You can update the logo for only one terminal model at a time.
 This logo applies to all terminals of the specified model under the merchant account, unless a different logo is configured at a lower level (store or individual terminal).
@@ -102,7 +102,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchMerchantsMerchantIdTerminalLogosAsync(
+UpdateMerchantTerminalLogoAsync(
     string merchantId,
     string model,
     Models.Logo body = null)
@@ -132,7 +132,7 @@ Logo body = new Logo
 
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsMerchantLevelApi.PatchMerchantsMerchantIdTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsMerchantLevelApi.UpdateMerchantTerminalLogoAsync(
         merchantId,
         model,
         body
@@ -167,7 +167,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Terminal Settings
+# Get Merchant Terminal Settings
 
 Returns the payment terminal settings that are configured for the merchant account identified in the path. These settings apply to all terminals under the merchant account unless different values are configured at a lower level (store or individual terminal).
 
@@ -183,7 +183,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdTerminalSettingsAsync(
+GetMerchantTerminalSettingsAsync(
     string merchantId)
 ```
 
@@ -203,7 +203,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsMerchantLevelApi.GetMerchantsMerchantIdTerminalSettingsAsync(merchantId);
+    ApiResponse<TerminalSettings> result = await terminalSettingsMerchantLevelApi.GetMerchantTerminalSettingsAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -323,7 +323,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Terminal Settings
+# Update Merchant Terminal Settings
 
 Updates payment terminal settings for the merchant account identified in the path.
 These settings apply to all terminals under the merchant account, unless different values are configured at a lower level (store or individual terminal).
@@ -343,7 +343,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchMerchantsMerchantIdTerminalSettingsAsync(
+UpdateMerchantTerminalSettingsAsync(
     string merchantId,
     Models.TerminalSettings body = null)
 ```
@@ -419,7 +419,7 @@ TerminalSettings body = new TerminalSettings
 
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsMerchantLevelApi.PatchMerchantsMerchantIdTerminalSettingsAsync(
+    ApiResponse<TerminalSettings> result = await terminalSettingsMerchantLevelApi.UpdateMerchantTerminalSettingsAsync(
         merchantId,
         body
     );

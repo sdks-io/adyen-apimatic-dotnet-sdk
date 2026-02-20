@@ -10,18 +10,18 @@ RecurringApi recurringApi = client.RecurringApi;
 
 ## Methods
 
-* [Post-Forward](../../doc/controllers/recurring.md#post-forward)
-* [Get-Stored Payment Methods](../../doc/controllers/recurring.md#get-stored-payment-methods)
-* [Post-Stored Payment Methods](../../doc/controllers/recurring.md#post-stored-payment-methods)
-* [Delete-Stored Payment Methods-Stored Payment Method Id](../../doc/controllers/recurring.md#delete-stored-payment-methods-stored-payment-method-id)
+* [Forward Request](../../doc/controllers/recurring.md#forward-request)
+* [List Stored Payment Methods](../../doc/controllers/recurring.md#list-stored-payment-methods)
+* [Create Stored Payment Method](../../doc/controllers/recurring.md#create-stored-payment-method)
+* [Delete Stored Payment Method](../../doc/controllers/recurring.md#delete-stored-payment-method)
 
 
-# Post-Forward
+# Forward Request
 
 Forwards the payment details you stored with Adyen to a third-party that you specify and returns the response from the third-party. Supports forwarding stored card details or [network tokens](https://docs.adyen.com/online-payments/network-tokenization). For more information, see [Forward stored payment details](https://docs.adyen.com/online-payments/tokenization/forward-payment-details).
 
 ```csharp
-PostForwardAsync(
+ForwardRequestAsync(
     string idempotencyKey = null,
     Models.CheckoutForwardRequest body = null)
 ```
@@ -61,7 +61,7 @@ CheckoutForwardRequest body = new CheckoutForwardRequest
 
 try
 {
-    ApiResponse<CheckoutForwardResponse> result = await recurringApi.PostForwardAsync(
+    ApiResponse<CheckoutForwardResponse> result = await recurringApi.ForwardRequestAsync(
         null,
         body
     );
@@ -89,12 +89,12 @@ catch (ApiException e)
 ```
 
 
-# Get-Stored Payment Methods
+# List Stored Payment Methods
 
 Lists the tokens for stored payment details for the shopper identified in the path, if there are any available. The token ID can be used with payment requests for the shopper's payment. A summary of the stored details is included.
 
 ```csharp
-GetStoredPaymentMethodsAsync(
+ListStoredPaymentMethodsAsync(
     string shopperReference = null,
     string merchantAccount = null)
 ```
@@ -115,7 +115,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<ListStoredPaymentMethodsResponse> result = await recurringApi.GetStoredPaymentMethodsAsync();
+    ApiResponse<ListStoredPaymentMethodsResponse> result = await recurringApi.ListStoredPaymentMethodsAsync();
 }
 catch (ApiException e)
 {
@@ -153,12 +153,12 @@ catch (ApiException e)
 ```
 
 
-# Post-Stored Payment Methods
+# Create Stored Payment Method
 
 Creates a token to store the shopper's payment details. This token can be used for the shopper's future payments.
 
 ```csharp
-PostStoredPaymentMethodsAsync(
+CreateStoredPaymentMethodAsync(
     string idempotencyKey = null,
     Models.StoredPaymentMethodRequest body = null)
 ```
@@ -197,7 +197,7 @@ StoredPaymentMethodRequest body = new StoredPaymentMethodRequest
 
 try
 {
-    ApiResponse<StoredPaymentMethodResource> result = await recurringApi.PostStoredPaymentMethodsAsync(
+    ApiResponse<StoredPaymentMethodResource> result = await recurringApi.CreateStoredPaymentMethodAsync(
         null,
         body
     );
@@ -223,12 +223,12 @@ catch (ApiException e)
 ```
 
 
-# Delete-Stored Payment Methods-Stored Payment Method Id
+# Delete Stored Payment Method
 
 Deletes the token identified in the path. The token can no longer be used with payment requests.
 
 ```csharp
-DeleteStoredPaymentMethodsStoredPaymentMethodIdAsync(
+DeleteStoredPaymentMethodAsync(
     string storedPaymentMethodId,
     string shopperReference,
     string merchantAccount)
@@ -254,7 +254,7 @@ string shopperReference = "shopperReference8";
 string merchantAccount = "merchantAccount8";
 try
 {
-    await recurringApi.DeleteStoredPaymentMethodsStoredPaymentMethodIdAsync(
+    await recurringApi.DeleteStoredPaymentMethodAsync(
         storedPaymentMethodId,
         shopperReference,
         merchantAccount

@@ -30,10 +30,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentLinkResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentLinkResponse> PostPaymentLinks(
+        public ApiResponse<Models.PaymentLinkResponse> CreatePaymentLink(
                 string idempotencyKey = null,
                 Models.PaymentLinkRequest body = null)
-            => CoreHelper.RunTask(PostPaymentLinksAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(CreatePaymentLinkAsync(idempotencyKey, body));
 
         /// <summary>
         /// Creates a payment link to a [Pay by Link](https://docs.adyen.com/unified-commerce/pay-by-link/) page where the shopper can pay. The list of payment methods presented to the shopper depends on the `currency` and `country` parameters sent in the request.
@@ -43,7 +43,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentLinkResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentLinkResponse>> PostPaymentLinksAsync(
+        public async Task<ApiResponse<Models.PaymentLinkResponse>> CreatePaymentLinkAsync(
                 string idempotencyKey = null,
                 Models.PaymentLinkRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -71,9 +71,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="linkId">Required parameter: Unique identifier of the payment link..</param>
         /// <returns>Returns the ApiResponse of Models.PaymentLinkResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentLinkResponse> GetPaymentLinksLinkId(
+        public ApiResponse<Models.PaymentLinkResponse> GetPaymentLink(
                 string linkId)
-            => CoreHelper.RunTask(GetPaymentLinksLinkIdAsync(linkId));
+            => CoreHelper.RunTask(GetPaymentLinkAsync(linkId));
 
         /// <summary>
         /// Retrieves the payment link details using the payment link `id`.
@@ -81,7 +81,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="linkId">Required parameter: Unique identifier of the payment link..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentLinkResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentLinkResponse>> GetPaymentLinksLinkIdAsync(
+        public async Task<ApiResponse<Models.PaymentLinkResponse>> GetPaymentLinkAsync(
                 string linkId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.PaymentLinkResponse>()
@@ -107,10 +107,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="linkId">Required parameter: Unique identifier of the payment link..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentLinkResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentLinkResponse> PatchPaymentLinksLinkId(
+        public ApiResponse<Models.PaymentLinkResponse> UpdatePaymentLink(
                 string linkId,
                 Models.UpdatePaymentLinkRequest body = null)
-            => CoreHelper.RunTask(PatchPaymentLinksLinkIdAsync(linkId, body));
+            => CoreHelper.RunTask(UpdatePaymentLinkAsync(linkId, body));
 
         /// <summary>
         /// Updates the status of a payment link. Use this endpoint to [force the expiry of a payment link](https://docs.adyen.com/online-payments/pay-by-link#update-payment-link-status).
@@ -119,7 +119,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentLinkResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentLinkResponse>> PatchPaymentLinksLinkIdAsync(
+        public async Task<ApiResponse<Models.PaymentLinkResponse>> UpdatePaymentLinkAsync(
                 string linkId,
                 Models.UpdatePaymentLinkRequest body = null,
                 CancellationToken cancellationToken = default)

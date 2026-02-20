@@ -31,10 +31,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.ApplePaySessionResponse response from the API call.</returns>
-        public ApiResponse<Models.ApplePaySessionResponse> PostApplePaySessions(
+        public ApiResponse<Models.ApplePaySessionResponse> GetApplePaySession(
                 string idempotencyKey = null,
                 Models.ApplePaySessionRequest body = null)
-            => CoreHelper.RunTask(PostApplePaySessionsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(GetApplePaySessionAsync(idempotencyKey, body));
 
         /// <summary>
         /// You need to use this endpoint if you have an API-only integration with Apple Pay which uses Adyen's Apple Pay certificate.
@@ -44,7 +44,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ApplePaySessionResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ApplePaySessionResponse>> PostApplePaySessionsAsync(
+        public async Task<ApiResponse<Models.ApplePaySessionResponse>> GetApplePaySessionAsync(
                 string idempotencyKey = null,
                 Models.ApplePaySessionRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -69,10 +69,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.UtilityResponse response from the API call.</returns>
         [Obsolete]
-        public ApiResponse<Models.UtilityResponse> PostOriginKeys(
+        public ApiResponse<Models.UtilityResponse> GenerateOriginKeys(
                 string idempotencyKey = null,
                 Models.UtilityRequest body = null)
-            => CoreHelper.RunTask(PostOriginKeysAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(GenerateOriginKeysAsync(idempotencyKey, body));
 
         /// <summary>
         /// This operation takes the origin domains and returns a JSON object containing the corresponding origin keys for the domains. .
@@ -83,7 +83,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.UtilityResponse response from the API call.</returns>
         [Obsolete]
-        public async Task<ApiResponse<Models.UtilityResponse>> PostOriginKeysAsync(
+        public async Task<ApiResponse<Models.UtilityResponse>> GenerateOriginKeysAsync(
                 string idempotencyKey = null,
                 Models.UtilityRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -112,10 +112,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaypalUpdateOrderResponse response from the API call.</returns>
-        public ApiResponse<Models.PaypalUpdateOrderResponse> PostPaypalUpdateOrder(
+        public ApiResponse<Models.PaypalUpdateOrderResponse> UpdatePayPalOrder(
                 string idempotencyKey = null,
                 Models.PaypalUpdateOrderRequest body = null)
-            => CoreHelper.RunTask(PostPaypalUpdateOrderAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(UpdatePayPalOrderAsync(idempotencyKey, body));
 
         /// <summary>
         /// Updates the order for PayPal Express Checkout. This can be used to update the PayPal lightbox with an updated amount and delivery methods based on the delivery address.
@@ -124,7 +124,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaypalUpdateOrderResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaypalUpdateOrderResponse>> PostPaypalUpdateOrderAsync(
+        public async Task<ApiResponse<Models.PaypalUpdateOrderResponse>> UpdatePayPalOrderAsync(
                 string idempotencyKey = null,
                 Models.PaypalUpdateOrderRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -152,9 +152,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="body">Required parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.ValidateShopperIdResponse response from the API call.</returns>
-        public ApiResponse<Models.ValidateShopperIdResponse> PostValidateShopperId(
+        public ApiResponse<Models.ValidateShopperIdResponse> ValidateShopperId(
                 Models.ValidateShopperIdRequest body)
-            => CoreHelper.RunTask(PostValidateShopperIdAsync(body));
+            => CoreHelper.RunTask(ValidateShopperIdAsync(body));
 
         /// <summary>
         /// Validates the shopperId.
@@ -162,7 +162,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Required parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ValidateShopperIdResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ValidateShopperIdResponse>> PostValidateShopperIdAsync(
+        public async Task<ApiResponse<Models.ValidateShopperIdResponse>> ValidateShopperIdAsync(
                 Models.ValidateShopperIdRequest body,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.ValidateShopperIdResponse>()

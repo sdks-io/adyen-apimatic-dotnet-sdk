@@ -35,13 +35,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethodResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentMethodResponse> GetMerchantsMerchantIdPaymentMethodSettings(
+        public ApiResponse<Models.PaymentMethodResponse> ListPaymentMethodSettings(
                 string merchantId,
                 string storeId = null,
                 string businessLineId = null,
                 int? pageSize = null,
                 int? pageNumber = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdPaymentMethodSettingsAsync(merchantId, storeId, businessLineId, pageSize, pageNumber));
+            => CoreHelper.RunTask(ListPaymentMethodSettingsAsync(merchantId, storeId, businessLineId, pageSize, pageNumber));
 
         /// <summary>
         /// Returns details for all payment methods of the merchant account identified in the path.
@@ -55,7 +55,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethodResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentMethodResponse>> GetMerchantsMerchantIdPaymentMethodSettingsAsync(
+        public async Task<ApiResponse<Models.PaymentMethodResponse>> ListPaymentMethodSettingsAsync(
                 string merchantId,
                 string storeId = null,
                 string businessLineId = null,
@@ -94,10 +94,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethod1 response from the API call.</returns>
-        public ApiResponse<Models.PaymentMethod1> PostMerchantsMerchantIdPaymentMethodSettings(
+        public ApiResponse<Models.PaymentMethod1> CreatePaymentMethodSetting(
                 string merchantId,
                 Models.PaymentMethodSetupInfo body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdPaymentMethodSettingsAsync(merchantId, body));
+            => CoreHelper.RunTask(CreatePaymentMethodSettingAsync(merchantId, body));
 
         /// <summary>
         /// Sends a request to add a new payment method to the merchant account identified in the path.
@@ -109,7 +109,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethod1 response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentMethod1>> PostMerchantsMerchantIdPaymentMethodSettingsAsync(
+        public async Task<ApiResponse<Models.PaymentMethod1>> CreatePaymentMethodSettingAsync(
                 string merchantId,
                 Models.PaymentMethodSetupInfo body = null,
                 CancellationToken cancellationToken = default)
@@ -142,10 +142,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="paymentMethodId">Required parameter: The unique identifier of the payment method..</param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethod1 response from the API call.</returns>
-        public ApiResponse<Models.PaymentMethod1> GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(
+        public ApiResponse<Models.PaymentMethod1> GetPaymentMethodSetting(
                 string merchantId,
                 string paymentMethodId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAsync(merchantId, paymentMethodId));
+            => CoreHelper.RunTask(GetPaymentMethodSettingAsync(merchantId, paymentMethodId));
 
         /// <summary>
         /// Returns details for the merchant account and the payment method identified in the path.
@@ -156,7 +156,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="paymentMethodId">Required parameter: The unique identifier of the payment method..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethod1 response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentMethod1>> GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAsync(
+        public async Task<ApiResponse<Models.PaymentMethod1>> GetPaymentMethodSettingAsync(
                 string merchantId,
                 string paymentMethodId,
                 CancellationToken cancellationToken = default)
@@ -190,11 +190,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="paymentMethodId">Required parameter: The unique identifier of the payment method..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethod1 response from the API call.</returns>
-        public ApiResponse<Models.PaymentMethod1> PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(
+        public ApiResponse<Models.PaymentMethod1> UpdatePaymentMethodSetting(
                 string merchantId,
                 string paymentMethodId,
                 Models.UpdatePaymentMethodInfo body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAsync(merchantId, paymentMethodId, body));
+            => CoreHelper.RunTask(UpdatePaymentMethodSettingAsync(merchantId, paymentMethodId, body));
 
         /// <summary>
         /// Updates payment method details for the merchant account and the payment method identified in the path.
@@ -207,7 +207,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentMethod1 response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentMethod1>> PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAsync(
+        public async Task<ApiResponse<Models.PaymentMethod1>> UpdatePaymentMethodSettingAsync(
                 string merchantId,
                 string paymentMethodId,
                 Models.UpdatePaymentMethodInfo body = null,
@@ -242,11 +242,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="paymentMethodId">Required parameter: The unique identifier of the payment method..</param>
         /// <param name="body">Optional parameter: .</param>
-        public void PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomains(
+        public void AddApplePayDomains(
                 string merchantId,
                 string paymentMethodId,
                 Models.ApplePayInfo body = null)
-            => CoreHelper.RunVoidTask(PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsAsync(merchantId, paymentMethodId, body));
+            => CoreHelper.RunVoidTask(AddApplePayDomainsAsync(merchantId, paymentMethodId, body));
 
         /// <summary>
         /// Adds the new domain to the list of Apple Pay domains that are registered with the merchant account and the payment method identified in the path. For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in/?tab=adyen-certificate-live_1#going-live).
@@ -258,7 +258,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsAsync(
+        public async Task AddApplePayDomainsAsync(
                 string merchantId,
                 string paymentMethodId,
                 Models.ApplePayInfo body = null,
@@ -293,10 +293,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="paymentMethodId">Required parameter: The unique identifier of the payment method..</param>
         /// <returns>Returns the ApiResponse of Models.ApplePayInfo response from the API call.</returns>
-        public ApiResponse<Models.ApplePayInfo> GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomains(
+        public ApiResponse<Models.ApplePayInfo> GetApplePayDomains(
                 string merchantId,
                 string paymentMethodId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsAsync(merchantId, paymentMethodId));
+            => CoreHelper.RunTask(GetApplePayDomainsAsync(merchantId, paymentMethodId));
 
         /// <summary>
         /// Returns all Apple Pay domains that are registered with the merchant account and the payment method identified in the path. For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/enable-apple-pay#register-merchant-domain).
@@ -307,7 +307,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="paymentMethodId">Required parameter: The unique identifier of the payment method..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ApplePayInfo response from the API call.</returns>
-        public async Task<ApiResponse<Models.ApplePayInfo>> GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsAsync(
+        public async Task<ApiResponse<Models.ApplePayInfo>> GetApplePayDomainsAsync(
                 string merchantId,
                 string paymentMethodId,
                 CancellationToken cancellationToken = default)

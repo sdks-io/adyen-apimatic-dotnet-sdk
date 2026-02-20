@@ -36,11 +36,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="reference">Required parameter: The reference that identifies the store..</param>
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> GetMerchantsMerchantIdStoresReferenceTerminalLogos(
+        public ApiResponse<Models.Logo> GetMerchantStoreTerminalLogoByReference(
                 string merchantId,
                 string reference,
                 string model)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdStoresReferenceTerminalLogosAsync(merchantId, reference, model));
+            => CoreHelper.RunTask(GetMerchantStoreTerminalLogoByReferenceAsync(merchantId, reference, model));
 
         /// <summary>
         /// Returns the logo that is configured for a specific payment terminal model at the store identified in the path. .
@@ -56,7 +56,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> GetMerchantsMerchantIdStoresReferenceTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> GetMerchantStoreTerminalLogoByReferenceAsync(
                 string merchantId,
                 string reference,
                 string model,
@@ -95,12 +95,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T.</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> PatchMerchantsMerchantIdStoresReferenceTerminalLogos(
+        public ApiResponse<Models.Logo> UpdateMerchantStoreTerminalLogoByReference(
                 string merchantId,
                 string reference,
                 string model,
                 Models.Logo body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdStoresReferenceTerminalLogosAsync(merchantId, reference, model, body));
+            => CoreHelper.RunTask(UpdateMerchantStoreTerminalLogoByReferenceAsync(merchantId, reference, model, body));
 
         /// <summary>
         /// Updates the logo that is configured for a specific payment terminal model at the store identified in the path. You can update the logo for only one terminal model at a time.
@@ -117,7 +117,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> PatchMerchantsMerchantIdStoresReferenceTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> UpdateMerchantStoreTerminalLogoByReferenceAsync(
                 string merchantId,
                 string reference,
                 string model,
@@ -157,10 +157,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="reference">Required parameter: The reference that identifies the store..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> GetMerchantsMerchantIdStoresReferenceTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> GetMerchantStoreTerminalSettingsByReference(
                 string merchantId,
                 string reference)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(merchantId, reference));
+            => CoreHelper.RunTask(GetMerchantStoreTerminalSettingsByReferenceAsync(merchantId, reference));
 
         /// <summary>
         /// Returns the payment terminal settings that are configured for the store identified in the path. These settings apply to all terminals under the store unless different values are configured for an individual terminal.
@@ -175,7 +175,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="reference">Required parameter: The reference that identifies the store..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> GetMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> GetMerchantStoreTerminalSettingsByReferenceAsync(
                 string merchantId,
                 string reference,
                 CancellationToken cancellationToken = default)
@@ -213,11 +213,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="reference">Required parameter: The reference that identifies the store..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> PatchMerchantsMerchantIdStoresReferenceTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> UpdateMerchantStoreTerminalSettingsByReference(
                 string merchantId,
                 string reference,
                 Models.TerminalSettings body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(merchantId, reference, body));
+            => CoreHelper.RunTask(UpdateMerchantStoreTerminalSettingsByReferenceAsync(merchantId, reference, body));
 
         /// <summary>
         /// Updates payment terminal settings for the store identified in the path. These settings apply to all terminals under the store, unless different values are configured for an individual terminal.
@@ -235,7 +235,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> PatchMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> UpdateMerchantStoreTerminalSettingsByReferenceAsync(
                 string merchantId,
                 string reference,
                 Models.TerminalSettings body = null,
@@ -273,10 +273,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> GetStoresStoreIdTerminalLogos(
+        public ApiResponse<Models.Logo> GetStoreTerminalLogo(
                 string storeId,
                 string model)
-            => CoreHelper.RunTask(GetStoresStoreIdTerminalLogosAsync(storeId, model));
+            => CoreHelper.RunTask(GetStoreTerminalLogoAsync(storeId, model));
 
         /// <summary>
         /// Returns the logo that is configured for a specific payment terminal model at the store identified in the path. .
@@ -291,7 +291,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> GetStoresStoreIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> GetStoreTerminalLogoAsync(
                 string storeId,
                 string model,
                 CancellationToken cancellationToken = default)
@@ -327,11 +327,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> PatchStoresStoreIdTerminalLogos(
+        public ApiResponse<Models.Logo> UpdateStoreTerminalLogo(
                 string storeId,
                 string model,
                 Models.Logo body = null)
-            => CoreHelper.RunTask(PatchStoresStoreIdTerminalLogosAsync(storeId, model, body));
+            => CoreHelper.RunTask(UpdateStoreTerminalLogoAsync(storeId, model, body));
 
         /// <summary>
         /// Updates the logo that is configured for a specific payment terminal model at the store identified in the path. You can update the logo for only one terminal model at a time.
@@ -347,7 +347,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> PatchStoresStoreIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> UpdateStoreTerminalLogoAsync(
                 string storeId,
                 string model,
                 Models.Logo body = null,
@@ -384,9 +384,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> GetStoresStoreIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> GetStoreTerminalSettings(
                 string storeId)
-            => CoreHelper.RunTask(GetStoresStoreIdTerminalSettingsAsync(storeId));
+            => CoreHelper.RunTask(GetStoreTerminalSettingsAsync(storeId));
 
         /// <summary>
         /// Returns the payment terminal settings that are configured for the store identified in the path. These settings apply to all terminals under the store unless different values are configured for an individual terminal.
@@ -400,7 +400,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> GetStoresStoreIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> GetStoreTerminalSettingsAsync(
                 string storeId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.TerminalSettings>()
@@ -435,10 +435,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> PatchStoresStoreIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> UpdateStoreTerminalSettings(
                 string storeId,
                 Models.TerminalSettings body = null)
-            => CoreHelper.RunTask(PatchStoresStoreIdTerminalSettingsAsync(storeId, body));
+            => CoreHelper.RunTask(UpdateStoreTerminalSettingsAsync(storeId, body));
 
         /// <summary>
         /// Updates payment terminal settings for the store identified in the path. These settings apply to all terminals under the store, unless different values are configured for an individual terminal.
@@ -455,7 +455,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> PatchStoresStoreIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> UpdateStoreTerminalSettingsAsync(
                 string storeId,
                 Models.TerminalSettings body = null,
                 CancellationToken cancellationToken = default)

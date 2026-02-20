@@ -33,9 +33,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="terminalId">Required parameter: The unique identifier of the payment terminal..</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> GetTerminalsTerminalIdTerminalLogos(
+        public ApiResponse<Models.Logo> GetTerminalLogo(
                 string terminalId)
-            => CoreHelper.RunTask(GetTerminalsTerminalIdTerminalLogosAsync(terminalId));
+            => CoreHelper.RunTask(GetTerminalLogoAsync(terminalId));
 
         /// <summary>
         /// Returns the logo that is configured for the payment terminal identified in the path.
@@ -48,7 +48,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="terminalId">Required parameter: The unique identifier of the payment terminal..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> GetTerminalsTerminalIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> GetTerminalLogoAsync(
                 string terminalId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.Logo>()
@@ -80,10 +80,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="terminalId">Required parameter: The unique identifier of the payment terminal..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> PatchTerminalsTerminalIdTerminalLogos(
+        public ApiResponse<Models.Logo> UpdateTerminalLogo(
                 string terminalId,
                 Models.Logo body = null)
-            => CoreHelper.RunTask(PatchTerminalsTerminalIdTerminalLogosAsync(terminalId, body));
+            => CoreHelper.RunTask(UpdateTerminalLogoAsync(terminalId, body));
 
         /// <summary>
         /// Updates the logo for the payment terminal identified in the path.
@@ -97,7 +97,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> PatchTerminalsTerminalIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> UpdateTerminalLogoAsync(
                 string terminalId,
                 Models.Logo body = null,
                 CancellationToken cancellationToken = default)
@@ -132,9 +132,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="terminalId">Required parameter: The unique identifier of the payment terminal..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> GetTerminalsTerminalIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> GetTerminalSettings(
                 string terminalId)
-            => CoreHelper.RunTask(GetTerminalsTerminalIdTerminalSettingsAsync(terminalId));
+            => CoreHelper.RunTask(GetTerminalSettingsAsync(terminalId));
 
         /// <summary>
         /// Returns the settings that are configured for the payment terminal identified in the path.
@@ -148,7 +148,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="terminalId">Required parameter: The unique identifier of the payment terminal..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> GetTerminalsTerminalIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> GetTerminalSettingsAsync(
                 string terminalId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.TerminalSettings>()
@@ -183,10 +183,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="terminalId">Required parameter: The unique identifier of the payment terminal..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> PatchTerminalsTerminalIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> UpdateTerminalSettings(
                 string terminalId,
                 Models.TerminalSettings body = null)
-            => CoreHelper.RunTask(PatchTerminalsTerminalIdTerminalSettingsAsync(terminalId, body));
+            => CoreHelper.RunTask(UpdateTerminalSettingsAsync(terminalId, body));
 
         /// <summary>
         /// Updates the settings that are configured for the payment terminal identified in the path.
@@ -203,7 +203,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> PatchTerminalsTerminalIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> UpdateTerminalSettingsAsync(
                 string terminalId,
                 Models.TerminalSettings body = null,
                 CancellationToken cancellationToken = default)

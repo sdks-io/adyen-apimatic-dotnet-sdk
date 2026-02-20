@@ -10,13 +10,13 @@ TerminalsettingsCompanylevelApi terminalsettingsCompanylevelApi = client.Termina
 
 ## Methods
 
-* [Get-Companies-Company Id-Terminal Logos](../../doc/controllers/terminalsettings-companylevel.md#get-companies-company-id-terminal-logos)
-* [Patch-Companies-Company Id-Terminal Logos](../../doc/controllers/terminalsettings-companylevel.md#patch-companies-company-id-terminal-logos)
-* [Get-Companies-Company Id-Terminal Settings](../../doc/controllers/terminalsettings-companylevel.md#get-companies-company-id-terminal-settings)
-* [Patch-Companies-Company Id-Terminal Settings](../../doc/controllers/terminalsettings-companylevel.md#patch-companies-company-id-terminal-settings)
+* [Get Company Terminal Logo](../../doc/controllers/terminalsettings-companylevel.md#get-company-terminal-logo)
+* [Update Company Terminal Logo](../../doc/controllers/terminalsettings-companylevel.md#update-company-terminal-logo)
+* [Get Company Terminal Settings](../../doc/controllers/terminalsettings-companylevel.md#get-company-terminal-settings)
+* [Update Company Terminal Settings](../../doc/controllers/terminalsettings-companylevel.md#update-company-terminal-settings)
 
 
-# Get-Companies-Company Id-Terminal Logos
+# Get Company Terminal Logo
 
 Returns the logo that is configured for a specific payment terminal model at the company identified in the path.
 
@@ -31,7 +31,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalLogosAsync(
+GetCompanyTerminalLogoAsync(
     string companyId,
     string model)
 ```
@@ -54,7 +54,7 @@ string companyId = "companyId0";
 string model = "model2";
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsCompanyLevelApi.GetCompaniesCompanyIdTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsCompanyLevelApi.GetCompanyTerminalLogoAsync(
         companyId,
         model
     );
@@ -88,7 +88,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Companies-Company Id-Terminal Logos
+# Update Company Terminal Logo
 
 Updates the logo that is configured for a specific payment terminal model at the company identified in the path. You can update the logo for only one terminal model at a time.
 This logo applies to all terminals of the specified model under the company, unless a different logo is configured at a lower level (merchant account, store, or individual terminal).
@@ -103,7 +103,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchCompaniesCompanyIdTerminalLogosAsync(
+UpdateCompanyTerminalLogoAsync(
     string companyId,
     string model,
     Models.Logo body = null)
@@ -133,7 +133,7 @@ Logo body = new Logo
 
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsCompanyLevelApi.PatchCompaniesCompanyIdTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsCompanyLevelApi.UpdateCompanyTerminalLogoAsync(
         companyId,
         model,
         body
@@ -168,7 +168,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Terminal Settings
+# Get Company Terminal Settings
 
 Returns the payment terminal settings that are configured for the company identified in the path. These settings apply to all terminals under the company, unless different values are configured at a lower level (merchant account, store, or individual terminal).
 
@@ -184,7 +184,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalSettingsAsync(
+GetCompanyTerminalSettingsAsync(
     string companyId)
 ```
 
@@ -204,7 +204,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsCompanyLevelApi.GetCompaniesCompanyIdTerminalSettingsAsync(companyId);
+    ApiResponse<TerminalSettings> result = await terminalSettingsCompanyLevelApi.GetCompanyTerminalSettingsAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -348,7 +348,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Companies-Company Id-Terminal Settings
+# Update Company Terminal Settings
 
 Updates payment terminal settings for the company identified in the path. These settings apply to all terminals under the company, unless different values are configured at a lower level (merchant account, store, or individual terminal).
 
@@ -367,7 +367,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchCompaniesCompanyIdTerminalSettingsAsync(
+UpdateCompanyTerminalSettingsAsync(
     string companyId,
     Models.TerminalSettings body = null)
 ```
@@ -443,7 +443,7 @@ TerminalSettings body = new TerminalSettings
 
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsCompanyLevelApi.PatchCompaniesCompanyIdTerminalSettingsAsync(
+    ApiResponse<TerminalSettings> result = await terminalSettingsCompanyLevelApi.UpdateCompanyTerminalSettingsAsync(
         companyId,
         body
     );

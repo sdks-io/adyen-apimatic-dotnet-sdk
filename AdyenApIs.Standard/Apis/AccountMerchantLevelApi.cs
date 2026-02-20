@@ -31,10 +31,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <returns>Returns the ApiResponse of Models.ListMerchantResponse response from the API call.</returns>
-        public ApiResponse<Models.ListMerchantResponse> GetMerchants(
+        public ApiResponse<Models.ListMerchantResponse> ListMerchants(
                 int? pageNumber = null,
                 int? pageSize = null)
-            => CoreHelper.RunTask(GetMerchantsAsync(pageNumber, pageSize));
+            => CoreHelper.RunTask(ListMerchantsAsync(pageNumber, pageSize));
 
         /// <summary>
         /// Returns the list of merchant accounts that your API credential has access to. The list is grouped into pages as defined by the query parameters. .
@@ -45,7 +45,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListMerchantResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListMerchantResponse>> GetMerchantsAsync(
+        public async Task<ApiResponse<Models.ListMerchantResponse>> ListMerchantsAsync(
                 int? pageNumber = null,
                 int? pageSize = null,
                 CancellationToken cancellationToken = default)
@@ -76,9 +76,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CreateMerchantResponse response from the API call.</returns>
-        public ApiResponse<Models.CreateMerchantResponse> PostMerchants(
+        public ApiResponse<Models.CreateMerchantResponse> CreateMerchant(
                 Models.CreateMerchantRequest body = null)
-            => CoreHelper.RunTask(PostMerchantsAsync(body));
+            => CoreHelper.RunTask(CreateMerchantAsync(body));
 
         /// <summary>
         /// Creates a merchant account for the company account specified in the request.
@@ -89,7 +89,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CreateMerchantResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CreateMerchantResponse>> PostMerchantsAsync(
+        public async Task<ApiResponse<Models.CreateMerchantResponse>> CreateMerchantAsync(
                 Models.CreateMerchantRequest body = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.CreateMerchantResponse>()
@@ -118,9 +118,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.Merchant response from the API call.</returns>
-        public ApiResponse<Models.Merchant> GetMerchantsMerchantId(
+        public ApiResponse<Models.Merchant> GetMerchant(
                 string merchantId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdAsync(merchantId));
+            => CoreHelper.RunTask(GetMerchantAsync(merchantId));
 
         /// <summary>
         /// Returns the merchant account specified in the path. Your API credential must have access to the merchant account.
@@ -130,7 +130,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Merchant response from the API call.</returns>
-        public async Task<ApiResponse<Models.Merchant>> GetMerchantsMerchantIdAsync(
+        public async Task<ApiResponse<Models.Merchant>> GetMerchantAsync(
                 string merchantId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.Merchant>()
@@ -160,9 +160,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.RequestActivationResponse response from the API call.</returns>
-        public ApiResponse<Models.RequestActivationResponse> PostMerchantsMerchantIdActivate(
+        public ApiResponse<Models.RequestActivationResponse> ActivateMerchant(
                 string merchantId)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdActivateAsync(merchantId));
+            => CoreHelper.RunTask(ActivateMerchantAsync(merchantId));
 
         /// <summary>
         /// Sends a request to activate the merchant account identified in the path.
@@ -174,7 +174,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.RequestActivationResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.RequestActivationResponse>> PostMerchantsMerchantIdActivateAsync(
+        public async Task<ApiResponse<Models.RequestActivationResponse>> ActivateMerchantAsync(
                 string merchantId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.RequestActivationResponse>()

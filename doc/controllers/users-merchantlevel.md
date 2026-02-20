@@ -10,13 +10,13 @@ UsersMerchantlevelApi usersMerchantlevelApi = client.UsersMerchantlevelApi;
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Users](../../doc/controllers/users-merchantlevel.md#get-merchants-merchant-id-users)
-* [Post-Merchants-Merchant Id-Users](../../doc/controllers/users-merchantlevel.md#post-merchants-merchant-id-users)
-* [Get-Merchants-Merchant Id-Users-User Id](../../doc/controllers/users-merchantlevel.md#get-merchants-merchant-id-users-user-id)
-* [Patch-Merchants-Merchant Id-Users-User Id](../../doc/controllers/users-merchantlevel.md#patch-merchants-merchant-id-users-user-id)
+* [List Merchant Users](../../doc/controllers/users-merchantlevel.md#list-merchant-users)
+* [Create Merchant User](../../doc/controllers/users-merchantlevel.md#create-merchant-user)
+* [Get Merchant User](../../doc/controllers/users-merchantlevel.md#get-merchant-user)
+* [Update Merchant User](../../doc/controllers/users-merchantlevel.md#update-merchant-user)
 
 
-# Get-Merchants-Merchant Id-Users
+# List Merchant Users
 
 Returns a list of users associated with the `merchantId` specified in the path.
 
@@ -25,7 +25,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-GetMerchantsMerchantIdUsersAsync(
+ListMerchantUsersAsync(
     string merchantId,
     int? pageNumber = null,
     int? pageSize = null,
@@ -51,7 +51,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<ListMerchantUsersResponse> result = await usersMerchantLevelApi.GetMerchantsMerchantIdUsersAsync(merchantId);
+    ApiResponse<ListMerchantUsersResponse> result = await usersMerchantLevelApi.ListMerchantUsersAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -74,7 +74,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Users
+# Create Merchant User
 
 Creates a user for the `merchantId` specified in the path.
 
@@ -83,7 +83,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-PostMerchantsMerchantIdUsersAsync(
+CreateMerchantUserAsync(
     string merchantId,
     Models.CreateMerchantUserRequest body = null)
 ```
@@ -122,7 +122,7 @@ CreateMerchantUserRequest body = new CreateMerchantUserRequest
 
 try
 {
-    ApiResponse<CreateUserResponse> result = await usersMerchantLevelApi.PostMerchantsMerchantIdUsersAsync(
+    ApiResponse<CreateUserResponse> result = await usersMerchantLevelApi.CreateMerchantUserAsync(
         merchantId,
         body
     );
@@ -172,7 +172,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Users-User Id
+# Get Merchant User
 
 Returns user details for the `userId` and the `merchantId` specified in the path.
 
@@ -181,7 +181,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-GetMerchantsMerchantIdUsersUserIdAsync(
+GetMerchantUserAsync(
     string merchantId,
     string userId)
 ```
@@ -204,7 +204,7 @@ string merchantId = "merchantId6";
 string userId = "userId0";
 try
 {
-    ApiResponse<User> result = await usersMerchantLevelApi.GetMerchantsMerchantIdUsersUserIdAsync(
+    ApiResponse<User> result = await usersMerchantLevelApi.GetMerchantUserAsync(
         merchantId,
         userId
     );
@@ -230,7 +230,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Users-User Id
+# Update Merchant User
 
 Updates user details for the `userId` and the `merchantId` specified in the path.
 
@@ -239,7 +239,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API—Users read and write
 
 ```csharp
-PatchMerchantsMerchantIdUsersUserIdAsync(
+UpdateMerchantUserAsync(
     string merchantId,
     string userId,
     Models.UpdateMerchantUserRequest body = null)
@@ -264,7 +264,7 @@ string merchantId = "merchantId6";
 string userId = "userId0";
 try
 {
-    ApiResponse<User> result = await usersMerchantLevelApi.PatchMerchantsMerchantIdUsersUserIdAsync(
+    ApiResponse<User> result = await usersMerchantLevelApi.UpdateMerchantUserAsync(
         merchantId,
         userId
     );

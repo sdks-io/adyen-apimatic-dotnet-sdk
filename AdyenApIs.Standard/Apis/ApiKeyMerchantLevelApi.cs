@@ -31,10 +31,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <returns>Returns the ApiResponse of Models.GenerateApiKeyResponse response from the API call.</returns>
-        public ApiResponse<Models.GenerateApiKeyResponse> PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKey(
+        public ApiResponse<Models.GenerateApiKeyResponse> GenerateMerchantApiKey(
                 string merchantId,
                 string apiCredentialId)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyAsync(merchantId, apiCredentialId));
+            => CoreHelper.RunTask(GenerateMerchantApiKeyAsync(merchantId, apiCredentialId));
 
         /// <summary>
         /// Returns a new API key for the API credential. You can use the new API key a few minutes after generating it. The old API key stops working 24 hours after generating a new one.
@@ -45,7 +45,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.GenerateApiKeyResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.GenerateApiKeyResponse>> PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyAsync(
+        public async Task<ApiResponse<Models.GenerateApiKeyResponse>> GenerateMerchantApiKeyAsync(
                 string merchantId,
                 string apiCredentialId,
                 CancellationToken cancellationToken = default)

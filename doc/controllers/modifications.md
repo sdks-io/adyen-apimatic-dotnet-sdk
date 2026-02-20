@@ -10,15 +10,15 @@ ModificationsApi modificationsApi = client.ModificationsApi;
 
 ## Methods
 
-* [Post-Cancels](../../doc/controllers/modifications.md#post-cancels)
-* [Post-Payments-Payment Psp Reference-Amount Updates](../../doc/controllers/modifications.md#post-payments-payment-psp-reference-amount-updates)
-* [Post-Payments-Payment Psp Reference-Cancels](../../doc/controllers/modifications.md#post-payments-payment-psp-reference-cancels)
-* [Post-Payments-Payment Psp Reference-Captures](../../doc/controllers/modifications.md#post-payments-payment-psp-reference-captures)
-* [Post-Payments-Payment Psp Reference-Refunds](../../doc/controllers/modifications.md#post-payments-payment-psp-reference-refunds)
-* [Post-Payments-Payment Psp Reference-Reversals](../../doc/controllers/modifications.md#post-payments-payment-psp-reference-reversals)
+* [Cancel Payment](../../doc/controllers/modifications.md#cancel-payment)
+* [Update Payment Amount](../../doc/controllers/modifications.md#update-payment-amount)
+* [Cancel Authorised Payment](../../doc/controllers/modifications.md#cancel-authorised-payment)
+* [Capture Payment](../../doc/controllers/modifications.md#capture-payment)
+* [Refund Payment](../../doc/controllers/modifications.md#refund-payment)
+* [Reverse Payment](../../doc/controllers/modifications.md#reverse-payment)
 
 
-# Post-Cancels
+# Cancel Payment
 
 Cancels the authorisation on a payment that has not yet been [captured](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/captures), and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**TECHNICAL_CANCEL** webhook](https://docs.adyen.com/online-payments/cancel#cancellation-webhook).
 
@@ -29,7 +29,7 @@ If you want to cancel a payment but are not sure whether it has been captured, u
 For more information, refer to [Cancel](https://docs.adyen.com/online-payments/cancel).
 
 ```csharp
-PostCancelsAsync(
+CancelPaymentAsync(
     string idempotencyKey = null,
     Models.StandalonePaymentCancelRequest body = null)
 ```
@@ -57,7 +57,7 @@ StandalonePaymentCancelRequest body = new StandalonePaymentCancelRequest
 
 try
 {
-    ApiResponse<StandalonePaymentCancelResponse> result = await modificationsApi.PostCancelsAsync(
+    ApiResponse<StandalonePaymentCancelResponse> result = await modificationsApi.CancelPaymentAsync(
         null,
         body
     );
@@ -95,7 +95,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Payments-Payment Psp Reference-Amount Updates
+# Update Payment Amount
 
 Increases or decreases the authorised payment amount and returns a unique reference for this request. You get the outcome of the request asynchronously, in an [**AUTHORISATION_ADJUSTMENT** webhook](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
 
@@ -106,7 +106,7 @@ The amount you specify in the request is the updated amount, which is larger or 
 For more information, refer to [Authorisation adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#use-cases).
 
 ```csharp
-PostPaymentsPaymentPspReferenceAmountUpdatesAsync(
+UpdatePaymentAmountAsync(
     string paymentPspReference,
     string idempotencyKey = null,
     Models.PaymentAmountUpdateRequest body = null)
@@ -141,7 +141,7 @@ PaymentAmountUpdateRequest body = new PaymentAmountUpdateRequest
 
 try
 {
-    ApiResponse<PaymentAmountUpdateResponse> result = await modificationsApi.PostPaymentsPaymentPspReferenceAmountUpdatesAsync(
+    ApiResponse<PaymentAmountUpdateResponse> result = await modificationsApi.UpdatePaymentAmountAsync(
         paymentPspReference,
         null,
         body
@@ -184,7 +184,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Payments-Payment Psp Reference-Cancels
+# Cancel Authorised Payment
 
 Cancels the authorisation on a payment that has not yet been [captured](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/captures), and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**CANCELLATION** webhook](https://docs.adyen.com/online-payments/cancel#cancellation-webhook).
 
@@ -195,7 +195,7 @@ If you want to cancel a payment but are not sure whether it has been captured, u
 For more information, refer to [Cancel](https://docs.adyen.com/online-payments/cancel).
 
 ```csharp
-PostPaymentsPaymentPspReferenceCancelsAsync(
+CancelAuthorisedPaymentAsync(
     string paymentPspReference,
     string idempotencyKey = null,
     Models.PaymentCancelRequest body = null)
@@ -225,7 +225,7 @@ PaymentCancelRequest body = new PaymentCancelRequest
 
 try
 {
-    ApiResponse<PaymentCancelResponse> result = await modificationsApi.PostPaymentsPaymentPspReferenceCancelsAsync(
+    ApiResponse<PaymentCancelResponse> result = await modificationsApi.CancelAuthorisedPaymentAsync(
         paymentPspReference,
         null,
         body
@@ -264,7 +264,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Payments-Payment Psp Reference-Captures
+# Capture Payment
 
 Captures an authorised payment and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**CAPTURE** webhook](https://docs.adyen.com/online-payments/capture#capture-notification).
 
@@ -275,7 +275,7 @@ You can capture either the full authorised amount or a part of the authorised am
 For more information, refer to [Capture](https://docs.adyen.com/online-payments/capture).
 
 ```csharp
-PostPaymentsPaymentPspReferenceCapturesAsync(
+CapturePaymentAsync(
     string paymentPspReference,
     string idempotencyKey = null,
     Models.PaymentCaptureRequest body = null)
@@ -310,7 +310,7 @@ PaymentCaptureRequest body = new PaymentCaptureRequest
 
 try
 {
-    ApiResponse<PaymentCaptureResponse> result = await modificationsApi.PostPaymentsPaymentPspReferenceCapturesAsync(
+    ApiResponse<PaymentCaptureResponse> result = await modificationsApi.CapturePaymentAsync(
         paymentPspReference,
         null,
         body
@@ -353,7 +353,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Payments-Payment Psp Reference-Refunds
+# Refund Payment
 
 Refunds a payment that has been [captured](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/captures), and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**REFUND** webhook](https://docs.adyen.com/online-payments/refund#refund-webhook).
 
@@ -366,7 +366,7 @@ If you want to refund a payment but are not sure whether it has been captured, u
 For more information, refer to [Refund](https://docs.adyen.com/online-payments/refund).
 
 ```csharp
-PostPaymentsPaymentPspReferenceRefundsAsync(
+RefundPaymentAsync(
     string paymentPspReference,
     string idempotencyKey = null,
     Models.PaymentRefundRequest body = null)
@@ -401,7 +401,7 @@ PaymentRefundRequest body = new PaymentRefundRequest
 
 try
 {
-    ApiResponse<PaymentRefundResponse> result = await modificationsApi.PostPaymentsPaymentPspReferenceRefundsAsync(
+    ApiResponse<PaymentRefundResponse> result = await modificationsApi.RefundPaymentAsync(
         paymentPspReference,
         null,
         body
@@ -444,7 +444,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
-# Post-Payments-Payment Psp Reference-Reversals
+# Reverse Payment
 
 [Refunds](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/refunds) a payment if it has already been captured, and [cancels](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/cancels) a payment if it has not yet been captured. Returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**CANCEL_OR_REFUND** webhook](https://docs.adyen.com/online-payments/reversal/#cancel-or-refund-webhook).
 
@@ -455,7 +455,7 @@ The reversed amount is always the full payment amount.
 For more information, refer to [Reversal](https://docs.adyen.com/online-payments/reversal).
 
 ```csharp
-PostPaymentsPaymentPspReferenceReversalsAsync(
+ReversePaymentAsync(
     string paymentPspReference,
     string idempotencyKey = null,
     Models.PaymentReversalRequest body = null)
@@ -485,7 +485,7 @@ PaymentReversalRequest body = new PaymentReversalRequest
 
 try
 {
-    ApiResponse<PaymentReversalResponse> result = await modificationsApi.PostPaymentsPaymentPspReferenceReversalsAsync(
+    ApiResponse<PaymentReversalResponse> result = await modificationsApi.ReversePaymentAsync(
         paymentPspReference,
         null,
         body

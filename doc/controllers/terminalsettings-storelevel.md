@@ -10,17 +10,17 @@ TerminalsettingsStorelevelApi terminalsettingsStorelevelApi = client.Terminalset
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Stores-Reference-Terminal Logos](../../doc/controllers/terminalsettings-storelevel.md#get-merchants-merchant-id-stores-reference-terminal-logos)
-* [Patch-Merchants-Merchant Id-Stores-Reference-Terminal Logos](../../doc/controllers/terminalsettings-storelevel.md#patch-merchants-merchant-id-stores-reference-terminal-logos)
-* [Get-Merchants-Merchant Id-Stores-Reference-Terminal Settings](../../doc/controllers/terminalsettings-storelevel.md#get-merchants-merchant-id-stores-reference-terminal-settings)
-* [Patch-Merchants-Merchant Id-Stores-Reference-Terminal Settings](../../doc/controllers/terminalsettings-storelevel.md#patch-merchants-merchant-id-stores-reference-terminal-settings)
-* [Get-Stores-Store Id-Terminal Logos](../../doc/controllers/terminalsettings-storelevel.md#get-stores-store-id-terminal-logos)
-* [Patch-Stores-Store Id-Terminal Logos](../../doc/controllers/terminalsettings-storelevel.md#patch-stores-store-id-terminal-logos)
-* [Get-Stores-Store Id-Terminal Settings](../../doc/controllers/terminalsettings-storelevel.md#get-stores-store-id-terminal-settings)
-* [Patch-Stores-Store Id-Terminal Settings](../../doc/controllers/terminalsettings-storelevel.md#patch-stores-store-id-terminal-settings)
+* [Get Merchant Store Terminal Logo by Reference](../../doc/controllers/terminalsettings-storelevel.md#get-merchant-store-terminal-logo-by-reference)
+* [Update Merchant Store Terminal Logo by Reference](../../doc/controllers/terminalsettings-storelevel.md#update-merchant-store-terminal-logo-by-reference)
+* [Get Merchant Store Terminal Settings by Reference](../../doc/controllers/terminalsettings-storelevel.md#get-merchant-store-terminal-settings-by-reference)
+* [Update Merchant Store Terminal Settings by Reference](../../doc/controllers/terminalsettings-storelevel.md#update-merchant-store-terminal-settings-by-reference)
+* [Get Store Terminal Logo](../../doc/controllers/terminalsettings-storelevel.md#get-store-terminal-logo)
+* [Update Store Terminal Logo](../../doc/controllers/terminalsettings-storelevel.md#update-store-terminal-logo)
+* [Get Store Terminal Settings](../../doc/controllers/terminalsettings-storelevel.md#get-store-terminal-settings)
+* [Update Store Terminal Settings](../../doc/controllers/terminalsettings-storelevel.md#update-store-terminal-settings)
 
 
-# Get-Merchants-Merchant Id-Stores-Reference-Terminal Logos
+# Get Merchant Store Terminal Logo by Reference
 
 Returns the logo that is configured for a specific payment terminal model at the store identified in the path.
 The logo is returned as a Base64-encoded string. You need to Base64-decode the string to get the actual image file.
@@ -34,7 +34,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdStoresReferenceTerminalLogosAsync(
+GetMerchantStoreTerminalLogoByReferenceAsync(
     string merchantId,
     string reference,
     string model)
@@ -60,7 +60,7 @@ string reference = "reference4";
 string model = "model2";
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.GetMerchantsMerchantIdStoresReferenceTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.GetMerchantStoreTerminalLogoByReferenceAsync(
         merchantId,
         reference,
         model
@@ -95,7 +95,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Stores-Reference-Terminal Logos
+# Update Merchant Store Terminal Logo by Reference
 
 Updates the logo that is configured for a specific payment terminal model at the store identified in the path. You can update the logo for only one terminal model at a time.
 This logo applies to all terminals of the specified model under the store, unless a different logo is configured for an individual terminal.
@@ -110,7 +110,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchMerchantsMerchantIdStoresReferenceTerminalLogosAsync(
+UpdateMerchantStoreTerminalLogoByReferenceAsync(
     string merchantId,
     string reference,
     string model,
@@ -143,7 +143,7 @@ Logo body = new Logo
 
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.PatchMerchantsMerchantIdStoresReferenceTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.UpdateMerchantStoreTerminalLogoByReferenceAsync(
         merchantId,
         reference,
         model,
@@ -179,7 +179,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Stores-Reference-Terminal Settings
+# Get Merchant Store Terminal Settings by Reference
 
 Returns the payment terminal settings that are configured for the store identified in the path. These settings apply to all terminals under the store unless different values are configured for an individual terminal.
 
@@ -195,7 +195,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(
+GetMerchantStoreTerminalSettingsByReferenceAsync(
     string merchantId,
     string reference)
 ```
@@ -218,7 +218,7 @@ string merchantId = "merchantId6";
 string reference = "reference4";
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.GetMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(
+    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.GetMerchantStoreTerminalSettingsByReferenceAsync(
         merchantId,
         reference
     );
@@ -339,7 +339,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Stores-Reference-Terminal Settings
+# Update Merchant Store Terminal Settings by Reference
 
 Updates payment terminal settings for the store identified in the path. These settings apply to all terminals under the store, unless different values are configured for an individual terminal.
 
@@ -358,7 +358,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(
+UpdateMerchantStoreTerminalSettingsByReferenceAsync(
     string merchantId,
     string reference,
     Models.TerminalSettings body = null)
@@ -435,7 +435,7 @@ TerminalSettings body = new TerminalSettings
 
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.PatchMerchantsMerchantIdStoresReferenceTerminalSettingsAsync(
+    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.UpdateMerchantStoreTerminalSettingsByReferenceAsync(
         merchantId,
         reference,
         body
@@ -580,7 +580,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Stores-Store Id-Terminal Logos
+# Get Store Terminal Logo
 
 Returns the logo that is configured for a specific payment terminal model at the store identified in the path.
 The logo is returned as a Base64-encoded string. You need to Base64-decode the string to get the actual image file.
@@ -594,7 +594,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetStoresStoreIdTerminalLogosAsync(
+GetStoreTerminalLogoAsync(
     string storeId,
     string model)
 ```
@@ -617,7 +617,7 @@ string storeId = "storeId6";
 string model = "model2";
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.GetStoresStoreIdTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.GetStoreTerminalLogoAsync(
         storeId,
         model
     );
@@ -651,7 +651,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Stores-Store Id-Terminal Logos
+# Update Store Terminal Logo
 
 Updates the logo that is configured for a specific payment terminal model at the store identified in the path. You can update the logo for only one terminal model at a time.
 This logo applies to all terminals of the specified model under the store, unless a different logo is configured for an individual terminal.
@@ -666,7 +666,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchStoresStoreIdTerminalLogosAsync(
+UpdateStoreTerminalLogoAsync(
     string storeId,
     string model,
     Models.Logo body = null)
@@ -696,7 +696,7 @@ Logo body = new Logo
 
 try
 {
-    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.PatchStoresStoreIdTerminalLogosAsync(
+    ApiResponse<Logo> result = await terminalSettingsStoreLevelApi.UpdateStoreTerminalLogoAsync(
         storeId,
         model,
         body
@@ -731,7 +731,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Stores-Store Id-Terminal Settings
+# Get Store Terminal Settings
 
 Returns the payment terminal settings that are configured for the store identified in the path. These settings apply to all terminals under the store unless different values are configured for an individual terminal.
 
@@ -747,7 +747,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetStoresStoreIdTerminalSettingsAsync(
+GetStoreTerminalSettingsAsync(
     string storeId)
 ```
 
@@ -767,7 +767,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string storeId = "storeId6";
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.GetStoresStoreIdTerminalSettingsAsync(storeId);
+    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.GetStoreTerminalSettingsAsync(storeId);
 }
 catch (ApiException e)
 {
@@ -911,7 +911,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Stores-Store Id-Terminal Settings
+# Update Store Terminal Settings
 
 Updates payment terminal settings for the store identified in the path. These settings apply to all terminals under the store, unless different values are configured for an individual terminal.
 
@@ -930,7 +930,7 @@ For [sensitive terminal settings](https://docs.adyen.com/point-of-sale/automatin
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchStoresStoreIdTerminalSettingsAsync(
+UpdateStoreTerminalSettingsAsync(
     string storeId,
     Models.TerminalSettings body = null)
 ```
@@ -1006,7 +1006,7 @@ TerminalSettings body = new TerminalSettings
 
 try
 {
-    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.PatchStoresStoreIdTerminalSettingsAsync(
+    ApiResponse<TerminalSettings> result = await terminalSettingsStoreLevelApi.UpdateStoreTerminalSettingsAsync(
         storeId,
         body
     );

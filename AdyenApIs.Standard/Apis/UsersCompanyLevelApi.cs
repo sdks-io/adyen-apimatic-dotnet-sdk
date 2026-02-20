@@ -33,12 +33,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page..</param>
         /// <param name="username">Optional parameter: The partial or complete username to select all users that match..</param>
         /// <returns>Returns the ApiResponse of Models.ListCompanyUsersResponse response from the API call.</returns>
-        public ApiResponse<Models.ListCompanyUsersResponse> GetCompaniesCompanyIdUsers(
+        public ApiResponse<Models.ListCompanyUsersResponse> ListCompanyUsers(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
                 string username = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdUsersAsync(companyId, pageNumber, pageSize, username));
+            => CoreHelper.RunTask(ListCompanyUsersAsync(companyId, pageNumber, pageSize, username));
 
         /// <summary>
         /// Returns the list of users for the `companyId` identified in the path.
@@ -51,7 +51,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="username">Optional parameter: The partial or complete username to select all users that match..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListCompanyUsersResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListCompanyUsersResponse>> GetCompaniesCompanyIdUsersAsync(
+        public async Task<ApiResponse<Models.ListCompanyUsersResponse>> ListCompanyUsersAsync(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -86,10 +86,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CreateCompanyUserResponse response from the API call.</returns>
-        public ApiResponse<Models.CreateCompanyUserResponse> PostCompaniesCompanyIdUsers(
+        public ApiResponse<Models.CreateCompanyUserResponse> CreateCompanyUser(
                 string companyId,
                 Models.CreateCompanyUserRequest body = null)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdUsersAsync(companyId, body));
+            => CoreHelper.RunTask(CreateCompanyUserAsync(companyId, body));
 
         /// <summary>
         /// Creates the user for the `companyId` identified in the path.
@@ -100,7 +100,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CreateCompanyUserResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CreateCompanyUserResponse>> PostCompaniesCompanyIdUsersAsync(
+        public async Task<ApiResponse<Models.CreateCompanyUserResponse>> CreateCompanyUserAsync(
                 string companyId,
                 Models.CreateCompanyUserRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -132,10 +132,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="userId">Required parameter: The unique identifier of the user..</param>
         /// <returns>Returns the ApiResponse of Models.CompanyUser response from the API call.</returns>
-        public ApiResponse<Models.CompanyUser> GetCompaniesCompanyIdUsersUserId(
+        public ApiResponse<Models.CompanyUser> GetCompanyUser(
                 string companyId,
                 string userId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdUsersUserIdAsync(companyId, userId));
+            => CoreHelper.RunTask(GetCompanyUserAsync(companyId, userId));
 
         /// <summary>
         /// Returns user details for the `userId` and the `companyId` identified in the path.
@@ -146,7 +146,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="userId">Required parameter: The unique identifier of the user..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CompanyUser response from the API call.</returns>
-        public async Task<ApiResponse<Models.CompanyUser>> GetCompaniesCompanyIdUsersUserIdAsync(
+        public async Task<ApiResponse<Models.CompanyUser>> GetCompanyUserAsync(
                 string companyId,
                 string userId,
                 CancellationToken cancellationToken = default)
@@ -178,11 +178,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="userId">Required parameter: The unique identifier of the user..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CompanyUser response from the API call.</returns>
-        public ApiResponse<Models.CompanyUser> PatchCompaniesCompanyIdUsersUserId(
+        public ApiResponse<Models.CompanyUser> UpdateCompanyUser(
                 string companyId,
                 string userId,
                 Models.UpdateCompanyUserRequest body = null)
-            => CoreHelper.RunTask(PatchCompaniesCompanyIdUsersUserIdAsync(companyId, userId, body));
+            => CoreHelper.RunTask(UpdateCompanyUserAsync(companyId, userId, body));
 
         /// <summary>
         /// Updates user details for the `userId` and the `companyId` identified in the path.
@@ -194,7 +194,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CompanyUser response from the API call.</returns>
-        public async Task<ApiResponse<Models.CompanyUser>> PatchCompaniesCompanyIdUsersUserIdAsync(
+        public async Task<ApiResponse<Models.CompanyUser>> UpdateCompanyUserAsync(
                 string companyId,
                 string userId,
                 Models.UpdateCompanyUserRequest body = null,

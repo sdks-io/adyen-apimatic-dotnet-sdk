@@ -29,10 +29,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CreateOrderResponse response from the API call.</returns>
-        public ApiResponse<Models.CreateOrderResponse> PostOrders(
+        public ApiResponse<Models.CreateOrderResponse> CreateOrder(
                 string idempotencyKey = null,
                 Models.CreateOrderRequest body = null)
-            => CoreHelper.RunTask(PostOrdersAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(CreateOrderAsync(idempotencyKey, body));
 
         /// <summary>
         /// Creates an order to be used for partial payments. Make a POST `/orders` call before making a `/payments` call when processing payments with different payment methods.
@@ -41,7 +41,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CreateOrderResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CreateOrderResponse>> PostOrdersAsync(
+        public async Task<ApiResponse<Models.CreateOrderResponse>> CreateOrderAsync(
                 string idempotencyKey = null,
                 Models.CreateOrderRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -70,10 +70,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CancelOrderResponse response from the API call.</returns>
-        public ApiResponse<Models.CancelOrderResponse> PostOrdersCancel(
+        public ApiResponse<Models.CancelOrderResponse> CancelOrder(
                 string idempotencyKey = null,
                 Models.CancelOrderRequest body = null)
-            => CoreHelper.RunTask(PostOrdersCancelAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(CancelOrderAsync(idempotencyKey, body));
 
         /// <summary>
         /// Cancels an order. Cancellation of an order results in an automatic rollback of all payments made in the order, either by canceling or refunding the payment, depending on the type of payment method.
@@ -82,7 +82,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CancelOrderResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CancelOrderResponse>> PostOrdersCancelAsync(
+        public async Task<ApiResponse<Models.CancelOrderResponse>> CancelOrderAsync(
                 string idempotencyKey = null,
                 Models.CancelOrderRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -111,10 +111,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.BalanceCheckResponse response from the API call.</returns>
-        public ApiResponse<Models.BalanceCheckResponse> PostPaymentMethodsBalance(
+        public ApiResponse<Models.BalanceCheckResponse> GetPaymentMethodBalance(
                 string idempotencyKey = null,
                 Models.BalanceCheckRequest body = null)
-            => CoreHelper.RunTask(PostPaymentMethodsBalanceAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(GetPaymentMethodBalanceAsync(idempotencyKey, body));
 
         /// <summary>
         /// Retrieves the balance remaining on a shopper's gift card. To check a gift card's balance, make a POST `/paymentMethods/balance` call and include the gift card's details inside a `paymentMethod` object.
@@ -123,7 +123,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.BalanceCheckResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.BalanceCheckResponse>> PostPaymentMethodsBalanceAsync(
+        public async Task<ApiResponse<Models.BalanceCheckResponse>> GetPaymentMethodBalanceAsync(
                 string idempotencyKey = null,
                 Models.BalanceCheckRequest body = null,
                 CancellationToken cancellationToken = default)

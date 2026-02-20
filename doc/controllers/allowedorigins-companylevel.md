@@ -10,13 +10,13 @@ AllowedoriginsCompanylevelApi allowedoriginsCompanylevelApi = client.Allowedorig
 
 ## Methods
 
-* [Get-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins](../../doc/controllers/allowedorigins-companylevel.md#get-companies-company-id-api-credentials-api-credential-id-allowed-origins)
-* [Post-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins](../../doc/controllers/allowedorigins-companylevel.md#post-companies-company-id-api-credentials-api-credential-id-allowed-origins)
-* [Delete-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins-Origin Id](../../doc/controllers/allowedorigins-companylevel.md#delete-companies-company-id-api-credentials-api-credential-id-allowed-origins-origin-id)
-* [Get-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins-Origin Id](../../doc/controllers/allowedorigins-companylevel.md#get-companies-company-id-api-credentials-api-credential-id-allowed-origins-origin-id)
+* [List Company Api Credential Origins](../../doc/controllers/allowedorigins-companylevel.md#list-company-api-credential-origins)
+* [Create Company Api Credential Origin](../../doc/controllers/allowedorigins-companylevel.md#create-company-api-credential-origin)
+* [Delete Company Api Credential Origin](../../doc/controllers/allowedorigins-companylevel.md#delete-company-api-credential-origin)
+* [Get Company Api Credential Origin](../../doc/controllers/allowedorigins-companylevel.md#get-company-api-credential-origin)
 
 
-# Get-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins
+# List Company Api Credential Origins
 
 Returns the list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential identified in the path.
 
@@ -25,7 +25,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsAsync(
+ListCompanyApiCredentialOriginsAsync(
     string companyId,
     string apiCredentialId)
 ```
@@ -48,7 +48,7 @@ string companyId = "companyId0";
 string apiCredentialId = "apiCredentialId8";
 try
 {
-    ApiResponse<AllowedOriginsResponse> result = await allowedOriginsCompanyLevelApi.GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsAsync(
+    ApiResponse<AllowedOriginsResponse> result = await allowedOriginsCompanyLevelApi.ListCompanyApiCredentialOriginsAsync(
         companyId,
         apiCredentialId
     );
@@ -101,7 +101,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins
+# Create Company Api Credential Origin
 
 Adds a new [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) to the API credential's list of allowed origins.
 
@@ -110,7 +110,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PostCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsAsync(
+CreateCompanyApiCredentialOriginAsync(
     string companyId,
     string apiCredentialId,
     Models.AllowedOrigin body = null)
@@ -140,7 +140,7 @@ AllowedOrigin body = new AllowedOrigin
 
 try
 {
-    ApiResponse<AllowedOrigin> result = await allowedOriginsCompanyLevelApi.PostCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsAsync(
+    ApiResponse<AllowedOrigin> result = await allowedOriginsCompanyLevelApi.CreateCompanyApiCredentialOriginAsync(
         companyId,
         apiCredentialId,
         body
@@ -181,7 +181,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Delete-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins-Origin Id
+# Delete Company Api Credential Origin
 
 Removes the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) identified in the path. As soon as an allowed origin is removed, we no longer accept client-side requests from that domain.
 
@@ -190,7 +190,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-DeleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(
+DeleteCompanyApiCredentialOriginAsync(
     string companyId,
     string apiCredentialId,
     string originId)
@@ -216,7 +216,7 @@ string apiCredentialId = "apiCredentialId8";
 string originId = "originId6";
 try
 {
-    await allowedOriginsCompanyLevelApi.DeleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(
+    await allowedOriginsCompanyLevelApi.DeleteCompanyApiCredentialOriginAsync(
         companyId,
         apiCredentialId,
         originId
@@ -243,7 +243,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Api Credentials-Api Credential Id-Allowed Origins-Origin Id
+# Get Company Api Credential Origin
 
 Returns the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) identified in the path.
 
@@ -252,7 +252,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(
+GetCompanyApiCredentialOriginAsync(
     string companyId,
     string apiCredentialId,
     string originId)
@@ -278,7 +278,7 @@ string apiCredentialId = "apiCredentialId8";
 string originId = "originId6";
 try
 {
-    ApiResponse<AllowedOrigin> result = await allowedOriginsCompanyLevelApi.GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(
+    ApiResponse<AllowedOrigin> result = await allowedOriginsCompanyLevelApi.GetCompanyApiCredentialOriginAsync(
         companyId,
         apiCredentialId,
         originId

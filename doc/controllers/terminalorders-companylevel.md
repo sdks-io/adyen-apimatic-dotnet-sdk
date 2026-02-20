@@ -10,19 +10,19 @@ TerminalordersCompanylevelApi terminalordersCompanylevelApi = client.Terminalord
 
 ## Methods
 
-* [Get-Companies-Company Id-Billing Entities](../../doc/controllers/terminalorders-companylevel.md#get-companies-company-id-billing-entities)
-* [Get-Companies-Company Id-Shipping Locations](../../doc/controllers/terminalorders-companylevel.md#get-companies-company-id-shipping-locations)
-* [Post-Companies-Company Id-Shipping Locations](../../doc/controllers/terminalorders-companylevel.md#post-companies-company-id-shipping-locations)
-* [Get-Companies-Company Id-Terminal Models](../../doc/controllers/terminalorders-companylevel.md#get-companies-company-id-terminal-models)
-* [Get-Companies-Company Id-Terminal Orders](../../doc/controllers/terminalorders-companylevel.md#get-companies-company-id-terminal-orders)
-* [Post-Companies-Company Id-Terminal Orders](../../doc/controllers/terminalorders-companylevel.md#post-companies-company-id-terminal-orders)
-* [Get-Companies-Company Id-Terminal Orders-Order Id](../../doc/controllers/terminalorders-companylevel.md#get-companies-company-id-terminal-orders-order-id)
-* [Patch-Companies-Company Id-Terminal Orders-Order Id](../../doc/controllers/terminalorders-companylevel.md#patch-companies-company-id-terminal-orders-order-id)
-* [Post-Companies-Company Id-Terminal Orders-Order Id-Cancel](../../doc/controllers/terminalorders-companylevel.md#post-companies-company-id-terminal-orders-order-id-cancel)
-* [Get-Companies-Company Id-Terminal Products](../../doc/controllers/terminalorders-companylevel.md#get-companies-company-id-terminal-products)
+* [List Company Billing Entities](../../doc/controllers/terminalorders-companylevel.md#list-company-billing-entities)
+* [List Company Shipping Locations](../../doc/controllers/terminalorders-companylevel.md#list-company-shipping-locations)
+* [Create Company Shipping Location](../../doc/controllers/terminalorders-companylevel.md#create-company-shipping-location)
+* [List Company Terminal Models](../../doc/controllers/terminalorders-companylevel.md#list-company-terminal-models)
+* [List Company Terminal Orders](../../doc/controllers/terminalorders-companylevel.md#list-company-terminal-orders)
+* [Create Company Terminal Order](../../doc/controllers/terminalorders-companylevel.md#create-company-terminal-order)
+* [Get Company Terminal Order](../../doc/controllers/terminalorders-companylevel.md#get-company-terminal-order)
+* [Update Company Terminal Order](../../doc/controllers/terminalorders-companylevel.md#update-company-terminal-order)
+* [Cancel Company Terminal Order](../../doc/controllers/terminalorders-companylevel.md#cancel-company-terminal-order)
+* [List Company Terminal Products](../../doc/controllers/terminalorders-companylevel.md#list-company-terminal-products)
 
 
-# Get-Companies-Company Id-Billing Entities
+# List Company Billing Entities
 
 Returns the billing entities of the company identified in the path and all merchant accounts belonging to the company.
 A billing entity is a legal entity where we charge orders to. An order for terminal products must contain the ID of a billing entity.
@@ -35,7 +35,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdBillingEntitiesAsync(
+ListCompanyBillingEntitiesAsync(
     string companyId,
     string name = null)
 ```
@@ -57,7 +57,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<BillingEntitiesResponse> result = await terminalOrdersCompanyLevelApi.GetCompaniesCompanyIdBillingEntitiesAsync(companyId);
+    ApiResponse<BillingEntitiesResponse> result = await terminalOrdersCompanyLevelApi.ListCompanyBillingEntitiesAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -113,7 +113,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Shipping Locations
+# List Company Shipping Locations
 
 Returns the shipping locations for the company identified in the path and all merchant accounts belonging to the company.
 A shipping location includes the address where orders can be delivered, and an ID which you need to specify when ordering terminal products.
@@ -126,7 +126,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdShippingLocationsAsync(
+ListCompanyShippingLocationsAsync(
     string companyId,
     string name = null,
     int? offset = null,
@@ -152,7 +152,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<ShippingLocationsResponse> result = await terminalOrdersCompanyLevelApi.GetCompaniesCompanyIdShippingLocationsAsync(companyId);
+    ApiResponse<ShippingLocationsResponse> result = await terminalOrdersCompanyLevelApi.ListCompanyShippingLocationsAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -217,7 +217,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Shipping Locations
+# Create Company Shipping Location
 
 Creates a shipping location for the company identified in the path. A shipping location defines an address where orders can be delivered.
 
@@ -228,7 +228,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostCompaniesCompanyIdShippingLocationsAsync(
+CreateCompanyShippingLocationAsync(
     string companyId,
     Models.ShippingLocation body = null)
 ```
@@ -271,7 +271,7 @@ ShippingLocation body = new ShippingLocation
 
 try
 {
-    ApiResponse<ShippingLocation> result = await terminalOrdersCompanyLevelApi.PostCompaniesCompanyIdShippingLocationsAsync(
+    ApiResponse<ShippingLocation> result = await terminalOrdersCompanyLevelApi.CreateCompanyShippingLocationAsync(
         companyId,
         body
     );
@@ -319,7 +319,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Terminal Models
+# List Company Terminal Models
 
 Returns a list of payment terminal models that the company identified in the path has access to.
 The response includes the terminal model ID, which can be used as a query parameter when getting a list of terminals or a list of products for ordering.
@@ -332,7 +332,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalModelsAsync(
+ListCompanyTerminalModelsAsync(
     string companyId)
 ```
 
@@ -352,7 +352,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<TerminalModelsResponse> result = await terminalOrdersCompanyLevelApi.GetCompaniesCompanyIdTerminalModelsAsync(companyId);
+    ApiResponse<TerminalModelsResponse> result = await terminalOrdersCompanyLevelApi.ListCompanyTerminalModelsAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -536,7 +536,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Terminal Orders
+# List Company Terminal Orders
 
 Returns a lists of terminal products orders for the company identified in the path.
 To filter the list, use one or more of the query parameters.
@@ -549,7 +549,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalOrdersAsync(
+ListCompanyTerminalOrdersAsync(
     string companyId,
     string customerOrderReference = null,
     string status = null,
@@ -577,7 +577,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<TerminalOrdersResponse> result = await terminalOrdersCompanyLevelApi.GetCompaniesCompanyIdTerminalOrdersAsync(companyId);
+    ApiResponse<TerminalOrdersResponse> result = await terminalOrdersCompanyLevelApi.ListCompanyTerminalOrdersAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -691,7 +691,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Terminal Orders
+# Create Company Terminal Order
 
 Creates an order for payment terminal products for the company identified in the path.
 
@@ -704,7 +704,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostCompaniesCompanyIdTerminalOrdersAsync(
+CreateCompanyTerminalOrderAsync(
     string companyId,
     Models.TerminalOrderRequest body = null)
 ```
@@ -748,7 +748,7 @@ TerminalOrderRequest body = new TerminalOrderRequest
 
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.PostCompaniesCompanyIdTerminalOrdersAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.CreateCompanyTerminalOrderAsync(
         companyId,
         body
     );
@@ -825,7 +825,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Terminal Orders-Order Id
+# Get Company Terminal Order
 
 Returns the details of the terminal products order identified in the path.
 
@@ -837,7 +837,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalOrdersOrderIdAsync(
+GetCompanyTerminalOrderAsync(
     string companyId,
     string orderId)
 ```
@@ -860,7 +860,7 @@ string companyId = "companyId0";
 string orderId = "orderId2";
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.GetCompaniesCompanyIdTerminalOrdersOrderIdAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.GetCompanyTerminalOrderAsync(
         companyId,
         orderId
     );
@@ -937,7 +937,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Companies-Company Id-Terminal Orders-Order Id
+# Update Company Terminal Order
 
 Updates the terminal products order identified in the path.
 Updating is only possible while the order has the status **Placed**.
@@ -953,7 +953,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchCompaniesCompanyIdTerminalOrdersOrderIdAsync(
+UpdateCompanyTerminalOrderAsync(
     string companyId,
     string orderId,
     Models.TerminalOrderRequest body = null)
@@ -1003,7 +1003,7 @@ TerminalOrderRequest body = new TerminalOrderRequest
 
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.PatchCompaniesCompanyIdTerminalOrdersOrderIdAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.UpdateCompanyTerminalOrderAsync(
         companyId,
         orderId,
         body
@@ -1088,7 +1088,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Terminal Orders-Order Id-Cancel
+# Cancel Company Terminal Order
 
 Cancels the terminal products order identified in the path.
 Cancelling is only possible while the order has the status **Placed**.
@@ -1101,7 +1101,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostCompaniesCompanyIdTerminalOrdersOrderIdCancelAsync(
+CancelCompanyTerminalOrderAsync(
     string companyId,
     string orderId)
 ```
@@ -1124,7 +1124,7 @@ string companyId = "companyId0";
 string orderId = "orderId2";
 try
 {
-    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.PostCompaniesCompanyIdTerminalOrdersOrderIdCancelAsync(
+    ApiResponse<TerminalOrder> result = await terminalOrdersCompanyLevelApi.CancelCompanyTerminalOrderAsync(
         companyId,
         orderId
     );
@@ -1201,7 +1201,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Terminal Products
+# List Company Terminal Products
 
 Returns a country-specific list of payment terminal packages and parts that the company identified in the path has access to.
 
@@ -1213,7 +1213,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalProductsAsync(
+ListCompanyTerminalProductsAsync(
     string companyId,
     string country,
     string terminalModelId = null,
@@ -1242,7 +1242,7 @@ string companyId = "companyId0";
 string country = "country4";
 try
 {
-    ApiResponse<TerminalProductsResponse> result = await terminalOrdersCompanyLevelApi.GetCompaniesCompanyIdTerminalProductsAsync(
+    ApiResponse<TerminalProductsResponse> result = await terminalOrdersCompanyLevelApi.ListCompanyTerminalProductsAsync(
         companyId,
         country
     );

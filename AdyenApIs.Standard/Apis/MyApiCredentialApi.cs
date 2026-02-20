@@ -29,8 +29,8 @@ namespace AdyenApIs.Standard.Apis
         /// You can make this request with any of the Management API roles.
         /// </summary>
         /// <returns>Returns the ApiResponse of Models.MeApiCredential response from the API call.</returns>
-        public ApiResponse<Models.MeApiCredential> GetMe()
-            => CoreHelper.RunTask(GetMeAsync());
+        public ApiResponse<Models.MeApiCredential> GetMyApiCredential()
+            => CoreHelper.RunTask(GetMyApiCredentialAsync());
 
         /// <summary>
         /// Returns your [API credential](https://docs.adyen.com/development-resources/api-credentials) details based on the API Key you used in the request.
@@ -38,7 +38,7 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.MeApiCredential response from the API call.</returns>
-        public async Task<ApiResponse<Models.MeApiCredential>> GetMeAsync(CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Models.MeApiCredential>> GetMyApiCredentialAsync(CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.MeApiCredential>()
               .Server(Server.Default1)
               .RequestBuilder(requestBuilder => requestBuilder
@@ -60,8 +60,8 @@ namespace AdyenApIs.Standard.Apis
         /// You can make this request with any of the Management API roles.
         /// </summary>
         /// <returns>Returns the ApiResponse of Models.AllowedOriginsResponse response from the API call.</returns>
-        public ApiResponse<Models.AllowedOriginsResponse> GetMeAllowedOrigins()
-            => CoreHelper.RunTask(GetMeAllowedOriginsAsync());
+        public ApiResponse<Models.AllowedOriginsResponse> ListMyAllowedOrigins()
+            => CoreHelper.RunTask(ListMyAllowedOriginsAsync());
 
         /// <summary>
         /// Returns the list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) of your [API credential](https://docs.adyen.com/development-resources/api-credentials) based on the API key you used in the request.
@@ -69,7 +69,7 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AllowedOriginsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.AllowedOriginsResponse>> GetMeAllowedOriginsAsync(CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Models.AllowedOriginsResponse>> ListMyAllowedOriginsAsync(CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.AllowedOriginsResponse>()
               .Server(Server.Default1)
               .RequestBuilder(requestBuilder => requestBuilder
@@ -93,9 +93,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public ApiResponse<Models.AllowedOrigin> PostMeAllowedOrigins(
+        public ApiResponse<Models.AllowedOrigin> CreateMyAllowedOrigin(
                 Models.CreateAllowedOriginRequest body = null)
-            => CoreHelper.RunTask(PostMeAllowedOriginsAsync(body));
+            => CoreHelper.RunTask(CreateMyAllowedOriginAsync(body));
 
         /// <summary>
         /// Adds an allowed origin to the list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) of your API credential.
@@ -105,7 +105,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public async Task<ApiResponse<Models.AllowedOrigin>> PostMeAllowedOriginsAsync(
+        public async Task<ApiResponse<Models.AllowedOrigin>> CreateMyAllowedOriginAsync(
                 Models.CreateAllowedOriginRequest body = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.AllowedOrigin>()
@@ -133,9 +133,9 @@ namespace AdyenApIs.Standard.Apis
         /// You can make this request with any of the Management API roles.
         /// </summary>
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
-        public void DeleteMeAllowedOriginsOriginId(
+        public void DeleteMyAllowedOrigin(
                 string originId)
-            => CoreHelper.RunVoidTask(DeleteMeAllowedOriginsOriginIdAsync(originId));
+            => CoreHelper.RunVoidTask(DeleteMyAllowedOriginAsync(originId));
 
         /// <summary>
         /// Removes the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) specified in the path.
@@ -145,7 +145,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task DeleteMeAllowedOriginsOriginIdAsync(
+        public async Task DeleteMyAllowedOriginAsync(
                 string originId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<VoidType>()
@@ -173,9 +173,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public ApiResponse<Models.AllowedOrigin> GetMeAllowedOriginsOriginId(
+        public ApiResponse<Models.AllowedOrigin> GetMyAllowedOrigin(
                 string originId)
-            => CoreHelper.RunTask(GetMeAllowedOriginsOriginIdAsync(originId));
+            => CoreHelper.RunTask(GetMyAllowedOriginAsync(originId));
 
         /// <summary>
         /// Returns the details of the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) specified in the path.
@@ -185,7 +185,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public async Task<ApiResponse<Models.AllowedOrigin>> GetMeAllowedOriginsOriginIdAsync(
+        public async Task<ApiResponse<Models.AllowedOrigin>> GetMyAllowedOriginAsync(
                 string originId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.AllowedOrigin>()
@@ -214,8 +214,8 @@ namespace AdyenApIs.Standard.Apis
         /// * Management API—API credentials read and write.
         /// </summary>
         /// <returns>Returns the ApiResponse of Models.GenerateClientKeyResponse response from the API call.</returns>
-        public ApiResponse<Models.GenerateClientKeyResponse> PostMeGenerateClientKey()
-            => CoreHelper.RunTask(PostMeGenerateClientKeyAsync());
+        public ApiResponse<Models.GenerateClientKeyResponse> GenerateMyClientKey()
+            => CoreHelper.RunTask(GenerateMyClientKeyAsync());
 
         /// <summary>
         /// Generates a new [client key](https://docs.adyen.com/development-resources/client-side-authentication/) used to authenticate requests from your payment environment.
@@ -226,7 +226,7 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.GenerateClientKeyResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.GenerateClientKeyResponse>> PostMeGenerateClientKeyAsync(CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Models.GenerateClientKeyResponse>> GenerateMyClientKeyAsync(CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.GenerateClientKeyResponse>()
               .Server(Server.Default1)
               .RequestBuilder(requestBuilder => requestBuilder

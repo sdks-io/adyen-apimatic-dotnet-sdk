@@ -35,9 +35,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.ScheduleTerminalActionsResponse response from the API call.</returns>
-        public ApiResponse<Models.ScheduleTerminalActionsResponse> PostTerminalsScheduleActions(
+        public ApiResponse<Models.ScheduleTerminalActionsResponse> ScheduleTerminalActions(
                 Models.ScheduleTerminalActionsRequest body = null)
-            => CoreHelper.RunTask(PostTerminalsScheduleActionsAsync(body));
+            => CoreHelper.RunTask(ScheduleTerminalActionsAsync(body));
 
         /// <summary>
         /// Schedules a [terminal action](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api) by specifying the action and the terminals that the action must be applied to. .
@@ -52,7 +52,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ScheduleTerminalActionsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ScheduleTerminalActionsResponse>> PostTerminalsScheduleActionsAsync(
+        public async Task<ApiResponse<Models.ScheduleTerminalActionsResponse>> ScheduleTerminalActionsAsync(
                 Models.ScheduleTerminalActionsRequest body = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.ScheduleTerminalActionsResponse>()

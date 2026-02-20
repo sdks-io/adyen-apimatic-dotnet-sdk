@@ -9,7 +9,7 @@ ClientkeyCompanylevelApi clientkeyCompanylevelApi = client.ClientkeyCompanylevel
 `ClientkeyCompanylevelApi`
 
 
-# Post-Companies-Company Id-Api Credentials-Api Credential Id-Generate Client Key
+# Generate Company Client Key
 
 Returns a new [client key](https://docs.adyen.com/development-resources/client-side-authentication#how-it-works) for the API credential identified in the path. You can use the new client key a few minutes after generating it. The old client key stops working 24 hours after generating a new one.
 
@@ -18,7 +18,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—API credentials read and write
 
 ```csharp
-PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyAsync(
+GenerateCompanyClientKeyAsync(
     string companyId,
     string apiCredentialId)
 ```
@@ -41,7 +41,7 @@ string companyId = "companyId0";
 string apiCredentialId = "apiCredentialId8";
 try
 {
-    ApiResponse<GenerateClientKeyResponse> result = await clientKeyCompanyLevelApi.PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyAsync(
+    ApiResponse<GenerateClientKeyResponse> result = await clientKeyCompanyLevelApi.GenerateCompanyClientKeyAsync(
         companyId,
         apiCredentialId
     );

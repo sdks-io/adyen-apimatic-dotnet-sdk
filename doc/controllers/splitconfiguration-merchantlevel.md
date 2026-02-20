@@ -10,18 +10,18 @@ SplitconfigurationMerchantlevelApi splitconfigurationMerchantlevelApi = client.S
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Split Configurations](../../doc/controllers/splitconfiguration-merchantlevel.md#get-merchants-merchant-id-split-configurations)
-* [Post-Merchants-Merchant Id-Split Configurations](../../doc/controllers/splitconfiguration-merchantlevel.md#post-merchants-merchant-id-split-configurations)
-* [Delete-Merchants-Merchant Id-Split Configurations-Split Configuration Id](../../doc/controllers/splitconfiguration-merchantlevel.md#delete-merchants-merchant-id-split-configurations-split-configuration-id)
-* [Get-Merchants-Merchant Id-Split Configurations-Split Configuration Id](../../doc/controllers/splitconfiguration-merchantlevel.md#get-merchants-merchant-id-split-configurations-split-configuration-id)
-* [Patch-Merchants-Merchant Id-Split Configurations-Split Configuration Id](../../doc/controllers/splitconfiguration-merchantlevel.md#patch-merchants-merchant-id-split-configurations-split-configuration-id)
-* [Post-Merchants-Merchant Id-Split Configurations-Split Configuration Id](../../doc/controllers/splitconfiguration-merchantlevel.md#post-merchants-merchant-id-split-configurations-split-configuration-id)
-* [Delete-Merchants-Merchant Id-Split Configurations-Split Configuration Id-Rules-Rule Id](../../doc/controllers/splitconfiguration-merchantlevel.md#delete-merchants-merchant-id-split-configurations-split-configuration-id-rules-rule-id)
-* [Patch-Merchants-Merchant Id-Split Configurations-Split Configuration Id-Rules-Rule Id](../../doc/controllers/splitconfiguration-merchantlevel.md#patch-merchants-merchant-id-split-configurations-split-configuration-id-rules-rule-id)
-* [Patch-Merchants-Merchant Id-Split Configurations-Split Configuration Id-Rules-Rule Id-Split Logic-Split Logic Id](../../doc/controllers/splitconfiguration-merchantlevel.md#patch-merchants-merchant-id-split-configurations-split-configuration-id-rules-rule-id-split-logic-split-logic-id)
+* [List Split Configurations](../../doc/controllers/splitconfiguration-merchantlevel.md#list-split-configurations)
+* [Create Split Configuration](../../doc/controllers/splitconfiguration-merchantlevel.md#create-split-configuration)
+* [Delete Split Configuration](../../doc/controllers/splitconfiguration-merchantlevel.md#delete-split-configuration)
+* [Get Split Configuration](../../doc/controllers/splitconfiguration-merchantlevel.md#get-split-configuration)
+* [Update Split Configuration](../../doc/controllers/splitconfiguration-merchantlevel.md#update-split-configuration)
+* [Create Split Configuration Rule](../../doc/controllers/splitconfiguration-merchantlevel.md#create-split-configuration-rule)
+* [Delete Split Configuration Rule](../../doc/controllers/splitconfiguration-merchantlevel.md#delete-split-configuration-rule)
+* [Update Split Configuration Rule](../../doc/controllers/splitconfiguration-merchantlevel.md#update-split-configuration-rule)
+* [Update Split Logic](../../doc/controllers/splitconfiguration-merchantlevel.md#update-split-logic)
 
 
-# Get-Merchants-Merchant Id-Split Configurations
+# List Split Configurations
 
 Returns the list of split configuration profiles for the merchant account.
 
@@ -30,7 +30,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-GetMerchantsMerchantIdSplitConfigurationsAsync(
+ListSplitConfigurationsAsync(
     string merchantId)
 ```
 
@@ -50,7 +50,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<SplitConfigurationList> result = await splitConfigurationMerchantLevelApi.GetMerchantsMerchantIdSplitConfigurationsAsync(merchantId);
+    ApiResponse<SplitConfigurationList> result = await splitConfigurationMerchantLevelApi.ListSplitConfigurationsAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -163,7 +163,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Split Configurations
+# Create Split Configuration
 
 Creates a split configuration profile to [split payments automatically](https://docs.adyen.com/platforms/automatic-split-configuration/). After you [associate it with a store](https://docs.adyen.com/api-explorer/Management/latest/patch/merchants/(merchantId)/stores/(storeId)#request-splitConfiguration) in your merchant account, it splits the funds of all transactions processed through that store between your liable balance account and [your user's balance account](https://docs.adyen.com/api-explorer/Management/latest/patch/merchants/(merchantId)/stores/(storeId)#request-splitConfiguration-balanceAccountId).
 
@@ -172,7 +172,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-PostMerchantsMerchantIdSplitConfigurationsAsync(
+CreateSplitConfigurationAsync(
     string merchantId,
     Models.SplitConfiguration body = null)
 ```
@@ -227,7 +227,7 @@ SplitConfiguration body = new SplitConfiguration
 
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.PostMerchantsMerchantIdSplitConfigurationsAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.CreateSplitConfigurationAsync(
         merchantId,
         body
     );
@@ -287,7 +287,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Delete-Merchants-Merchant Id-Split Configurations-Split Configuration Id
+# Delete Split Configuration
 
 Deletes the split configuration profile specified in the path.
 
@@ -296,7 +296,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+DeleteSplitConfigurationAsync(
     string merchantId,
     string splitConfigurationId)
 ```
@@ -319,7 +319,7 @@ string merchantId = "merchantId6";
 string splitConfigurationId = "splitConfigurationId4";
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.DeleteSplitConfigurationAsync(
         merchantId,
         splitConfigurationId
     );
@@ -345,7 +345,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Split Configurations-Split Configuration Id
+# Get Split Configuration
 
 Returns the details of the split configuration profile specified in the path.
 
@@ -354,7 +354,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+GetSplitConfigurationAsync(
     string merchantId,
     string splitConfigurationId)
 ```
@@ -377,7 +377,7 @@ string merchantId = "merchantId6";
 string splitConfigurationId = "splitConfigurationId4";
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.GetSplitConfigurationAsync(
         merchantId,
         splitConfigurationId
     );
@@ -460,7 +460,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Split Configurations-Split Configuration Id
+# Update Split Configuration
 
 Changes the description of the split configuration profile specified in the path.
 
@@ -469,7 +469,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+UpdateSplitConfigurationAsync(
     string merchantId,
     string splitConfigurationId,
     Models.UpdateSplitConfigurationRequest body = null)
@@ -499,7 +499,7 @@ UpdateSplitConfigurationRequest body = new UpdateSplitConfigurationRequest
 
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.UpdateSplitConfigurationAsync(
         merchantId,
         splitConfigurationId,
         body
@@ -583,7 +583,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Split Configurations-Split Configuration Id
+# Create Split Configuration Rule
 
 [Creates a rule](https://docs.adyen.com/platforms/automatic-split-configuration/manage-split-configurations/api/#create-rule) in the split configuration profile specified in the path.
 
@@ -592,7 +592,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+CreateSplitConfigurationRuleAsync(
     string merchantId,
     string splitConfigurationId,
     Models.SplitConfigurationRule body = null)
@@ -643,7 +643,7 @@ SplitConfigurationRule body = new SplitConfigurationRule
 
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.CreateSplitConfigurationRuleAsync(
         merchantId,
         splitConfigurationId,
         body
@@ -727,7 +727,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Delete-Merchants-Merchant Id-Split Configurations-Split Configuration Id-Rules-Rule Id
+# Delete Split Configuration Rule
 
 Deletes the rule specified in the path.
 
@@ -736,7 +736,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(
+DeleteSplitConfigurationRuleAsync(
     string merchantId,
     string splitConfigurationId,
     string ruleId)
@@ -762,7 +762,7 @@ string splitConfigurationId = "splitConfigurationId4";
 string ruleId = "ruleId4";
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.DeleteSplitConfigurationRuleAsync(
         merchantId,
         splitConfigurationId,
         ruleId
@@ -789,7 +789,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Split Configurations-Split Configuration Id-Rules-Rule Id
+# Update Split Configuration Rule
 
 Changes the [split conditions of the rule](https://docs.adyen.com/platforms/automatic-split-configuration/manage-split-configurations/api/#update-condition) specified in the path.
 
@@ -798,7 +798,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(
+UpdateSplitConfigurationRuleAsync(
     string merchantId,
     string splitConfigurationId,
     string ruleId,
@@ -834,7 +834,7 @@ UpdateSplitConfigurationRuleRequest body = new UpdateSplitConfigurationRuleReque
 
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.UpdateSplitConfigurationRuleAsync(
         merchantId,
         splitConfigurationId,
         ruleId,
@@ -919,7 +919,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Split Configurations-Split Configuration Id-Rules-Rule Id-Split Logic-Split Logic Id
+# Update Split Logic
 
 Changes the [split logic](https://docs.adyen.com/platforms/automatic-split-configuration/manage-split-configurations/api/#update-split-logic) specified in the path.
 
@@ -928,7 +928,7 @@ To make this request, your API credential must have the following [role](https:/
 * Management API - SplitConfiguration read and write
 
 ```csharp
-PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdSplitLogicSplitLogicIdAsync(
+UpdateSplitLogicAsync(
     string merchantId,
     string splitConfigurationId,
     string ruleId,
@@ -978,7 +978,7 @@ UpdateSplitConfigurationLogicRequest body = new UpdateSplitConfigurationLogicReq
 
 try
 {
-    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdSplitLogicSplitLogicIdAsync(
+    ApiResponse<SplitConfiguration> result = await splitConfigurationMerchantLevelApi.UpdateSplitLogicAsync(
         merchantId,
         splitConfigurationId,
         ruleId,

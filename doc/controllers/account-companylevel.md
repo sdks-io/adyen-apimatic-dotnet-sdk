@@ -10,12 +10,12 @@ AccountCompanylevelApi accountCompanylevelApi = client.AccountCompanylevelApi;
 
 ## Methods
 
-* [Get-Companies](../../doc/controllers/account-companylevel.md#get-companies)
-* [Get-Companies-Company Id](../../doc/controllers/account-companylevel.md#get-companies-company-id)
-* [Get-Companies-Company Id-Merchants](../../doc/controllers/account-companylevel.md#get-companies-company-id-merchants)
+* [List Companies](../../doc/controllers/account-companylevel.md#list-companies)
+* [Get Company](../../doc/controllers/account-companylevel.md#get-company)
+* [List Company Merchants](../../doc/controllers/account-companylevel.md#list-company-merchants)
 
 
-# Get-Companies
+# List Companies
 
 Returns the list of company accounts that your API credential has access to. The list is grouped into pages as defined by the query parameters.
 
@@ -24,7 +24,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Account read
 
 ```csharp
-GetCompaniesAsync(
+ListCompaniesAsync(
     int? pageNumber = null,
     int? pageSize = null)
 ```
@@ -45,7 +45,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<ListCompanyResponse> result = await accountCompanyLevelApi.GetCompaniesAsync();
+    ApiResponse<ListCompanyResponse> result = await accountCompanyLevelApi.ListCompaniesAsync();
 }
 catch (ApiException e)
 {
@@ -115,7 +115,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id
+# Get Company
 
 Returns the company account specified in the path. Your API credential must have access to the company account.
 
@@ -124,7 +124,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Account read
 
 ```csharp
-GetCompaniesCompanyIdAsync(
+GetCompanyAsync(
     string companyId)
 ```
 
@@ -144,7 +144,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<Company2> result = await accountCompanyLevelApi.GetCompaniesCompanyIdAsync(companyId);
+    ApiResponse<Company2> result = await accountCompanyLevelApi.GetCompanyAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -197,7 +197,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Merchants
+# List Company Merchants
 
 Returns the list of merchant accounts under the company account specified in the path. The list only includes merchant accounts that your API credential has access to. The list is grouped into pages as defined by the query parameters.
 
@@ -206,7 +206,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Account read
 
 ```csharp
-GetCompaniesCompanyIdMerchantsAsync(
+ListCompanyMerchantsAsync(
     string companyId,
     int? pageNumber = null,
     int? pageSize = null)
@@ -230,7 +230,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<ListMerchantResponse> result = await accountCompanyLevelApi.GetCompaniesCompanyIdMerchantsAsync(companyId);
+    ApiResponse<ListMerchantResponse> result = await accountCompanyLevelApi.ListCompanyMerchantsAsync(companyId);
 }
 catch (ApiException e)
 {

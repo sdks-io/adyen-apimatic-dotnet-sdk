@@ -32,10 +32,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.StandalonePaymentCancelResponse response from the API call.</returns>
-        public ApiResponse<Models.StandalonePaymentCancelResponse> PostCancels(
+        public ApiResponse<Models.StandalonePaymentCancelResponse> CancelPayment(
                 string idempotencyKey = null,
                 Models.StandalonePaymentCancelRequest body = null)
-            => CoreHelper.RunTask(PostCancelsAsync(idempotencyKey, body));
+            => CoreHelper.RunTask(CancelPaymentAsync(idempotencyKey, body));
 
         /// <summary>
         /// Cancels the authorisation on a payment that has not yet been [captured](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/captures), and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**TECHNICAL_CANCEL** webhook](https://docs.adyen.com/online-payments/cancel#cancellation-webhook).
@@ -47,7 +47,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.StandalonePaymentCancelResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.StandalonePaymentCancelResponse>> PostCancelsAsync(
+        public async Task<ApiResponse<Models.StandalonePaymentCancelResponse>> CancelPaymentAsync(
                 string idempotencyKey = null,
                 Models.StandalonePaymentCancelRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -80,11 +80,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentAmountUpdateResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentAmountUpdateResponse> PostPaymentsPaymentPspReferenceAmountUpdates(
+        public ApiResponse<Models.PaymentAmountUpdateResponse> UpdatePaymentAmount(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentAmountUpdateRequest body = null)
-            => CoreHelper.RunTask(PostPaymentsPaymentPspReferenceAmountUpdatesAsync(paymentPspReference, idempotencyKey, body));
+            => CoreHelper.RunTask(UpdatePaymentAmountAsync(paymentPspReference, idempotencyKey, body));
 
         /// <summary>
         /// Increases or decreases the authorised payment amount and returns a unique reference for this request. You get the outcome of the request asynchronously, in an [**AUTHORISATION_ADJUSTMENT** webhook](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
@@ -97,7 +97,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentAmountUpdateResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentAmountUpdateResponse>> PostPaymentsPaymentPspReferenceAmountUpdatesAsync(
+        public async Task<ApiResponse<Models.PaymentAmountUpdateResponse>> UpdatePaymentAmountAsync(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentAmountUpdateRequest body = null,
@@ -132,11 +132,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentCancelResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentCancelResponse> PostPaymentsPaymentPspReferenceCancels(
+        public ApiResponse<Models.PaymentCancelResponse> CancelAuthorisedPayment(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentCancelRequest body = null)
-            => CoreHelper.RunTask(PostPaymentsPaymentPspReferenceCancelsAsync(paymentPspReference, idempotencyKey, body));
+            => CoreHelper.RunTask(CancelAuthorisedPaymentAsync(paymentPspReference, idempotencyKey, body));
 
         /// <summary>
         /// Cancels the authorisation on a payment that has not yet been [captured](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/captures), and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**CANCELLATION** webhook](https://docs.adyen.com/online-payments/cancel#cancellation-webhook).
@@ -149,7 +149,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentCancelResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentCancelResponse>> PostPaymentsPaymentPspReferenceCancelsAsync(
+        public async Task<ApiResponse<Models.PaymentCancelResponse>> CancelAuthorisedPaymentAsync(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentCancelRequest body = null,
@@ -184,11 +184,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentCaptureResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentCaptureResponse> PostPaymentsPaymentPspReferenceCaptures(
+        public ApiResponse<Models.PaymentCaptureResponse> CapturePayment(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentCaptureRequest body = null)
-            => CoreHelper.RunTask(PostPaymentsPaymentPspReferenceCapturesAsync(paymentPspReference, idempotencyKey, body));
+            => CoreHelper.RunTask(CapturePaymentAsync(paymentPspReference, idempotencyKey, body));
 
         /// <summary>
         ///  Captures an authorised payment and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**CAPTURE** webhook](https://docs.adyen.com/online-payments/capture#capture-notification).
@@ -201,7 +201,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentCaptureResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentCaptureResponse>> PostPaymentsPaymentPspReferenceCapturesAsync(
+        public async Task<ApiResponse<Models.PaymentCaptureResponse>> CapturePaymentAsync(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentCaptureRequest body = null,
@@ -237,11 +237,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentRefundResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentRefundResponse> PostPaymentsPaymentPspReferenceRefunds(
+        public ApiResponse<Models.PaymentRefundResponse> RefundPayment(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentRefundRequest body = null)
-            => CoreHelper.RunTask(PostPaymentsPaymentPspReferenceRefundsAsync(paymentPspReference, idempotencyKey, body));
+            => CoreHelper.RunTask(RefundPaymentAsync(paymentPspReference, idempotencyKey, body));
 
         /// <summary>
         /// Refunds a payment that has been [captured](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/captures), and returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**REFUND** webhook](https://docs.adyen.com/online-payments/refund#refund-webhook).
@@ -255,7 +255,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentRefundResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentRefundResponse>> PostPaymentsPaymentPspReferenceRefundsAsync(
+        public async Task<ApiResponse<Models.PaymentRefundResponse>> RefundPaymentAsync(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentRefundRequest body = null,
@@ -290,11 +290,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="idempotencyKey">Optional parameter: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PaymentReversalResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentReversalResponse> PostPaymentsPaymentPspReferenceReversals(
+        public ApiResponse<Models.PaymentReversalResponse> ReversePayment(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentReversalRequest body = null)
-            => CoreHelper.RunTask(PostPaymentsPaymentPspReferenceReversalsAsync(paymentPspReference, idempotencyKey, body));
+            => CoreHelper.RunTask(ReversePaymentAsync(paymentPspReference, idempotencyKey, body));
 
         /// <summary>
         /// [Refunds](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/refunds) a payment if it has already been captured, and [cancels](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments/{paymentPspReference}/cancels) a payment if it has not yet been captured. Returns a unique reference for this request. You get the outcome of the request asynchronously, in a [**CANCEL_OR_REFUND** webhook](https://docs.adyen.com/online-payments/reversal/#cancel-or-refund-webhook).
@@ -307,7 +307,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentReversalResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentReversalResponse>> PostPaymentsPaymentPspReferenceReversalsAsync(
+        public async Task<ApiResponse<Models.PaymentReversalResponse>> ReversePaymentAsync(
                 string paymentPspReference,
                 string idempotencyKey = null,
                 Models.PaymentReversalRequest body = null,

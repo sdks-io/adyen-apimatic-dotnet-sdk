@@ -35,11 +35,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <returns>Returns the ApiResponse of Models.ListWebhooksResponse response from the API call.</returns>
-        public ApiResponse<Models.ListWebhooksResponse> GetMerchantsMerchantIdWebhooks(
+        public ApiResponse<Models.ListWebhooksResponse> ListMerchantWebhooks(
                 string merchantId,
                 int? pageNumber = null,
                 int? pageSize = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdWebhooksAsync(merchantId, pageNumber, pageSize));
+            => CoreHelper.RunTask(ListMerchantWebhooksAsync(merchantId, pageNumber, pageSize));
 
         /// <summary>
         /// Lists all webhook configurations for the merchant account.
@@ -53,7 +53,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListWebhooksResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListWebhooksResponse>> GetMerchantsMerchantIdWebhooksAsync(
+        public async Task<ApiResponse<Models.ListWebhooksResponse>> ListMerchantWebhooksAsync(
                 string merchantId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -86,10 +86,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public ApiResponse<Models.Webhook> PostMerchantsMerchantIdWebhooks(
+        public ApiResponse<Models.Webhook> CreateMerchantWebhook(
                 string merchantId,
                 Models.CreateMerchantWebhookRequest body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdWebhooksAsync(merchantId, body));
+            => CoreHelper.RunTask(CreateMerchantWebhookAsync(merchantId, body));
 
         /// <summary>
         /// Subscribe to receive webhook notifications about events related to your merchant account. You can add basic authentication to make sure the data is secure.
@@ -100,7 +100,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public async Task<ApiResponse<Models.Webhook>> PostMerchantsMerchantIdWebhooksAsync(
+        public async Task<ApiResponse<Models.Webhook>> CreateMerchantWebhookAsync(
                 string merchantId,
                 Models.CreateMerchantWebhookRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -131,10 +131,10 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
-        public void DeleteMerchantsMerchantIdWebhooksWebhookId(
+        public void DeleteMerchantWebhook(
                 string merchantId,
                 string webhookId)
-            => CoreHelper.RunVoidTask(DeleteMerchantsMerchantIdWebhooksWebhookIdAsync(merchantId, webhookId));
+            => CoreHelper.RunVoidTask(DeleteMerchantWebhookAsync(merchantId, webhookId));
 
         /// <summary>
         /// Remove the configuration for the webhook identified in the path.
@@ -145,7 +145,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task DeleteMerchantsMerchantIdWebhooksWebhookIdAsync(
+        public async Task DeleteMerchantWebhookAsync(
                 string merchantId,
                 string webhookId,
                 CancellationToken cancellationToken = default)
@@ -177,10 +177,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public ApiResponse<Models.Webhook> GetMerchantsMerchantIdWebhooksWebhookId(
+        public ApiResponse<Models.Webhook> GetMerchantWebhook(
                 string merchantId,
                 string webhookId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdWebhooksWebhookIdAsync(merchantId, webhookId));
+            => CoreHelper.RunTask(GetMerchantWebhookAsync(merchantId, webhookId));
 
         /// <summary>
         /// Returns the configuration for the webhook identified in the path.
@@ -192,7 +192,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public async Task<ApiResponse<Models.Webhook>> GetMerchantsMerchantIdWebhooksWebhookIdAsync(
+        public async Task<ApiResponse<Models.Webhook>> GetMerchantWebhookAsync(
                 string merchantId,
                 string webhookId,
                 CancellationToken cancellationToken = default)
@@ -224,11 +224,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public ApiResponse<Models.Webhook> PatchMerchantsMerchantIdWebhooksWebhookId(
+        public ApiResponse<Models.Webhook> UpdateMerchantWebhook(
                 string merchantId,
                 string webhookId,
                 Models.UpdateMerchantWebhookRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdWebhooksWebhookIdAsync(merchantId, webhookId, body));
+            => CoreHelper.RunTask(UpdateMerchantWebhookAsync(merchantId, webhookId, body));
 
         /// <summary>
         /// Make changes to the configuration of the webhook identified in the path. The request contains the new values you want to have in the webhook configuration. The response contains the full configuration for the webhook, which includes the new values from the request.
@@ -240,7 +240,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public async Task<ApiResponse<Models.Webhook>> PatchMerchantsMerchantIdWebhooksWebhookIdAsync(
+        public async Task<ApiResponse<Models.Webhook>> UpdateMerchantWebhookAsync(
                 string merchantId,
                 string webhookId,
                 Models.UpdateMerchantWebhookRequest body = null,
@@ -274,10 +274,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="webhookId">Required parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.GenerateHmacKeyResponse response from the API call.</returns>
-        public ApiResponse<Models.GenerateHmacKeyResponse> PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmac(
+        public ApiResponse<Models.GenerateHmacKeyResponse> GenerateMerchantWebhookHmac(
                 string merchantId,
                 string webhookId)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacAsync(merchantId, webhookId));
+            => CoreHelper.RunTask(GenerateMerchantWebhookHmacAsync(merchantId, webhookId));
 
         /// <summary>
         /// Returns an [HMAC key](https://en.wikipedia.org/wiki/HMAC) for the webhook identified in the path. This key allows you to check the integrity and the origin of the notifications you receive.By creating an HMAC key, you start receiving [HMAC-signed notifications](https://docs.adyen.com/development-resources/webhooks/verify-hmac-signatures#enable-hmac-signatures) from Adyen. Find out more about how to [verify HMAC signatures](https://docs.adyen.com/development-resources/webhooks/verify-hmac-signatures).
@@ -288,7 +288,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.GenerateHmacKeyResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.GenerateHmacKeyResponse>> PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacAsync(
+        public async Task<ApiResponse<Models.GenerateHmacKeyResponse>> GenerateMerchantWebhookHmacAsync(
                 string merchantId,
                 string webhookId,
                 CancellationToken cancellationToken = default)
@@ -322,11 +322,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TestWebhookResponse response from the API call.</returns>
-        public ApiResponse<Models.TestWebhookResponse> PostMerchantsMerchantIdWebhooksWebhookIdTest(
+        public ApiResponse<Models.TestWebhookResponse> TestMerchantWebhook(
                 string merchantId,
                 string webhookId,
                 Models.TestWebhookRequest body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdWebhooksWebhookIdTestAsync(merchantId, webhookId, body));
+            => CoreHelper.RunTask(TestMerchantWebhookAsync(merchantId, webhookId, body));
 
         /// <summary>
         /// Sends sample notifications to test if the webhook is set up correctly.
@@ -340,7 +340,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TestWebhookResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TestWebhookResponse>> PostMerchantsMerchantIdWebhooksWebhookIdTestAsync(
+        public async Task<ApiResponse<Models.TestWebhookResponse>> TestMerchantWebhookAsync(
                 string merchantId,
                 string webhookId,
                 Models.TestWebhookRequest body = null,

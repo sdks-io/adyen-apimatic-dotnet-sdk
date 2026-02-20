@@ -35,10 +35,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> GetCompaniesCompanyIdTerminalLogos(
+        public ApiResponse<Models.Logo> GetCompanyTerminalLogo(
                 string companyId,
                 string model)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalLogosAsync(companyId, model));
+            => CoreHelper.RunTask(GetCompanyTerminalLogoAsync(companyId, model));
 
         /// <summary>
         /// Returns the logo that is configured for a specific payment terminal model at the company identified in the path. .
@@ -53,7 +53,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> GetCompaniesCompanyIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> GetCompanyTerminalLogoAsync(
                 string companyId,
                 string model,
                 CancellationToken cancellationToken = default)
@@ -89,11 +89,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> PatchCompaniesCompanyIdTerminalLogos(
+        public ApiResponse<Models.Logo> UpdateCompanyTerminalLogo(
                 string companyId,
                 string model,
                 Models.Logo body = null)
-            => CoreHelper.RunTask(PatchCompaniesCompanyIdTerminalLogosAsync(companyId, model, body));
+            => CoreHelper.RunTask(UpdateCompanyTerminalLogoAsync(companyId, model, body));
 
         /// <summary>
         /// Updates the logo that is configured for a specific payment terminal model at the company identified in the path. You can update the logo for only one terminal model at a time.
@@ -109,7 +109,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> PatchCompaniesCompanyIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> UpdateCompanyTerminalLogoAsync(
                 string companyId,
                 string model,
                 Models.Logo body = null,
@@ -146,9 +146,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> GetCompaniesCompanyIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> GetCompanyTerminalSettings(
                 string companyId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalSettingsAsync(companyId));
+            => CoreHelper.RunTask(GetCompanyTerminalSettingsAsync(companyId));
 
         /// <summary>
         /// Returns the payment terminal settings that are configured for the company identified in the path. These settings apply to all terminals under the company, unless different values are configured at a lower level (merchant account, store, or individual terminal).
@@ -162,7 +162,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> GetCompaniesCompanyIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> GetCompanyTerminalSettingsAsync(
                 string companyId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.TerminalSettings>()
@@ -197,10 +197,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> PatchCompaniesCompanyIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> UpdateCompanyTerminalSettings(
                 string companyId,
                 Models.TerminalSettings body = null)
-            => CoreHelper.RunTask(PatchCompaniesCompanyIdTerminalSettingsAsync(companyId, body));
+            => CoreHelper.RunTask(UpdateCompanyTerminalSettingsAsync(companyId, body));
 
         /// <summary>
         /// Updates payment terminal settings for the company identified in the path. These settings apply to all terminals under the company, unless different values are configured at a lower level (merchant account, store, or individual terminal).
@@ -217,7 +217,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> PatchCompaniesCompanyIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> UpdateCompanyTerminalSettingsAsync(
                 string companyId,
                 Models.TerminalSettings body = null,
                 CancellationToken cancellationToken = default)

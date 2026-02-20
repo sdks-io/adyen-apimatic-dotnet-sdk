@@ -31,10 +31,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <returns>Returns the ApiResponse of Models.GenerateClientKeyResponse response from the API call.</returns>
-        public ApiResponse<Models.GenerateClientKeyResponse> PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKey(
+        public ApiResponse<Models.GenerateClientKeyResponse> GenerateCompanyClientKey(
                 string companyId,
                 string apiCredentialId)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyAsync(companyId, apiCredentialId));
+            => CoreHelper.RunTask(GenerateCompanyClientKeyAsync(companyId, apiCredentialId));
 
         /// <summary>
         /// Returns a new [client key](https://docs.adyen.com/development-resources/client-side-authentication#how-it-works) for the API credential identified in the path. You can use the new client key a few minutes after generating it. The old client key stops working 24 hours after generating a new one.
@@ -45,7 +45,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.GenerateClientKeyResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.GenerateClientKeyResponse>> PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyAsync(
+        public async Task<ApiResponse<Models.GenerateClientKeyResponse>> GenerateCompanyClientKeyAsync(
                 string companyId,
                 string apiCredentialId,
                 CancellationToken cancellationToken = default)

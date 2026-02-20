@@ -10,16 +10,16 @@ WebhooksCompanylevelApi webhooksCompanylevelApi = client.WebhooksCompanylevelApi
 
 ## Methods
 
-* [Get-Companies-Company Id-Webhooks](../../doc/controllers/webhooks-companylevel.md#get-companies-company-id-webhooks)
-* [Post-Companies-Company Id-Webhooks](../../doc/controllers/webhooks-companylevel.md#post-companies-company-id-webhooks)
-* [Delete-Companies-Company Id-Webhooks-Webhook Id](../../doc/controllers/webhooks-companylevel.md#delete-companies-company-id-webhooks-webhook-id)
-* [Get-Companies-Company Id-Webhooks-Webhook Id](../../doc/controllers/webhooks-companylevel.md#get-companies-company-id-webhooks-webhook-id)
-* [Patch-Companies-Company Id-Webhooks-Webhook Id](../../doc/controllers/webhooks-companylevel.md#patch-companies-company-id-webhooks-webhook-id)
-* [Post-Companies-Company Id-Webhooks-Webhook Id-Generate Hmac](../../doc/controllers/webhooks-companylevel.md#post-companies-company-id-webhooks-webhook-id-generate-hmac)
-* [Post-Companies-Company Id-Webhooks-Webhook Id-Test](../../doc/controllers/webhooks-companylevel.md#post-companies-company-id-webhooks-webhook-id-test)
+* [List Company Webhooks](../../doc/controllers/webhooks-companylevel.md#list-company-webhooks)
+* [Create Company Webhook](../../doc/controllers/webhooks-companylevel.md#create-company-webhook)
+* [Delete Company Webhook](../../doc/controllers/webhooks-companylevel.md#delete-company-webhook)
+* [Get Company Webhook](../../doc/controllers/webhooks-companylevel.md#get-company-webhook)
+* [Update Company Webhook](../../doc/controllers/webhooks-companylevel.md#update-company-webhook)
+* [Generate Company Webhook Hmac](../../doc/controllers/webhooks-companylevel.md#generate-company-webhook-hmac)
+* [Test Company Webhook](../../doc/controllers/webhooks-companylevel.md#test-company-webhook)
 
 
-# Get-Companies-Company Id-Webhooks
+# List Company Webhooks
 
 Lists all webhook configurations for the company account.
 
@@ -29,7 +29,7 @@ To make this request, your API credential must have one of the following [roles]
 * Management API—Webhooks read and write
 
 ```csharp
-GetCompaniesCompanyIdWebhooksAsync(
+ListCompanyWebhooksAsync(
     string companyId,
     int? pageNumber = null,
     int? pageSize = null)
@@ -53,7 +53,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<ListWebhooksResponse> result = await webhooksCompanyLevelApi.GetCompaniesCompanyIdWebhooksAsync(companyId);
+    ApiResponse<ListWebhooksResponse> result = await webhooksCompanyLevelApi.ListCompanyWebhooksAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -194,7 +194,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Webhooks
+# Create Company Webhook
 
 Subscribe to receive webhook notifications about events related to your company account. You can add basic authentication to make sure the data is secure.
 
@@ -203,7 +203,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Webhooks read and write
 
 ```csharp
-PostCompaniesCompanyIdWebhooksAsync(
+CreateCompanyWebhookAsync(
     string companyId,
     Models.CreateCompanyWebhookRequest body = null)
 ```
@@ -244,7 +244,7 @@ CreateCompanyWebhookRequest body = new CreateCompanyWebhookRequest
 
 try
 {
-    ApiResponse<Webhook> result = await webhooksCompanyLevelApi.PostCompaniesCompanyIdWebhooksAsync(
+    ApiResponse<Webhook> result = await webhooksCompanyLevelApi.CreateCompanyWebhookAsync(
         companyId,
         body
     );
@@ -375,7 +375,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Delete-Companies-Company Id-Webhooks-Webhook Id
+# Delete Company Webhook
 
 Remove the configuration for the webhook identified in the path.
 
@@ -384,7 +384,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Webhooks read and write
 
 ```csharp
-DeleteCompaniesCompanyIdWebhooksWebhookIdAsync(
+DeleteCompanyWebhookAsync(
     string companyId,
     string webhookId)
 ```
@@ -407,7 +407,7 @@ string companyId = "companyId0";
 string webhookId = "webhookId6";
 try
 {
-    await webhooksCompanyLevelApi.DeleteCompaniesCompanyIdWebhooksWebhookIdAsync(
+    await webhooksCompanyLevelApi.DeleteCompanyWebhookAsync(
         companyId,
         webhookId
     );
@@ -433,7 +433,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Webhooks-Webhook Id
+# Get Company Webhook
 
 Returns the configuration for the webhook identified in the path.
 
@@ -443,7 +443,7 @@ To make this request, your API credential must have one of the following [roles]
 * Management API—Webhooks read and write
 
 ```csharp
-GetCompaniesCompanyIdWebhooksWebhookIdAsync(
+GetCompanyWebhookAsync(
     string companyId,
     string webhookId)
 ```
@@ -466,7 +466,7 @@ string companyId = "companyId0";
 string webhookId = "webhookId6";
 try
 {
-    ApiResponse<Webhook> result = await webhooksCompanyLevelApi.GetCompaniesCompanyIdWebhooksWebhookIdAsync(
+    ApiResponse<Webhook> result = await webhooksCompanyLevelApi.GetCompanyWebhookAsync(
         companyId,
         webhookId
     );
@@ -593,7 +593,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Companies-Company Id-Webhooks-Webhook Id
+# Update Company Webhook
 
 Make changes to the configuration of the webhook identified in the path. The request contains the new values you want to have in the webhook configuration. The response contains the full configuration for the webhook, which includes the new values from the request.
 
@@ -602,7 +602,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Webhooks read and write
 
 ```csharp
-PatchCompaniesCompanyIdWebhooksWebhookIdAsync(
+UpdateCompanyWebhookAsync(
     string companyId,
     string webhookId,
     Models.UpdateCompanyWebhookRequest body = null)
@@ -632,7 +632,7 @@ UpdateCompanyWebhookRequest body = new UpdateCompanyWebhookRequest
 
 try
 {
-    ApiResponse<Webhook> result = await webhooksCompanyLevelApi.PatchCompaniesCompanyIdWebhooksWebhookIdAsync(
+    ApiResponse<Webhook> result = await webhooksCompanyLevelApi.UpdateCompanyWebhookAsync(
         companyId,
         webhookId,
         body
@@ -760,7 +760,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Webhooks-Webhook Id-Generate Hmac
+# Generate Company Webhook Hmac
 
 Returns an [HMAC key](https://en.wikipedia.org/wiki/HMAC) for the webhook identified in the path. This key allows you to check the integrity and the origin of the notifications you receive.By creating an HMAC key, you start receiving [HMAC-signed notifications](https://docs.adyen.com/development-resources/webhooks/verify-hmac-signatures#enable-hmac-signatures) from Adyen. Find out more about how to [verify HMAC signatures](https://docs.adyen.com/development-resources/webhooks/verify-hmac-signatures).
 
@@ -769,7 +769,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Webhooks read and write
 
 ```csharp
-PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacAsync(
+GenerateCompanyWebhookHmacAsync(
     string companyId,
     string webhookId)
 ```
@@ -792,7 +792,7 @@ string companyId = "companyId0";
 string webhookId = "webhookId6";
 try
 {
-    ApiResponse<GenerateHmacKeyResponse> result = await webhooksCompanyLevelApi.PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacAsync(
+    ApiResponse<GenerateHmacKeyResponse> result = await webhooksCompanyLevelApi.GenerateCompanyWebhookHmacAsync(
         companyId,
         webhookId
     );
@@ -826,7 +826,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Companies-Company Id-Webhooks-Webhook Id-Test
+# Test Company Webhook
 
 Sends sample notifications to test if the webhook is set up correctly.
 
@@ -841,7 +841,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Webhooks read and write
 
 ```csharp
-PostCompaniesCompanyIdWebhooksWebhookIdTestAsync(
+TestCompanyWebhookAsync(
     string companyId,
     string webhookId,
     Models.TestCompanyWebhookRequest body = null)
@@ -878,7 +878,7 @@ TestCompanyWebhookRequest body = new TestCompanyWebhookRequest
 
 try
 {
-    ApiResponse<TestWebhookResponse> result = await webhooksCompanyLevelApi.PostCompaniesCompanyIdWebhooksWebhookIdTestAsync(
+    ApiResponse<TestWebhookResponse> result = await webhooksCompanyLevelApi.TestCompanyWebhookAsync(
         companyId,
         webhookId,
         body

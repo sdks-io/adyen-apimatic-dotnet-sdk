@@ -33,12 +33,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page..</param>
         /// <param name="username">Optional parameter: The partial or complete username to select all users that match..</param>
         /// <returns>Returns the ApiResponse of Models.ListMerchantUsersResponse response from the API call.</returns>
-        public ApiResponse<Models.ListMerchantUsersResponse> GetMerchantsMerchantIdUsers(
+        public ApiResponse<Models.ListMerchantUsersResponse> ListMerchantUsers(
                 string merchantId,
                 int? pageNumber = null,
                 int? pageSize = null,
                 string username = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdUsersAsync(merchantId, pageNumber, pageSize, username));
+            => CoreHelper.RunTask(ListMerchantUsersAsync(merchantId, pageNumber, pageSize, username));
 
         /// <summary>
         /// Returns a list of users associated with the `merchantId` specified in the path.
@@ -51,7 +51,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="username">Optional parameter: The partial or complete username to select all users that match..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListMerchantUsersResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListMerchantUsersResponse>> GetMerchantsMerchantIdUsersAsync(
+        public async Task<ApiResponse<Models.ListMerchantUsersResponse>> ListMerchantUsersAsync(
                 string merchantId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -86,10 +86,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: Unique identifier of the merchant..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CreateUserResponse response from the API call.</returns>
-        public ApiResponse<Models.CreateUserResponse> PostMerchantsMerchantIdUsers(
+        public ApiResponse<Models.CreateUserResponse> CreateMerchantUser(
                 string merchantId,
                 Models.CreateMerchantUserRequest body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdUsersAsync(merchantId, body));
+            => CoreHelper.RunTask(CreateMerchantUserAsync(merchantId, body));
 
         /// <summary>
         /// Creates a user for the `merchantId` specified in the path.
@@ -100,7 +100,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CreateUserResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CreateUserResponse>> PostMerchantsMerchantIdUsersAsync(
+        public async Task<ApiResponse<Models.CreateUserResponse>> CreateMerchantUserAsync(
                 string merchantId,
                 Models.CreateMerchantUserRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -132,10 +132,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: Unique identifier of the merchant..</param>
         /// <param name="userId">Required parameter: Unique identifier of the user..</param>
         /// <returns>Returns the ApiResponse of Models.User response from the API call.</returns>
-        public ApiResponse<Models.User> GetMerchantsMerchantIdUsersUserId(
+        public ApiResponse<Models.User> GetMerchantUser(
                 string merchantId,
                 string userId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdUsersUserIdAsync(merchantId, userId));
+            => CoreHelper.RunTask(GetMerchantUserAsync(merchantId, userId));
 
         /// <summary>
         /// Returns user details for the `userId` and the `merchantId` specified in the path.
@@ -146,7 +146,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="userId">Required parameter: Unique identifier of the user..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.User response from the API call.</returns>
-        public async Task<ApiResponse<Models.User>> GetMerchantsMerchantIdUsersUserIdAsync(
+        public async Task<ApiResponse<Models.User>> GetMerchantUserAsync(
                 string merchantId,
                 string userId,
                 CancellationToken cancellationToken = default)
@@ -178,11 +178,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="userId">Required parameter: Unique identifier of the user..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.User response from the API call.</returns>
-        public ApiResponse<Models.User> PatchMerchantsMerchantIdUsersUserId(
+        public ApiResponse<Models.User> UpdateMerchantUser(
                 string merchantId,
                 string userId,
                 Models.UpdateMerchantUserRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdUsersUserIdAsync(merchantId, userId, body));
+            => CoreHelper.RunTask(UpdateMerchantUserAsync(merchantId, userId, body));
 
         /// <summary>
         /// Updates user details for the `userId` and the `merchantId` specified in the path.
@@ -194,7 +194,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.User response from the API call.</returns>
-        public async Task<ApiResponse<Models.User>> PatchMerchantsMerchantIdUsersUserIdAsync(
+        public async Task<ApiResponse<Models.User>> UpdateMerchantUserAsync(
                 string merchantId,
                 string userId,
                 Models.UpdateMerchantUserRequest body = null,

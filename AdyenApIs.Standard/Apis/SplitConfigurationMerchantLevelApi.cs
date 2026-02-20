@@ -30,9 +30,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfigurationList response from the API call.</returns>
-        public ApiResponse<Models.SplitConfigurationList> GetMerchantsMerchantIdSplitConfigurations(
+        public ApiResponse<Models.SplitConfigurationList> ListSplitConfigurations(
                 string merchantId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdSplitConfigurationsAsync(merchantId));
+            => CoreHelper.RunTask(ListSplitConfigurationsAsync(merchantId));
 
         /// <summary>
         /// Returns the list of split configuration profiles for the merchant account.
@@ -42,7 +42,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfigurationList response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfigurationList>> GetMerchantsMerchantIdSplitConfigurationsAsync(
+        public async Task<ApiResponse<Models.SplitConfigurationList>> ListSplitConfigurationsAsync(
                 string merchantId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.SplitConfigurationList>()
@@ -71,10 +71,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> PostMerchantsMerchantIdSplitConfigurations(
+        public ApiResponse<Models.SplitConfiguration> CreateSplitConfiguration(
                 string merchantId,
                 Models.SplitConfiguration body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdSplitConfigurationsAsync(merchantId, body));
+            => CoreHelper.RunTask(CreateSplitConfigurationAsync(merchantId, body));
 
         /// <summary>
         /// Creates a split configuration profile to [split payments automatically](https://docs.adyen.com/platforms/automatic-split-configuration/). After you [associate it with a store](https://docs.adyen.com/api-explorer/Management/latest/patch/merchants/(merchantId)/stores/(storeId)#request-splitConfiguration) in your merchant account, it splits the funds of all transactions processed through that store between your liable balance account and [your user's balance account](https://docs.adyen.com/api-explorer/Management/latest/patch/merchants/(merchantId)/stores/(storeId)#request-splitConfiguration-balanceAccountId).
@@ -85,7 +85,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> PostMerchantsMerchantIdSplitConfigurationsAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> CreateSplitConfigurationAsync(
                 string merchantId,
                 Models.SplitConfiguration body = null,
                 CancellationToken cancellationToken = default)
@@ -117,10 +117,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="splitConfigurationId">Required parameter: The unique identifier of the split configuration..</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationId(
+        public ApiResponse<Models.SplitConfiguration> DeleteSplitConfiguration(
                 string merchantId,
                 string splitConfigurationId)
-            => CoreHelper.RunTask(DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(merchantId, splitConfigurationId));
+            => CoreHelper.RunTask(DeleteSplitConfigurationAsync(merchantId, splitConfigurationId));
 
         /// <summary>
         /// Deletes the split configuration profile specified in the path.
@@ -131,7 +131,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="splitConfigurationId">Required parameter: The unique identifier of the split configuration..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> DeleteSplitConfigurationAsync(
                 string merchantId,
                 string splitConfigurationId,
                 CancellationToken cancellationToken = default)
@@ -162,10 +162,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="splitConfigurationId">Required parameter: The unique identifier of the split configuration..</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationId(
+        public ApiResponse<Models.SplitConfiguration> GetSplitConfiguration(
                 string merchantId,
                 string splitConfigurationId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(merchantId, splitConfigurationId));
+            => CoreHelper.RunTask(GetSplitConfigurationAsync(merchantId, splitConfigurationId));
 
         /// <summary>
         /// Returns the details of the split configuration profile specified in the path.
@@ -176,7 +176,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="splitConfigurationId">Required parameter: The unique identifier of the split configuration..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> GetSplitConfigurationAsync(
                 string merchantId,
                 string splitConfigurationId,
                 CancellationToken cancellationToken = default)
@@ -208,11 +208,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="splitConfigurationId">Required parameter: The unique identifier of the split configuration..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationId(
+        public ApiResponse<Models.SplitConfiguration> UpdateSplitConfiguration(
                 string merchantId,
                 string splitConfigurationId,
                 Models.UpdateSplitConfigurationRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(merchantId, splitConfigurationId, body));
+            => CoreHelper.RunTask(UpdateSplitConfigurationAsync(merchantId, splitConfigurationId, body));
 
         /// <summary>
         /// Changes the description of the split configuration profile specified in the path.
@@ -224,7 +224,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> UpdateSplitConfigurationAsync(
                 string merchantId,
                 string splitConfigurationId,
                 Models.UpdateSplitConfigurationRequest body = null,
@@ -259,11 +259,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="splitConfigurationId">Required parameter: The unique identifier of the split configuration..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationId(
+        public ApiResponse<Models.SplitConfiguration> CreateSplitConfigurationRule(
                 string merchantId,
                 string splitConfigurationId,
                 Models.SplitConfigurationRule body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(merchantId, splitConfigurationId, body));
+            => CoreHelper.RunTask(CreateSplitConfigurationRuleAsync(merchantId, splitConfigurationId, body));
 
         /// <summary>
         /// [Creates a rule](https://docs.adyen.com/platforms/automatic-split-configuration/manage-split-configurations/api/#create-rule) in the split configuration profile specified in the path.
@@ -275,7 +275,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> CreateSplitConfigurationRuleAsync(
                 string merchantId,
                 string splitConfigurationId,
                 Models.SplitConfigurationRule body = null,
@@ -310,11 +310,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="splitConfigurationId">Required parameter: The unique identifier of the split configuration..</param>
         /// <param name="ruleId">Required parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleId(
+        public ApiResponse<Models.SplitConfiguration> DeleteSplitConfigurationRule(
                 string merchantId,
                 string splitConfigurationId,
                 string ruleId)
-            => CoreHelper.RunTask(DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(merchantId, splitConfigurationId, ruleId));
+            => CoreHelper.RunTask(DeleteSplitConfigurationRuleAsync(merchantId, splitConfigurationId, ruleId));
 
         /// <summary>
         /// Deletes the rule specified in the path.
@@ -326,7 +326,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="ruleId">Required parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> DeleteSplitConfigurationRuleAsync(
                 string merchantId,
                 string splitConfigurationId,
                 string ruleId,
@@ -361,12 +361,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="ruleId">Required parameter: The unique identifier of the split configuration rule..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleId(
+        public ApiResponse<Models.SplitConfiguration> UpdateSplitConfigurationRule(
                 string merchantId,
                 string splitConfigurationId,
                 string ruleId,
                 Models.UpdateSplitConfigurationRuleRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(merchantId, splitConfigurationId, ruleId, body));
+            => CoreHelper.RunTask(UpdateSplitConfigurationRuleAsync(merchantId, splitConfigurationId, ruleId, body));
 
         /// <summary>
         /// Changes the [split conditions of the rule](https://docs.adyen.com/platforms/automatic-split-configuration/manage-split-configurations/api/#update-condition) specified in the path.
@@ -379,7 +379,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> UpdateSplitConfigurationRuleAsync(
                 string merchantId,
                 string splitConfigurationId,
                 string ruleId,
@@ -418,13 +418,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="splitLogicId">Required parameter: The unique identifier of the split configuration split..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public ApiResponse<Models.SplitConfiguration> PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdSplitLogicSplitLogicId(
+        public ApiResponse<Models.SplitConfiguration> UpdateSplitLogic(
                 string merchantId,
                 string splitConfigurationId,
                 string ruleId,
                 string splitLogicId,
                 Models.UpdateSplitConfigurationLogicRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdSplitLogicSplitLogicIdAsync(merchantId, splitConfigurationId, ruleId, splitLogicId, body));
+            => CoreHelper.RunTask(UpdateSplitLogicAsync(merchantId, splitConfigurationId, ruleId, splitLogicId, body));
 
         /// <summary>
         /// Changes the [split logic](https://docs.adyen.com/platforms/automatic-split-configuration/manage-split-configurations/api/#update-split-logic) specified in the path.
@@ -438,7 +438,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SplitConfiguration response from the API call.</returns>
-        public async Task<ApiResponse<Models.SplitConfiguration>> PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdSplitLogicSplitLogicIdAsync(
+        public async Task<ApiResponse<Models.SplitConfiguration>> UpdateSplitLogicAsync(
                 string merchantId,
                 string splitConfigurationId,
                 string ruleId,

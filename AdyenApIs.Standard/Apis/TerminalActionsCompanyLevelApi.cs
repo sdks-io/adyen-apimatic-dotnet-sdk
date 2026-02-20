@@ -36,13 +36,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="status">Optional parameter: Returns terminal actions with the specified status.  Allowed values: **pending**, **successful**, **failed**, **cancelled**, **tryLater**..</param>
         /// <param name="type">Optional parameter: Returns terminal actions of the specified type.  Allowed values: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**..</param>
         /// <returns>Returns the ApiResponse of Models.ListExternalTerminalActionsResponse response from the API call.</returns>
-        public ApiResponse<Models.ListExternalTerminalActionsResponse> GetCompaniesCompanyIdTerminalActions(
+        public ApiResponse<Models.ListExternalTerminalActionsResponse> ListCompanyTerminalActions(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
                 string status = null,
                 string type = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalActionsAsync(companyId, pageNumber, pageSize, status, type));
+            => CoreHelper.RunTask(ListCompanyTerminalActionsAsync(companyId, pageNumber, pageSize, status, type));
 
         /// <summary>
         /// Returns the [terminal actions](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api) that have been scheduled for the company identified in the path.The response doesn't include actions that are scheduled by Adyen.
@@ -58,7 +58,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="type">Optional parameter: Returns terminal actions of the specified type.  Allowed values: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListExternalTerminalActionsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListExternalTerminalActionsResponse>> GetCompaniesCompanyIdTerminalActionsAsync(
+        public async Task<ApiResponse<Models.ListExternalTerminalActionsResponse>> ListCompanyTerminalActionsAsync(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -97,10 +97,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="actionId">Required parameter: The unique identifier of the terminal action..</param>
         /// <returns>Returns the ApiResponse of Models.ExternalTerminalAction response from the API call.</returns>
-        public ApiResponse<Models.ExternalTerminalAction> GetCompaniesCompanyIdTerminalActionsActionId(
+        public ApiResponse<Models.ExternalTerminalAction> GetCompanyTerminalAction(
                 string companyId,
                 string actionId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalActionsActionIdAsync(companyId, actionId));
+            => CoreHelper.RunTask(GetCompanyTerminalActionAsync(companyId, actionId));
 
         /// <summary>
         /// Returns the details of the [terminal action](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api) identified in the path.
@@ -113,7 +113,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="actionId">Required parameter: The unique identifier of the terminal action..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ExternalTerminalAction response from the API call.</returns>
-        public async Task<ApiResponse<Models.ExternalTerminalAction>> GetCompaniesCompanyIdTerminalActionsActionIdAsync(
+        public async Task<ApiResponse<Models.ExternalTerminalAction>> GetCompanyTerminalActionAsync(
                 string companyId,
                 string actionId,
                 CancellationToken cancellationToken = default)

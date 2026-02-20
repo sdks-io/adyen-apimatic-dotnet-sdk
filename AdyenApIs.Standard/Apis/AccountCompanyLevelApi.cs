@@ -31,10 +31,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <returns>Returns the ApiResponse of Models.ListCompanyResponse response from the API call.</returns>
-        public ApiResponse<Models.ListCompanyResponse> GetCompanies(
+        public ApiResponse<Models.ListCompanyResponse> ListCompanies(
                 int? pageNumber = null,
                 int? pageSize = null)
-            => CoreHelper.RunTask(GetCompaniesAsync(pageNumber, pageSize));
+            => CoreHelper.RunTask(ListCompaniesAsync(pageNumber, pageSize));
 
         /// <summary>
         /// Returns the list of company accounts that your API credential has access to. The list is grouped into pages as defined by the query parameters.
@@ -45,7 +45,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListCompanyResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListCompanyResponse>> GetCompaniesAsync(
+        public async Task<ApiResponse<Models.ListCompanyResponse>> ListCompaniesAsync(
                 int? pageNumber = null,
                 int? pageSize = null,
                 CancellationToken cancellationToken = default)
@@ -75,9 +75,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <returns>Returns the ApiResponse of Models.Company2 response from the API call.</returns>
-        public ApiResponse<Models.Company2> GetCompaniesCompanyId(
+        public ApiResponse<Models.Company2> GetCompany(
                 string companyId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdAsync(companyId));
+            => CoreHelper.RunTask(GetCompanyAsync(companyId));
 
         /// <summary>
         /// Returns the company account specified in the path. Your API credential must have access to the company account. .
@@ -87,7 +87,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Company2 response from the API call.</returns>
-        public async Task<ApiResponse<Models.Company2>> GetCompaniesCompanyIdAsync(
+        public async Task<ApiResponse<Models.Company2>> GetCompanyAsync(
                 string companyId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.Company2>()
@@ -117,11 +117,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <returns>Returns the ApiResponse of Models.ListMerchantResponse response from the API call.</returns>
-        public ApiResponse<Models.ListMerchantResponse> GetCompaniesCompanyIdMerchants(
+        public ApiResponse<Models.ListMerchantResponse> ListCompanyMerchants(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdMerchantsAsync(companyId, pageNumber, pageSize));
+            => CoreHelper.RunTask(ListCompanyMerchantsAsync(companyId, pageNumber, pageSize));
 
         /// <summary>
         /// Returns the list of merchant accounts under the company account specified in the path. The list only includes merchant accounts that your API credential has access to. The list is grouped into pages as defined by the query parameters. .
@@ -133,7 +133,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListMerchantResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListMerchantResponse>> GetCompaniesCompanyIdMerchantsAsync(
+        public async Task<ApiResponse<Models.ListMerchantResponse>> ListCompanyMerchantsAsync(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,

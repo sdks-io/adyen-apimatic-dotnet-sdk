@@ -34,10 +34,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="name">Optional parameter: The name of the billing entity..</param>
         /// <returns>Returns the ApiResponse of Models.BillingEntitiesResponse response from the API call.</returns>
-        public ApiResponse<Models.BillingEntitiesResponse> GetMerchantsMerchantIdBillingEntities(
+        public ApiResponse<Models.BillingEntitiesResponse> ListMerchantBillingEntities(
                 string merchantId,
                 string name = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdBillingEntitiesAsync(merchantId, name));
+            => CoreHelper.RunTask(ListMerchantBillingEntitiesAsync(merchantId, name));
 
         /// <summary>
         /// Returns the billing entities of the merchant account identified in the path.
@@ -51,7 +51,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="name">Optional parameter: The name of the billing entity..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.BillingEntitiesResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.BillingEntitiesResponse>> GetMerchantsMerchantIdBillingEntitiesAsync(
+        public async Task<ApiResponse<Models.BillingEntitiesResponse>> ListMerchantBillingEntitiesAsync(
                 string merchantId,
                 string name = null,
                 CancellationToken cancellationToken = default)
@@ -87,12 +87,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="offset">Optional parameter: The number of locations to skip..</param>
         /// <param name="limit">Optional parameter: The number of locations to return..</param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocationsResponse response from the API call.</returns>
-        public ApiResponse<Models.ShippingLocationsResponse> GetMerchantsMerchantIdShippingLocations(
+        public ApiResponse<Models.ShippingLocationsResponse> ListMerchantShippingLocations(
                 string merchantId,
                 string name = null,
                 int? offset = null,
                 int? limit = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdShippingLocationsAsync(merchantId, name, offset, limit));
+            => CoreHelper.RunTask(ListMerchantShippingLocationsAsync(merchantId, name, offset, limit));
 
         /// <summary>
         /// Returns the shipping locations for the merchant account identified in the path.
@@ -108,7 +108,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="limit">Optional parameter: The number of locations to return..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocationsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ShippingLocationsResponse>> GetMerchantsMerchantIdShippingLocationsAsync(
+        public async Task<ApiResponse<Models.ShippingLocationsResponse>> ListMerchantShippingLocationsAsync(
                 string merchantId,
                 string name = null,
                 int? offset = null,
@@ -144,10 +144,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocation response from the API call.</returns>
-        public ApiResponse<Models.ShippingLocation> PostMerchantsMerchantIdShippingLocations(
+        public ApiResponse<Models.ShippingLocation> CreateMerchantShippingLocation(
                 string merchantId,
                 Models.ShippingLocation body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdShippingLocationsAsync(merchantId, body));
+            => CoreHelper.RunTask(CreateMerchantShippingLocationAsync(merchantId, body));
 
         /// <summary>
         /// Creates a shipping location for the merchant account identified in the path. A shipping location defines an address where orders can be shipped to. .
@@ -159,7 +159,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocation response from the API call.</returns>
-        public async Task<ApiResponse<Models.ShippingLocation>> PostMerchantsMerchantIdShippingLocationsAsync(
+        public async Task<ApiResponse<Models.ShippingLocation>> CreateMerchantShippingLocationAsync(
                 string merchantId,
                 Models.ShippingLocation body = null,
                 CancellationToken cancellationToken = default)
@@ -192,9 +192,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalModelsResponse response from the API call.</returns>
-        public ApiResponse<Models.TerminalModelsResponse> GetMerchantsMerchantIdTerminalModels(
+        public ApiResponse<Models.TerminalModelsResponse> ListMerchantTerminalModels(
                 string merchantId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdTerminalModelsAsync(merchantId));
+            => CoreHelper.RunTask(ListMerchantTerminalModelsAsync(merchantId));
 
         /// <summary>
         /// Returns the payment terminal models that the merchant account identified in the path has access to. The response includes the terminal model ID, which can be used as a query parameter when getting a list of terminals or a list of products for ordering.
@@ -206,7 +206,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalModelsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalModelsResponse>> GetMerchantsMerchantIdTerminalModelsAsync(
+        public async Task<ApiResponse<Models.TerminalModelsResponse>> ListMerchantTerminalModelsAsync(
                 string merchantId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.TerminalModelsResponse>()
@@ -240,13 +240,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="offset">Optional parameter: The number of orders to skip..</param>
         /// <param name="limit">Optional parameter: The number of orders to return..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrdersResponse response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrdersResponse> GetMerchantsMerchantIdTerminalOrders(
+        public ApiResponse<Models.TerminalOrdersResponse> ListMerchantTerminalOrders(
                 string merchantId,
                 string customerOrderReference = null,
                 string status = null,
                 int? offset = null,
                 int? limit = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdTerminalOrdersAsync(merchantId, customerOrderReference, status, offset, limit));
+            => CoreHelper.RunTask(ListMerchantTerminalOrdersAsync(merchantId, customerOrderReference, status, offset, limit));
 
         /// <summary>
         /// Returns a list of terminal products orders for the merchant account identified in the path.
@@ -262,7 +262,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="limit">Optional parameter: The number of orders to return..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrdersResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrdersResponse>> GetMerchantsMerchantIdTerminalOrdersAsync(
+        public async Task<ApiResponse<Models.TerminalOrdersResponse>> ListMerchantTerminalOrdersAsync(
                 string merchantId,
                 string customerOrderReference = null,
                 string status = null,
@@ -301,10 +301,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> PostMerchantsMerchantIdTerminalOrders(
+        public ApiResponse<Models.TerminalOrder> CreateMerchantTerminalOrder(
                 string merchantId,
                 Models.TerminalOrderRequest body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdTerminalOrdersAsync(merchantId, body));
+            => CoreHelper.RunTask(CreateMerchantTerminalOrderAsync(merchantId, body));
 
         /// <summary>
         /// Creates an order for payment terminal products for the merchant account identified in the path.
@@ -317,7 +317,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> PostMerchantsMerchantIdTerminalOrdersAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> CreateMerchantTerminalOrderAsync(
                 string merchantId,
                 Models.TerminalOrderRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -351,10 +351,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> GetMerchantsMerchantIdTerminalOrdersOrderId(
+        public ApiResponse<Models.TerminalOrder> GetMerchantTerminalOrder(
                 string merchantId,
                 string orderId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdTerminalOrdersOrderIdAsync(merchantId, orderId));
+            => CoreHelper.RunTask(GetMerchantTerminalOrderAsync(merchantId, orderId));
 
         /// <summary>
         /// Returns the details of the terminal products order identified in the path.
@@ -367,7 +367,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> GetMerchantsMerchantIdTerminalOrdersOrderIdAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> GetMerchantTerminalOrderAsync(
                 string merchantId,
                 string orderId,
                 CancellationToken cancellationToken = default)
@@ -404,11 +404,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> PatchMerchantsMerchantIdTerminalOrdersOrderId(
+        public ApiResponse<Models.TerminalOrder> UpdateMerchantTerminalOrder(
                 string merchantId,
                 string orderId,
                 Models.TerminalOrderRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdTerminalOrdersOrderIdAsync(merchantId, orderId, body));
+            => CoreHelper.RunTask(UpdateMerchantTerminalOrderAsync(merchantId, orderId, body));
 
         /// <summary>
         /// Updates the terminal products order identified in the path.
@@ -425,7 +425,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> PatchMerchantsMerchantIdTerminalOrdersOrderIdAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> UpdateMerchantTerminalOrderAsync(
                 string merchantId,
                 string orderId,
                 Models.TerminalOrderRequest body = null,
@@ -462,10 +462,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> PostMerchantsMerchantIdTerminalOrdersOrderIdCancel(
+        public ApiResponse<Models.TerminalOrder> CancelMerchantTerminalOrder(
                 string merchantId,
                 string orderId)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdTerminalOrdersOrderIdCancelAsync(merchantId, orderId));
+            => CoreHelper.RunTask(CancelMerchantTerminalOrderAsync(merchantId, orderId));
 
         /// <summary>
         /// Cancels the terminal products order identified in the path.
@@ -479,7 +479,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> PostMerchantsMerchantIdTerminalOrdersOrderIdCancelAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> CancelMerchantTerminalOrderAsync(
                 string merchantId,
                 string orderId,
                 CancellationToken cancellationToken = default)
@@ -515,13 +515,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="offset">Optional parameter: The number of products to skip..</param>
         /// <param name="limit">Optional parameter: The number of products to return..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalProductsResponse response from the API call.</returns>
-        public ApiResponse<Models.TerminalProductsResponse> GetMerchantsMerchantIdTerminalProducts(
+        public ApiResponse<Models.TerminalProductsResponse> ListMerchantTerminalProducts(
                 string merchantId,
                 string country,
                 string terminalModelId = null,
                 int? offset = null,
                 int? limit = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdTerminalProductsAsync(merchantId, country, terminalModelId, offset, limit));
+            => CoreHelper.RunTask(ListMerchantTerminalProductsAsync(merchantId, country, terminalModelId, offset, limit));
 
         /// <summary>
         /// Returns a country-specific list of payment terminal packages and parts that the merchant account identified in the path has access to.
@@ -537,7 +537,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="limit">Optional parameter: The number of products to return..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalProductsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalProductsResponse>> GetMerchantsMerchantIdTerminalProductsAsync(
+        public async Task<ApiResponse<Models.TerminalProductsResponse>> ListMerchantTerminalProductsAsync(
                 string merchantId,
                 string country,
                 string terminalModelId = null,

@@ -34,10 +34,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="name">Optional parameter: The name of the billing entity..</param>
         /// <returns>Returns the ApiResponse of Models.BillingEntitiesResponse response from the API call.</returns>
-        public ApiResponse<Models.BillingEntitiesResponse> GetCompaniesCompanyIdBillingEntities(
+        public ApiResponse<Models.BillingEntitiesResponse> ListCompanyBillingEntities(
                 string companyId,
                 string name = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdBillingEntitiesAsync(companyId, name));
+            => CoreHelper.RunTask(ListCompanyBillingEntitiesAsync(companyId, name));
 
         /// <summary>
         /// Returns the billing entities of the company identified in the path and all merchant accounts belonging to the company.
@@ -51,7 +51,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="name">Optional parameter: The name of the billing entity..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.BillingEntitiesResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.BillingEntitiesResponse>> GetCompaniesCompanyIdBillingEntitiesAsync(
+        public async Task<ApiResponse<Models.BillingEntitiesResponse>> ListCompanyBillingEntitiesAsync(
                 string companyId,
                 string name = null,
                 CancellationToken cancellationToken = default)
@@ -87,12 +87,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="offset">Optional parameter: The number of locations to skip..</param>
         /// <param name="limit">Optional parameter: The number of locations to return..</param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocationsResponse response from the API call.</returns>
-        public ApiResponse<Models.ShippingLocationsResponse> GetCompaniesCompanyIdShippingLocations(
+        public ApiResponse<Models.ShippingLocationsResponse> ListCompanyShippingLocations(
                 string companyId,
                 string name = null,
                 int? offset = null,
                 int? limit = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdShippingLocationsAsync(companyId, name, offset, limit));
+            => CoreHelper.RunTask(ListCompanyShippingLocationsAsync(companyId, name, offset, limit));
 
         /// <summary>
         /// Returns the shipping locations for the company identified in the path and all merchant accounts belonging to the company.
@@ -108,7 +108,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="limit">Optional parameter: The number of locations to return..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocationsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ShippingLocationsResponse>> GetCompaniesCompanyIdShippingLocationsAsync(
+        public async Task<ApiResponse<Models.ShippingLocationsResponse>> ListCompanyShippingLocationsAsync(
                 string companyId,
                 string name = null,
                 int? offset = null,
@@ -144,10 +144,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocation response from the API call.</returns>
-        public ApiResponse<Models.ShippingLocation> PostCompaniesCompanyIdShippingLocations(
+        public ApiResponse<Models.ShippingLocation> CreateCompanyShippingLocation(
                 string companyId,
                 Models.ShippingLocation body = null)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdShippingLocationsAsync(companyId, body));
+            => CoreHelper.RunTask(CreateCompanyShippingLocationAsync(companyId, body));
 
         /// <summary>
         /// Creates a shipping location for the company identified in the path. A shipping location defines an address where orders can be delivered.
@@ -159,7 +159,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ShippingLocation response from the API call.</returns>
-        public async Task<ApiResponse<Models.ShippingLocation>> PostCompaniesCompanyIdShippingLocationsAsync(
+        public async Task<ApiResponse<Models.ShippingLocation>> CreateCompanyShippingLocationAsync(
                 string companyId,
                 Models.ShippingLocation body = null,
                 CancellationToken cancellationToken = default)
@@ -193,9 +193,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalModelsResponse response from the API call.</returns>
-        public ApiResponse<Models.TerminalModelsResponse> GetCompaniesCompanyIdTerminalModels(
+        public ApiResponse<Models.TerminalModelsResponse> ListCompanyTerminalModels(
                 string companyId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalModelsAsync(companyId));
+            => CoreHelper.RunTask(ListCompanyTerminalModelsAsync(companyId));
 
         /// <summary>
         /// Returns a list of payment terminal models that the company identified in the path has access to.
@@ -208,7 +208,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalModelsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalModelsResponse>> GetCompaniesCompanyIdTerminalModelsAsync(
+        public async Task<ApiResponse<Models.TerminalModelsResponse>> ListCompanyTerminalModelsAsync(
                 string companyId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.TerminalModelsResponse>()
@@ -243,13 +243,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="offset">Optional parameter: The number of orders to skip..</param>
         /// <param name="limit">Optional parameter: The number of orders to return..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrdersResponse response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrdersResponse> GetCompaniesCompanyIdTerminalOrders(
+        public ApiResponse<Models.TerminalOrdersResponse> ListCompanyTerminalOrders(
                 string companyId,
                 string customerOrderReference = null,
                 string status = null,
                 int? offset = null,
                 int? limit = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalOrdersAsync(companyId, customerOrderReference, status, offset, limit));
+            => CoreHelper.RunTask(ListCompanyTerminalOrdersAsync(companyId, customerOrderReference, status, offset, limit));
 
         /// <summary>
         /// Returns a lists of terminal products orders for the company identified in the path.
@@ -266,7 +266,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="limit">Optional parameter: The number of orders to return..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrdersResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrdersResponse>> GetCompaniesCompanyIdTerminalOrdersAsync(
+        public async Task<ApiResponse<Models.TerminalOrdersResponse>> ListCompanyTerminalOrdersAsync(
                 string companyId,
                 string customerOrderReference = null,
                 string status = null,
@@ -305,10 +305,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> PostCompaniesCompanyIdTerminalOrders(
+        public ApiResponse<Models.TerminalOrder> CreateCompanyTerminalOrder(
                 string companyId,
                 Models.TerminalOrderRequest body = null)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdTerminalOrdersAsync(companyId, body));
+            => CoreHelper.RunTask(CreateCompanyTerminalOrderAsync(companyId, body));
 
         /// <summary>
         /// Creates an order for payment terminal products for the company identified in the path.
@@ -321,7 +321,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> PostCompaniesCompanyIdTerminalOrdersAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> CreateCompanyTerminalOrderAsync(
                 string companyId,
                 Models.TerminalOrderRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -355,10 +355,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> GetCompaniesCompanyIdTerminalOrdersOrderId(
+        public ApiResponse<Models.TerminalOrder> GetCompanyTerminalOrder(
                 string companyId,
                 string orderId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalOrdersOrderIdAsync(companyId, orderId));
+            => CoreHelper.RunTask(GetCompanyTerminalOrderAsync(companyId, orderId));
 
         /// <summary>
         /// Returns the details of the terminal products order identified in the path.
@@ -371,7 +371,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> GetCompaniesCompanyIdTerminalOrdersOrderIdAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> GetCompanyTerminalOrderAsync(
                 string companyId,
                 string orderId,
                 CancellationToken cancellationToken = default)
@@ -408,11 +408,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> PatchCompaniesCompanyIdTerminalOrdersOrderId(
+        public ApiResponse<Models.TerminalOrder> UpdateCompanyTerminalOrder(
                 string companyId,
                 string orderId,
                 Models.TerminalOrderRequest body = null)
-            => CoreHelper.RunTask(PatchCompaniesCompanyIdTerminalOrdersOrderIdAsync(companyId, orderId, body));
+            => CoreHelper.RunTask(UpdateCompanyTerminalOrderAsync(companyId, orderId, body));
 
         /// <summary>
         /// Updates the terminal products order identified in the path.
@@ -429,7 +429,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> PatchCompaniesCompanyIdTerminalOrdersOrderIdAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> UpdateCompanyTerminalOrderAsync(
                 string companyId,
                 string orderId,
                 Models.TerminalOrderRequest body = null,
@@ -466,10 +466,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public ApiResponse<Models.TerminalOrder> PostCompaniesCompanyIdTerminalOrdersOrderIdCancel(
+        public ApiResponse<Models.TerminalOrder> CancelCompanyTerminalOrder(
                 string companyId,
                 string orderId)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdTerminalOrdersOrderIdCancelAsync(companyId, orderId));
+            => CoreHelper.RunTask(CancelCompanyTerminalOrderAsync(companyId, orderId));
 
         /// <summary>
         /// Cancels the terminal products order identified in the path.
@@ -483,7 +483,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="orderId">Required parameter: The unique identifier of the order..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalOrder response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalOrder>> PostCompaniesCompanyIdTerminalOrdersOrderIdCancelAsync(
+        public async Task<ApiResponse<Models.TerminalOrder>> CancelCompanyTerminalOrderAsync(
                 string companyId,
                 string orderId,
                 CancellationToken cancellationToken = default)
@@ -520,13 +520,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="offset">Optional parameter: The number of products to skip..</param>
         /// <param name="limit">Optional parameter: The number of products to return..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalProductsResponse response from the API call.</returns>
-        public ApiResponse<Models.TerminalProductsResponse> GetCompaniesCompanyIdTerminalProducts(
+        public ApiResponse<Models.TerminalProductsResponse> ListCompanyTerminalProducts(
                 string companyId,
                 string country,
                 string terminalModelId = null,
                 int? offset = null,
                 int? limit = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdTerminalProductsAsync(companyId, country, terminalModelId, offset, limit));
+            => CoreHelper.RunTask(ListCompanyTerminalProductsAsync(companyId, country, terminalModelId, offset, limit));
 
         /// <summary>
         /// Returns a country-specific list of payment terminal packages and parts that the company identified in the path has access to.
@@ -543,7 +543,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="limit">Optional parameter: The number of products to return..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalProductsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalProductsResponse>> GetCompaniesCompanyIdTerminalProductsAsync(
+        public async Task<ApiResponse<Models.TerminalProductsResponse>> ListCompanyTerminalProductsAsync(
                 string companyId,
                 string country,
                 string terminalModelId = null,

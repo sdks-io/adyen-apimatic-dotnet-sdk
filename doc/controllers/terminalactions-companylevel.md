@@ -10,11 +10,11 @@ TerminalactionsCompanylevelApi terminalactionsCompanylevelApi = client.Terminala
 
 ## Methods
 
-* [Get-Companies-Company Id-Terminal Actions](../../doc/controllers/terminalactions-companylevel.md#get-companies-company-id-terminal-actions)
-* [Get-Companies-Company Id-Terminal Actions-Action Id](../../doc/controllers/terminalactions-companylevel.md#get-companies-company-id-terminal-actions-action-id)
+* [List Company Terminal Actions](../../doc/controllers/terminalactions-companylevel.md#list-company-terminal-actions)
+* [Get Company Terminal Action](../../doc/controllers/terminalactions-companylevel.md#get-company-terminal-action)
 
 
-# Get-Companies-Company Id-Terminal Actions
+# List Company Terminal Actions
 
 Returns the [terminal actions](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api) that have been scheduled for the company identified in the path.The response doesn't include actions that are scheduled by Adyen.
 To make this request, your API credential must have one of the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
@@ -25,7 +25,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalActionsAsync(
+ListCompanyTerminalActionsAsync(
     string companyId,
     int? pageNumber = null,
     int? pageSize = null,
@@ -53,7 +53,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string companyId = "companyId0";
 try
 {
-    ApiResponse<ListExternalTerminalActionsResponse> result = await terminalActionsCompanyLevelApi.GetCompaniesCompanyIdTerminalActionsAsync(companyId);
+    ApiResponse<ListExternalTerminalActionsResponse> result = await terminalActionsCompanyLevelApi.ListCompanyTerminalActionsAsync(companyId);
 }
 catch (ApiException e)
 {
@@ -95,7 +95,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Companies-Company Id-Terminal Actions-Action Id
+# Get Company Terminal Action
 
 Returns the details of the [terminal action](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api) identified in the path.
 To make this request, your API credential must have one of the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
@@ -106,7 +106,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetCompaniesCompanyIdTerminalActionsActionIdAsync(
+GetCompanyTerminalActionAsync(
     string companyId,
     string actionId)
 ```
@@ -129,7 +129,7 @@ string companyId = "companyId0";
 string actionId = "actionId0";
 try
 {
-    ApiResponse<ExternalTerminalAction> result = await terminalActionsCompanyLevelApi.GetCompaniesCompanyIdTerminalActionsActionIdAsync(
+    ApiResponse<ExternalTerminalAction> result = await terminalActionsCompanyLevelApi.GetCompanyTerminalActionAsync(
         companyId,
         actionId
     );

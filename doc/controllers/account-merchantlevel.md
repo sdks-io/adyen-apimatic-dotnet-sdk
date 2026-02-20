@@ -10,13 +10,13 @@ AccountMerchantlevelApi accountMerchantlevelApi = client.AccountMerchantlevelApi
 
 ## Methods
 
-* [Get-Merchants](../../doc/controllers/account-merchantlevel.md#get-merchants)
-* [Post-Merchants](../../doc/controllers/account-merchantlevel.md#post-merchants)
-* [Get-Merchants-Merchant Id](../../doc/controllers/account-merchantlevel.md#get-merchants-merchant-id)
-* [Post-Merchants-Merchant Id-Activate](../../doc/controllers/account-merchantlevel.md#post-merchants-merchant-id-activate)
+* [List Merchants](../../doc/controllers/account-merchantlevel.md#list-merchants)
+* [Create Merchant](../../doc/controllers/account-merchantlevel.md#create-merchant)
+* [Get Merchant](../../doc/controllers/account-merchantlevel.md#get-merchant)
+* [Activate Merchant](../../doc/controllers/account-merchantlevel.md#activate-merchant)
 
 
-# Get-Merchants
+# List Merchants
 
 Returns the list of merchant accounts that your API credential has access to. The list is grouped into pages as defined by the query parameters.
 
@@ -25,7 +25,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Account read
 
 ```csharp
-GetMerchantsAsync(
+ListMerchantsAsync(
     int? pageNumber = null,
     int? pageSize = null)
 ```
@@ -46,7 +46,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<ListMerchantResponse> result = await accountMerchantLevelApi.GetMerchantsAsync();
+    ApiResponse<ListMerchantResponse> result = await accountMerchantLevelApi.ListMerchantsAsync();
 }
 catch (ApiException e)
 {
@@ -329,7 +329,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants
+# Create Merchant
 
 Creates a merchant account for the company account specified in the request.
 
@@ -340,7 +340,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Accounts read and write
 
 ```csharp
-PostMerchantsAsync(
+CreateMerchantAsync(
     Models.CreateMerchantRequest body = null)
 ```
 
@@ -368,7 +368,7 @@ CreateMerchantRequest body = new CreateMerchantRequest
 
 try
 {
-    ApiResponse<CreateMerchantResponse> result = await accountMerchantLevelApi.PostMerchantsAsync(body);
+    ApiResponse<CreateMerchantResponse> result = await accountMerchantLevelApi.CreateMerchantAsync(body);
 }
 catch (ApiException e)
 {
@@ -404,7 +404,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id
+# Get Merchant
 
 Returns the merchant account specified in the path. Your API credential must have access to the merchant account.
 
@@ -413,7 +413,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Account read
 
 ```csharp
-GetMerchantsMerchantIdAsync(
+GetMerchantAsync(
     string merchantId)
 ```
 
@@ -433,7 +433,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<Merchant> result = await accountMerchantLevelApi.GetMerchantsMerchantIdAsync(merchantId);
+    ApiResponse<Merchant> result = await accountMerchantLevelApi.GetMerchantAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -485,7 +485,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Activate
+# Activate Merchant
 
 Sends a request to activate the merchant account identified in the path.
 
@@ -498,7 +498,7 @@ To make this request, your API credential must have the following [roles](https:
 * Management API—Accounts read and write
 
 ```csharp
-PostMerchantsMerchantIdActivateAsync(
+ActivateMerchantAsync(
     string merchantId)
 ```
 
@@ -518,7 +518,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<RequestActivationResponse> result = await accountMerchantLevelApi.PostMerchantsMerchantIdActivateAsync(merchantId);
+    ApiResponse<RequestActivationResponse> result = await accountMerchantLevelApi.ActivateMerchantAsync(merchantId);
 }
 catch (ApiException e)
 {

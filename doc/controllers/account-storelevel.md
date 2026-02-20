@@ -10,17 +10,17 @@ AccountStorelevelApi accountStorelevelApi = client.AccountStorelevelApi;
 
 ## Methods
 
-* [Get-Merchants-Merchant Id-Stores](../../doc/controllers/account-storelevel.md#get-merchants-merchant-id-stores)
-* [Post-Merchants-Merchant Id-Stores](../../doc/controllers/account-storelevel.md#post-merchants-merchant-id-stores)
-* [Get-Merchants-Merchant Id-Stores-Store Id](../../doc/controllers/account-storelevel.md#get-merchants-merchant-id-stores-store-id)
-* [Patch-Merchants-Merchant Id-Stores-Store Id](../../doc/controllers/account-storelevel.md#patch-merchants-merchant-id-stores-store-id)
-* [Get-Stores](../../doc/controllers/account-storelevel.md#get-stores)
-* [Post-Stores](../../doc/controllers/account-storelevel.md#post-stores)
-* [Get-Stores-Store Id](../../doc/controllers/account-storelevel.md#get-stores-store-id)
-* [Patch-Stores-Store Id](../../doc/controllers/account-storelevel.md#patch-stores-store-id)
+* [List Merchant Stores](../../doc/controllers/account-storelevel.md#list-merchant-stores)
+* [Create Merchant Store](../../doc/controllers/account-storelevel.md#create-merchant-store)
+* [Get Merchant Store](../../doc/controllers/account-storelevel.md#get-merchant-store)
+* [Update Merchant Store](../../doc/controllers/account-storelevel.md#update-merchant-store)
+* [List Stores](../../doc/controllers/account-storelevel.md#list-stores)
+* [Create Store](../../doc/controllers/account-storelevel.md#create-store)
+* [Get Store](../../doc/controllers/account-storelevel.md#get-store)
+* [Update Store](../../doc/controllers/account-storelevel.md#update-store)
 
 
-# Get-Merchants-Merchant Id-Stores
+# List Merchant Stores
 
 Returns a list of stores for the merchant account identified in the path. The list is grouped into pages as defined by the query parameters.
 
@@ -32,7 +32,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdStoresAsync(
+ListMerchantStoresAsync(
     string merchantId,
     int? pageNumber = null,
     int? pageSize = null,
@@ -58,7 +58,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string merchantId = "merchantId6";
 try
 {
-    ApiResponse<ListStoresResponse> result = await accountStoreLevelApi.GetMerchantsMerchantIdStoresAsync(merchantId);
+    ApiResponse<ListStoresResponse> result = await accountStoreLevelApi.ListMerchantStoresAsync(merchantId);
 }
 catch (ApiException e)
 {
@@ -149,7 +149,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Merchants-Merchant Id-Stores
+# Create Merchant Store
 
 Creates a store for the merchant account identified in the path.
 
@@ -160,7 +160,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostMerchantsMerchantIdStoresAsync(
+CreateMerchantStoreAsync(
     string merchantId,
     Models.StoreCreationRequest body = null)
 ```
@@ -200,7 +200,7 @@ StoreCreationRequest body = new StoreCreationRequest
 
 try
 {
-    ApiResponse<Store> result = await accountStoreLevelApi.PostMerchantsMerchantIdStoresAsync(
+    ApiResponse<Store> result = await accountStoreLevelApi.CreateMerchantStoreAsync(
         merchantId,
         body
     );
@@ -254,7 +254,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Merchants-Merchant Id-Stores-Store Id
+# Get Merchant Store
 
 Returns the details of the store identified in the path.
 
@@ -266,7 +266,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetMerchantsMerchantIdStoresStoreIdAsync(
+GetMerchantStoreAsync(
     string merchantId,
     string storeId)
 ```
@@ -289,7 +289,7 @@ string merchantId = "merchantId6";
 string storeId = "storeId6";
 try
 {
-    ApiResponse<Store> result = await accountStoreLevelApi.GetMerchantsMerchantIdStoresStoreIdAsync(
+    ApiResponse<Store> result = await accountStoreLevelApi.GetMerchantStoreAsync(
         merchantId,
         storeId
     );
@@ -341,7 +341,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Merchants-Merchant Id-Stores-Store Id
+# Update Merchant Store
 
 Updates the store identified in the path. You can only update some store parameters.
 
@@ -352,7 +352,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchMerchantsMerchantIdStoresStoreIdAsync(
+UpdateMerchantStoreAsync(
     string merchantId,
     string storeId,
     Models.UpdateStoreRequest body = null)
@@ -388,7 +388,7 @@ UpdateStoreRequest body = new UpdateStoreRequest
 
 try
 {
-    ApiResponse<Store> result = await accountStoreLevelApi.PatchMerchantsMerchantIdStoresStoreIdAsync(
+    ApiResponse<Store> result = await accountStoreLevelApi.UpdateMerchantStoreAsync(
         merchantId,
         storeId,
         body
@@ -443,7 +443,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Stores
+# List Stores
 
 Returns a list of stores. The list is grouped into pages as defined by the query parameters.
 
@@ -455,7 +455,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetStoresAsync(
+ListStoresAsync(
     int? pageNumber = null,
     int? pageSize = null,
     string reference = null,
@@ -480,7 +480,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<ListStoresResponse> result = await accountStoreLevelApi.GetStoresAsync();
+    ApiResponse<ListStoresResponse> result = await accountStoreLevelApi.ListStoresAsync();
 }
 catch (ApiException e)
 {
@@ -571,7 +571,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Stores
+# Create Store
 
 Creates a store for the merchant account specified in the request.
 
@@ -582,7 +582,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostStoresAsync(
+CreateStoreAsync(
     Models.StoreCreationWithMerchantCodeRequest body = null)
 ```
 
@@ -620,7 +620,7 @@ StoreCreationWithMerchantCodeRequest body = new StoreCreationWithMerchantCodeReq
 
 try
 {
-    ApiResponse<Store> result = await accountStoreLevelApi.PostStoresAsync(body);
+    ApiResponse<Store> result = await accountStoreLevelApi.CreateStoreAsync(body);
 }
 catch (ApiException e)
 {
@@ -671,7 +671,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Get-Stores-Store Id
+# Get Store
 
 Returns the details of the store identified in the path.
 
@@ -683,7 +683,7 @@ To make this request, your API credential must have one of the following [roles]
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetStoresStoreIdAsync(
+GetStoreAsync(
     string storeId)
 ```
 
@@ -703,7 +703,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 string storeId = "storeId6";
 try
 {
-    ApiResponse<Store> result = await accountStoreLevelApi.GetStoresStoreIdAsync(storeId);
+    ApiResponse<Store> result = await accountStoreLevelApi.GetStoreAsync(storeId);
 }
 catch (ApiException e)
 {
@@ -753,7 +753,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Patch-Stores-Store Id
+# Update Store
 
 Updates the store identified in the path.
 You can only update some store parameters.
@@ -765,7 +765,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PatchStoresStoreIdAsync(
+UpdateStoreAsync(
     string storeId,
     Models.UpdateStoreRequest body = null)
 ```
@@ -798,7 +798,7 @@ UpdateStoreRequest body = new UpdateStoreRequest
 
 try
 {
-    ApiResponse<Store> result = await accountStoreLevelApi.PatchStoresStoreIdAsync(
+    ApiResponse<Store> result = await accountStoreLevelApi.UpdateStoreAsync(
         storeId,
         body
     );

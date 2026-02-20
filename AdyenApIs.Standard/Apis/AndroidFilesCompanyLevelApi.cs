@@ -39,13 +39,13 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="packageName">Optional parameter: The package name that uniquely identifies the Android app..</param>
         /// <param name="versionCode">Optional parameter: The version number of the app..</param>
         /// <returns>Returns the ApiResponse of Models.AndroidAppsResponse response from the API call.</returns>
-        public ApiResponse<Models.AndroidAppsResponse> GetCompaniesCompanyIdAndroidApps(
+        public ApiResponse<Models.AndroidAppsResponse> ListAndroidApps(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
                 string packageName = null,
                 int? versionCode = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdAndroidAppsAsync(companyId, pageNumber, pageSize, packageName, versionCode));
+            => CoreHelper.RunTask(ListAndroidAppsAsync(companyId, pageNumber, pageSize, packageName, versionCode));
 
         /// <summary>
         /// Returns a list of the Android apps that are available for the company identified in the path. .
@@ -64,7 +64,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="versionCode">Optional parameter: The version number of the app..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AndroidAppsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.AndroidAppsResponse>> GetCompaniesCompanyIdAndroidAppsAsync(
+        public async Task<ApiResponse<Models.AndroidAppsResponse>> ListAndroidAppsAsync(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -103,9 +103,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <returns>Returns the ApiResponse of Models.UploadAndroidAppResponse response from the API call.</returns>
-        public ApiResponse<Models.UploadAndroidAppResponse> PostCompaniesCompanyIdAndroidApps(
+        public ApiResponse<Models.UploadAndroidAppResponse> CreateAndroidApp(
                 string companyId)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdAndroidAppsAsync(companyId));
+            => CoreHelper.RunTask(CreateAndroidAppAsync(companyId));
 
         /// <summary>
         /// Uploads an Android APK file to Adyen.
@@ -118,7 +118,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.UploadAndroidAppResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.UploadAndroidAppResponse>> PostCompaniesCompanyIdAndroidAppsAsync(
+        public async Task<ApiResponse<Models.UploadAndroidAppResponse>> CreateAndroidAppAsync(
                 string companyId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.UploadAndroidAppResponse>()
@@ -150,10 +150,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="id">Required parameter: The unique identifier of the app..</param>
         /// <returns>Returns the ApiResponse of Models.AndroidApp response from the API call.</returns>
-        public ApiResponse<Models.AndroidApp> GetCompaniesCompanyIdAndroidAppsId(
+        public ApiResponse<Models.AndroidApp> GetAndroidApp(
                 string companyId,
                 string id)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdAndroidAppsIdAsync(companyId, id));
+            => CoreHelper.RunTask(GetAndroidAppAsync(companyId, id));
 
         /// <summary>
         /// Returns the details of the Android app identified in the path. .
@@ -167,7 +167,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="id">Required parameter: The unique identifier of the app..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AndroidApp response from the API call.</returns>
-        public async Task<ApiResponse<Models.AndroidApp>> GetCompaniesCompanyIdAndroidAppsIdAsync(
+        public async Task<ApiResponse<Models.AndroidApp>> GetAndroidAppAsync(
                 string companyId,
                 string id,
                 CancellationToken cancellationToken = default)
@@ -200,10 +200,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="id">Required parameter: The unique identifier of the app..</param>
         /// <returns>Returns the ApiResponse of Models.ReprocessAndroidAppResponse response from the API call.</returns>
-        public ApiResponse<Models.ReprocessAndroidAppResponse> PatchCompaniesCompanyIdAndroidAppsId(
+        public ApiResponse<Models.ReprocessAndroidAppResponse> UpdateAndroidApp(
                 string companyId,
                 string id)
-            => CoreHelper.RunTask(PatchCompaniesCompanyIdAndroidAppsIdAsync(companyId, id));
+            => CoreHelper.RunTask(UpdateAndroidAppAsync(companyId, id));
 
         /// <summary>
         /// Reuploads the Android app identified in the path. .
@@ -216,7 +216,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="id">Required parameter: The unique identifier of the app..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ReprocessAndroidAppResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ReprocessAndroidAppResponse>> PatchCompaniesCompanyIdAndroidAppsIdAsync(
+        public async Task<ApiResponse<Models.ReprocessAndroidAppResponse>> UpdateAndroidAppAsync(
                 string companyId,
                 string id,
                 CancellationToken cancellationToken = default)
@@ -254,12 +254,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 20 items on a page..</param>
         /// <param name="certificateName">Optional parameter: The name of the certificate..</param>
         /// <returns>Returns the ApiResponse of Models.AndroidCertificatesResponse response from the API call.</returns>
-        public ApiResponse<Models.AndroidCertificatesResponse> GetCompaniesCompanyIdAndroidCertificates(
+        public ApiResponse<Models.AndroidCertificatesResponse> ListAndroidCertificates(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
                 string certificateName = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdAndroidCertificatesAsync(companyId, pageNumber, pageSize, certificateName));
+            => CoreHelper.RunTask(ListAndroidCertificatesAsync(companyId, pageNumber, pageSize, certificateName));
 
         /// <summary>
         /// Returns a list of the Android certificates that are available for the company identified in the path.
@@ -277,7 +277,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="certificateName">Optional parameter: The name of the certificate..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AndroidCertificatesResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.AndroidCertificatesResponse>> GetCompaniesCompanyIdAndroidCertificatesAsync(
+        public async Task<ApiResponse<Models.AndroidCertificatesResponse>> ListAndroidCertificatesAsync(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -310,9 +310,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <returns>Returns the ApiResponse of Models.UploadAndroidCertificateResponse response from the API call.</returns>
-        public ApiResponse<Models.UploadAndroidCertificateResponse> PostCompaniesCompanyIdAndroidCertificates(
+        public ApiResponse<Models.UploadAndroidCertificateResponse> UploadAndroidCertificate(
                 string companyId)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdAndroidCertificatesAsync(companyId));
+            => CoreHelper.RunTask(UploadAndroidCertificateAsync(companyId));
 
         /// <summary>
         /// Uploads an Android Certificate file to Adyen.
@@ -321,7 +321,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.UploadAndroidCertificateResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.UploadAndroidCertificateResponse>> PostCompaniesCompanyIdAndroidCertificatesAsync(
+        public async Task<ApiResponse<Models.UploadAndroidCertificateResponse>> UploadAndroidCertificateAsync(
                 string companyId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.UploadAndroidCertificateResponse>()

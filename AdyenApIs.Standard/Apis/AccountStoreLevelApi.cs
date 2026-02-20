@@ -35,12 +35,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="reference">Optional parameter: The reference of the store..</param>
         /// <returns>Returns the ApiResponse of Models.ListStoresResponse response from the API call.</returns>
-        public ApiResponse<Models.ListStoresResponse> GetMerchantsMerchantIdStores(
+        public ApiResponse<Models.ListStoresResponse> ListMerchantStores(
                 string merchantId,
                 int? pageNumber = null,
                 int? pageSize = null,
                 string reference = null)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdStoresAsync(merchantId, pageNumber, pageSize, reference));
+            => CoreHelper.RunTask(ListMerchantStoresAsync(merchantId, pageNumber, pageSize, reference));
 
         /// <summary>
         /// Returns a list of stores for the merchant account identified in the path. The list is grouped into pages as defined by the query parameters.
@@ -55,7 +55,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="reference">Optional parameter: The reference of the store..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListStoresResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListStoresResponse>> GetMerchantsMerchantIdStoresAsync(
+        public async Task<ApiResponse<Models.ListStoresResponse>> ListMerchantStoresAsync(
                 string merchantId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -91,10 +91,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public ApiResponse<Models.Store> PostMerchantsMerchantIdStores(
+        public ApiResponse<Models.Store> CreateMerchantStore(
                 string merchantId,
                 Models.StoreCreationRequest body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdStoresAsync(merchantId, body));
+            => CoreHelper.RunTask(CreateMerchantStoreAsync(merchantId, body));
 
         /// <summary>
         /// Creates a store for the merchant account identified in the path.
@@ -106,7 +106,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public async Task<ApiResponse<Models.Store>> PostMerchantsMerchantIdStoresAsync(
+        public async Task<ApiResponse<Models.Store>> CreateMerchantStoreAsync(
                 string merchantId,
                 Models.StoreCreationRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -140,10 +140,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public ApiResponse<Models.Store> GetMerchantsMerchantIdStoresStoreId(
+        public ApiResponse<Models.Store> GetMerchantStore(
                 string merchantId,
                 string storeId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdStoresStoreIdAsync(merchantId, storeId));
+            => CoreHelper.RunTask(GetMerchantStoreAsync(merchantId, storeId));
 
         /// <summary>
         /// Returns the details of the store identified in the path.
@@ -156,7 +156,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public async Task<ApiResponse<Models.Store>> GetMerchantsMerchantIdStoresStoreIdAsync(
+        public async Task<ApiResponse<Models.Store>> GetMerchantStoreAsync(
                 string merchantId,
                 string storeId,
                 CancellationToken cancellationToken = default)
@@ -189,11 +189,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public ApiResponse<Models.Store> PatchMerchantsMerchantIdStoresStoreId(
+        public ApiResponse<Models.Store> UpdateMerchantStore(
                 string merchantId,
                 string storeId,
                 Models.UpdateStoreRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdStoresStoreIdAsync(merchantId, storeId, body));
+            => CoreHelper.RunTask(UpdateMerchantStoreAsync(merchantId, storeId, body));
 
         /// <summary>
         /// Updates the store identified in the path. You can only update some store parameters.
@@ -206,7 +206,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public async Task<ApiResponse<Models.Store>> PatchMerchantsMerchantIdStoresStoreIdAsync(
+        public async Task<ApiResponse<Models.Store>> UpdateMerchantStoreAsync(
                 string merchantId,
                 string storeId,
                 Models.UpdateStoreRequest body = null,
@@ -244,12 +244,12 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="reference">Optional parameter: The reference of the store..</param>
         /// <param name="merchantId">Optional parameter: The unique identifier of the merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.ListStoresResponse response from the API call.</returns>
-        public ApiResponse<Models.ListStoresResponse> GetStores(
+        public ApiResponse<Models.ListStoresResponse> ListStores(
                 int? pageNumber = null,
                 int? pageSize = null,
                 string reference = null,
                 string merchantId = null)
-            => CoreHelper.RunTask(GetStoresAsync(pageNumber, pageSize, reference, merchantId));
+            => CoreHelper.RunTask(ListStoresAsync(pageNumber, pageSize, reference, merchantId));
 
         /// <summary>
         /// Returns a list of stores. The list is grouped into pages as defined by the query parameters.
@@ -264,7 +264,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Optional parameter: The unique identifier of the merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListStoresResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListStoresResponse>> GetStoresAsync(
+        public async Task<ApiResponse<Models.ListStoresResponse>> ListStoresAsync(
                 int? pageNumber = null,
                 int? pageSize = null,
                 string reference = null,
@@ -299,9 +299,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public ApiResponse<Models.Store> PostStores(
+        public ApiResponse<Models.Store> CreateStore(
                 Models.StoreCreationWithMerchantCodeRequest body = null)
-            => CoreHelper.RunTask(PostStoresAsync(body));
+            => CoreHelper.RunTask(CreateStoreAsync(body));
 
         /// <summary>
         /// Creates a store for the merchant account specified in the request.
@@ -312,7 +312,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public async Task<ApiResponse<Models.Store>> PostStoresAsync(
+        public async Task<ApiResponse<Models.Store>> CreateStoreAsync(
                 Models.StoreCreationWithMerchantCodeRequest body = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.Store>()
@@ -343,9 +343,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public ApiResponse<Models.Store> GetStoresStoreId(
+        public ApiResponse<Models.Store> GetStore(
                 string storeId)
-            => CoreHelper.RunTask(GetStoresStoreIdAsync(storeId));
+            => CoreHelper.RunTask(GetStoreAsync(storeId));
 
         /// <summary>
         /// Returns the details of the store identified in the path.
@@ -357,7 +357,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public async Task<ApiResponse<Models.Store>> GetStoresStoreIdAsync(
+        public async Task<ApiResponse<Models.Store>> GetStoreAsync(
                 string storeId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.Store>()
@@ -388,10 +388,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="storeId">Required parameter: The unique identifier of the store..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public ApiResponse<Models.Store> PatchStoresStoreId(
+        public ApiResponse<Models.Store> UpdateStore(
                 string storeId,
                 Models.UpdateStoreRequest body = null)
-            => CoreHelper.RunTask(PatchStoresStoreIdAsync(storeId, body));
+            => CoreHelper.RunTask(UpdateStoreAsync(storeId, body));
 
         /// <summary>
         /// Updates the store identified in the path.
@@ -404,7 +404,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Store response from the API call.</returns>
-        public async Task<ApiResponse<Models.Store>> PatchStoresStoreIdAsync(
+        public async Task<ApiResponse<Models.Store>> UpdateStoreAsync(
                 string storeId,
                 Models.UpdateStoreRequest body = null,
                 CancellationToken cancellationToken = default)

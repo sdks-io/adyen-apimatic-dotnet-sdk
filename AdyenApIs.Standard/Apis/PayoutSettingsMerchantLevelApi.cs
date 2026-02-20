@@ -32,9 +32,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettingsResponse response from the API call.</returns>
-        public ApiResponse<Models.PayoutSettingsResponse> GetMerchantsMerchantIdPayoutSettings(
+        public ApiResponse<Models.PayoutSettingsResponse> ListPayoutSettings(
                 string merchantId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdPayoutSettingsAsync(merchantId));
+            => CoreHelper.RunTask(ListPayoutSettingsAsync(merchantId));
 
         /// <summary>
         /// Returns the list of payout settings for the merchant account identified in the path.
@@ -45,7 +45,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettingsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PayoutSettingsResponse>> GetMerchantsMerchantIdPayoutSettingsAsync(
+        public async Task<ApiResponse<Models.PayoutSettingsResponse>> ListPayoutSettingsAsync(
                 string merchantId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.PayoutSettingsResponse>()
@@ -76,10 +76,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettings response from the API call.</returns>
-        public ApiResponse<Models.PayoutSettings> PostMerchantsMerchantIdPayoutSettings(
+        public ApiResponse<Models.PayoutSettings> CreatePayoutSetting(
                 string merchantId,
                 Models.PayoutSettingsRequest body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdPayoutSettingsAsync(merchantId, body));
+            => CoreHelper.RunTask(CreatePayoutSettingAsync(merchantId, body));
 
         /// <summary>
         /// Sends a request to add a payout setting for the merchant account specified in the path. A payout setting links the merchant account to the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments) that contains the details of the payout bank account. Adyen verifies the bank account before allowing and enabling the payout setting.
@@ -92,7 +92,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.PayoutSettings>> PostMerchantsMerchantIdPayoutSettingsAsync(
+        public async Task<ApiResponse<Models.PayoutSettings>> CreatePayoutSettingAsync(
                 string merchantId,
                 Models.PayoutSettingsRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -124,10 +124,10 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="payoutSettingsId">Required parameter: The unique identifier of the payout setting..</param>
-        public void DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsId(
+        public void DeletePayoutSetting(
                 string merchantId,
                 string payoutSettingsId)
-            => CoreHelper.RunVoidTask(DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(merchantId, payoutSettingsId));
+            => CoreHelper.RunVoidTask(DeletePayoutSettingAsync(merchantId, payoutSettingsId));
 
         /// <summary>
         /// Deletes the payout setting identified in the path.
@@ -139,7 +139,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="payoutSettingsId">Required parameter: The unique identifier of the payout setting..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+        public async Task DeletePayoutSettingAsync(
                 string merchantId,
                 string payoutSettingsId,
                 CancellationToken cancellationToken = default)
@@ -171,10 +171,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="payoutSettingsId">Required parameter: The unique identifier of the payout setting..</param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettings response from the API call.</returns>
-        public ApiResponse<Models.PayoutSettings> GetMerchantsMerchantIdPayoutSettingsPayoutSettingsId(
+        public ApiResponse<Models.PayoutSettings> GetPayoutSetting(
                 string merchantId,
                 string payoutSettingsId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(merchantId, payoutSettingsId));
+            => CoreHelper.RunTask(GetPayoutSettingAsync(merchantId, payoutSettingsId));
 
         /// <summary>
         /// Returns the payout setting identified in the path.
@@ -186,7 +186,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="payoutSettingsId">Required parameter: The unique identifier of the payout setting..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.PayoutSettings>> GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+        public async Task<ApiResponse<Models.PayoutSettings>> GetPayoutSettingAsync(
                 string merchantId,
                 string payoutSettingsId,
                 CancellationToken cancellationToken = default)
@@ -219,11 +219,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="payoutSettingsId">Required parameter: The unique identifier of the payout setting..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettings response from the API call.</returns>
-        public ApiResponse<Models.PayoutSettings> PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsId(
+        public ApiResponse<Models.PayoutSettings> UpdatePayoutSetting(
                 string merchantId,
                 string payoutSettingsId,
                 Models.UpdatePayoutSettingsRequest body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(merchantId, payoutSettingsId, body));
+            => CoreHelper.RunTask(UpdatePayoutSettingAsync(merchantId, payoutSettingsId, body));
 
         /// <summary>
         /// Updates the payout setting identified in the path. You can enable or disable the payout setting.
@@ -236,7 +236,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PayoutSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.PayoutSettings>> PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdAsync(
+        public async Task<ApiResponse<Models.PayoutSettings>> UpdatePayoutSettingAsync(
                 string merchantId,
                 string payoutSettingsId,
                 Models.UpdatePayoutSettingsRequest body = null,

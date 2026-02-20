@@ -32,10 +32,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <returns>Returns the ApiResponse of Models.AllowedOriginsResponse response from the API call.</returns>
-        public ApiResponse<Models.AllowedOriginsResponse> GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(
+        public ApiResponse<Models.AllowedOriginsResponse> ListMerchantApiCredentialOrigins(
                 string merchantId,
                 string apiCredentialId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsAsync(merchantId, apiCredentialId));
+            => CoreHelper.RunTask(ListMerchantApiCredentialOriginsAsync(merchantId, apiCredentialId));
 
         /// <summary>
         /// Returns the list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential identified in the path.
@@ -46,7 +46,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AllowedOriginsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.AllowedOriginsResponse>> GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsAsync(
+        public async Task<ApiResponse<Models.AllowedOriginsResponse>> ListMerchantApiCredentialOriginsAsync(
                 string merchantId,
                 string apiCredentialId,
                 CancellationToken cancellationToken = default)
@@ -78,11 +78,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public ApiResponse<Models.AllowedOrigin> PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(
+        public ApiResponse<Models.AllowedOrigin> CreateMerchantApiCredentialOrigin(
                 string merchantId,
                 string apiCredentialId,
                 Models.AllowedOrigin body = null)
-            => CoreHelper.RunTask(PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsAsync(merchantId, apiCredentialId, body));
+            => CoreHelper.RunTask(CreateMerchantApiCredentialOriginAsync(merchantId, apiCredentialId, body));
 
         /// <summary>
         /// Adds a new [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) to the API credential's list of allowed origins.
@@ -94,7 +94,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public async Task<ApiResponse<Models.AllowedOrigin>> PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsAsync(
+        public async Task<ApiResponse<Models.AllowedOrigin>> CreateMerchantApiCredentialOriginAsync(
                 string merchantId,
                 string apiCredentialId,
                 Models.AllowedOrigin body = null,
@@ -128,11 +128,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
-        public void DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(
+        public void DeleteMerchantApiCredentialOrigin(
                 string merchantId,
                 string apiCredentialId,
                 string originId)
-            => CoreHelper.RunVoidTask(DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(merchantId, apiCredentialId, originId));
+            => CoreHelper.RunVoidTask(DeleteMerchantApiCredentialOriginAsync(merchantId, apiCredentialId, originId));
 
         /// <summary>
         /// Removes the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) identified in the path. As soon as an allowed origin is removed, we no longer accept client-side requests from that domain.
@@ -144,7 +144,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(
+        public async Task DeleteMerchantApiCredentialOriginAsync(
                 string merchantId,
                 string apiCredentialId,
                 string originId,
@@ -178,11 +178,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public ApiResponse<Models.AllowedOrigin> GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(
+        public ApiResponse<Models.AllowedOrigin> GetMerchantApiCredentialOrigin(
                 string merchantId,
                 string apiCredentialId,
                 string originId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(merchantId, apiCredentialId, originId));
+            => CoreHelper.RunTask(GetMerchantApiCredentialOriginAsync(merchantId, apiCredentialId, originId));
 
         /// <summary>
         /// Returns the [allowed origin](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) identified in the path.
@@ -194,7 +194,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="originId">Required parameter: Unique identifier of the allowed origin..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.AllowedOrigin response from the API call.</returns>
-        public async Task<ApiResponse<Models.AllowedOrigin>> GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdAsync(
+        public async Task<ApiResponse<Models.AllowedOrigin>> GetMerchantApiCredentialOriginAsync(
                 string merchantId,
                 string apiCredentialId,
                 string originId,

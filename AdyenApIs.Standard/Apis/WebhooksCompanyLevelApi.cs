@@ -34,11 +34,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <returns>Returns the ApiResponse of Models.ListWebhooksResponse response from the API call.</returns>
-        public ApiResponse<Models.ListWebhooksResponse> GetCompaniesCompanyIdWebhooks(
+        public ApiResponse<Models.ListWebhooksResponse> ListCompanyWebhooks(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdWebhooksAsync(companyId, pageNumber, pageSize));
+            => CoreHelper.RunTask(ListCompanyWebhooksAsync(companyId, pageNumber, pageSize));
 
         /// <summary>
         /// Lists all webhook configurations for the company account.
@@ -51,7 +51,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListWebhooksResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListWebhooksResponse>> GetCompaniesCompanyIdWebhooksAsync(
+        public async Task<ApiResponse<Models.ListWebhooksResponse>> ListCompanyWebhooksAsync(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -84,10 +84,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account)..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public ApiResponse<Models.Webhook> PostCompaniesCompanyIdWebhooks(
+        public ApiResponse<Models.Webhook> CreateCompanyWebhook(
                 string companyId,
                 Models.CreateCompanyWebhookRequest body = null)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdWebhooksAsync(companyId, body));
+            => CoreHelper.RunTask(CreateCompanyWebhookAsync(companyId, body));
 
         /// <summary>
         /// Subscribe to receive webhook notifications about events related to your company account. You can add basic authentication to make sure the data is secure.
@@ -98,7 +98,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public async Task<ApiResponse<Models.Webhook>> PostCompaniesCompanyIdWebhooksAsync(
+        public async Task<ApiResponse<Models.Webhook>> CreateCompanyWebhookAsync(
                 string companyId,
                 Models.CreateCompanyWebhookRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -129,10 +129,10 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
-        public void DeleteCompaniesCompanyIdWebhooksWebhookId(
+        public void DeleteCompanyWebhook(
                 string companyId,
                 string webhookId)
-            => CoreHelper.RunVoidTask(DeleteCompaniesCompanyIdWebhooksWebhookIdAsync(companyId, webhookId));
+            => CoreHelper.RunVoidTask(DeleteCompanyWebhookAsync(companyId, webhookId));
 
         /// <summary>
         /// Remove the configuration for the webhook identified in the path.
@@ -143,7 +143,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task DeleteCompaniesCompanyIdWebhooksWebhookIdAsync(
+        public async Task DeleteCompanyWebhookAsync(
                 string companyId,
                 string webhookId,
                 CancellationToken cancellationToken = default)
@@ -175,10 +175,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account)..</param>
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public ApiResponse<Models.Webhook> GetCompaniesCompanyIdWebhooksWebhookId(
+        public ApiResponse<Models.Webhook> GetCompanyWebhook(
                 string companyId,
                 string webhookId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdWebhooksWebhookIdAsync(companyId, webhookId));
+            => CoreHelper.RunTask(GetCompanyWebhookAsync(companyId, webhookId));
 
         /// <summary>
         /// Returns the configuration for the webhook identified in the path.
@@ -190,7 +190,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public async Task<ApiResponse<Models.Webhook>> GetCompaniesCompanyIdWebhooksWebhookIdAsync(
+        public async Task<ApiResponse<Models.Webhook>> GetCompanyWebhookAsync(
                 string companyId,
                 string webhookId,
                 CancellationToken cancellationToken = default)
@@ -222,11 +222,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public ApiResponse<Models.Webhook> PatchCompaniesCompanyIdWebhooksWebhookId(
+        public ApiResponse<Models.Webhook> UpdateCompanyWebhook(
                 string companyId,
                 string webhookId,
                 Models.UpdateCompanyWebhookRequest body = null)
-            => CoreHelper.RunTask(PatchCompaniesCompanyIdWebhooksWebhookIdAsync(companyId, webhookId, body));
+            => CoreHelper.RunTask(UpdateCompanyWebhookAsync(companyId, webhookId, body));
 
         /// <summary>
         /// Make changes to the configuration of the webhook identified in the path. The request contains the new values you want to have in the webhook configuration. The response contains the full configuration for the webhook, which includes the new values from the request.
@@ -238,7 +238,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Webhook response from the API call.</returns>
-        public async Task<ApiResponse<Models.Webhook>> PatchCompaniesCompanyIdWebhooksWebhookIdAsync(
+        public async Task<ApiResponse<Models.Webhook>> UpdateCompanyWebhookAsync(
                 string companyId,
                 string webhookId,
                 Models.UpdateCompanyWebhookRequest body = null,
@@ -272,10 +272,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <returns>Returns the ApiResponse of Models.GenerateHmacKeyResponse response from the API call.</returns>
-        public ApiResponse<Models.GenerateHmacKeyResponse> PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmac(
+        public ApiResponse<Models.GenerateHmacKeyResponse> GenerateCompanyWebhookHmac(
                 string companyId,
                 string webhookId)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacAsync(companyId, webhookId));
+            => CoreHelper.RunTask(GenerateCompanyWebhookHmacAsync(companyId, webhookId));
 
         /// <summary>
         /// Returns an [HMAC key](https://en.wikipedia.org/wiki/HMAC) for the webhook identified in the path. This key allows you to check the integrity and the origin of the notifications you receive.By creating an HMAC key, you start receiving [HMAC-signed notifications](https://docs.adyen.com/development-resources/webhooks/verify-hmac-signatures#enable-hmac-signatures) from Adyen. Find out more about how to [verify HMAC signatures](https://docs.adyen.com/development-resources/webhooks/verify-hmac-signatures).
@@ -286,7 +286,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.GenerateHmacKeyResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.GenerateHmacKeyResponse>> PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacAsync(
+        public async Task<ApiResponse<Models.GenerateHmacKeyResponse>> GenerateCompanyWebhookHmacAsync(
                 string companyId,
                 string webhookId,
                 CancellationToken cancellationToken = default)
@@ -321,11 +321,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="webhookId">Required parameter: Unique identifier of the webhook configuration..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TestWebhookResponse response from the API call.</returns>
-        public ApiResponse<Models.TestWebhookResponse> PostCompaniesCompanyIdWebhooksWebhookIdTest(
+        public ApiResponse<Models.TestWebhookResponse> TestCompanyWebhook(
                 string companyId,
                 string webhookId,
                 Models.TestCompanyWebhookRequest body = null)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdWebhooksWebhookIdTestAsync(companyId, webhookId, body));
+            => CoreHelper.RunTask(TestCompanyWebhookAsync(companyId, webhookId, body));
 
         /// <summary>
         /// Sends sample notifications to test if the webhook is set up correctly.
@@ -340,7 +340,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TestWebhookResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TestWebhookResponse>> PostCompaniesCompanyIdWebhooksWebhookIdTestAsync(
+        public async Task<ApiResponse<Models.TestWebhookResponse>> TestCompanyWebhookAsync(
                 string companyId,
                 string webhookId,
                 Models.TestCompanyWebhookRequest body = null,

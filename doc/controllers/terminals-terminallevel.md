@@ -10,11 +10,11 @@ TerminalsTerminallevelApi terminalsTerminallevelApi = client.TerminalsTerminalle
 
 ## Methods
 
-* [Get-Terminals](../../doc/controllers/terminals-terminallevel.md#get-terminals)
-* [Post-Terminals-Terminal Id-Reassign](../../doc/controllers/terminals-terminallevel.md#post-terminals-terminal-id-reassign)
+* [List Terminals](../../doc/controllers/terminals-terminallevel.md#list-terminals)
+* [Reassign Terminal](../../doc/controllers/terminals-terminallevel.md#reassign-terminal)
 
 
-# Get-Terminals
+# List Terminals
 
 Returns the payment terminals that the API credential has access to and that match the query parameters.
 To make this request, your API credential must have the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
@@ -24,7 +24,7 @@ To make this request, your API credential must have the following [roles](https:
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-GetTerminalsAsync(
+ListTerminalsAsync(
     string searchQuery = null,
     string otpQuery = null,
     string countries = null,
@@ -57,7 +57,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```csharp
 try
 {
-    ApiResponse<ListTerminalsResponse> result = await terminalsTerminalLevelApi.GetTerminalsAsync();
+    ApiResponse<ListTerminalsResponse> result = await terminalsTerminalLevelApi.ListTerminalsAsync();
 }
 catch (ApiException e)
 {
@@ -129,7 +129,7 @@ catch (ApiException e)
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
 
 
-# Post-Terminals-Terminal Id-Reassign
+# Reassign Terminal
 
 Reassigns a payment terminal to a company account, merchant account, merchant account inventory, or a store.
 
@@ -140,7 +140,7 @@ To make this request, your API credential must have the following [role](https:/
 In the live environment, requests to this endpoint are subject to [rate limits](https://docs.adyen.com/point-of-sale/automating-terminal-management#rate-limits-in-the-live-environment).
 
 ```csharp
-PostTerminalsTerminalIdReassignAsync(
+ReassignTerminalAsync(
     string terminalId,
     Models.TerminalReassignmentRequest body = null)
 ```
@@ -168,7 +168,7 @@ TerminalReassignmentRequest body = new TerminalReassignmentRequest
 
 try
 {
-    await terminalsTerminalLevelApi.PostTerminalsTerminalIdReassignAsync(
+    await terminalsTerminalLevelApi.ReassignTerminalAsync(
         terminalId,
         body
     );

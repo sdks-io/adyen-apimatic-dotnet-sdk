@@ -32,11 +32,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageNumber">Optional parameter: The number of the page to fetch..</param>
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <returns>Returns the ApiResponse of Models.ListCompanyApiCredentialsResponse response from the API call.</returns>
-        public ApiResponse<Models.ListCompanyApiCredentialsResponse> GetCompaniesCompanyIdApiCredentials(
+        public ApiResponse<Models.ListCompanyApiCredentialsResponse> ListCompanyApiCredentials(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdApiCredentialsAsync(companyId, pageNumber, pageSize));
+            => CoreHelper.RunTask(ListCompanyApiCredentialsAsync(companyId, pageNumber, pageSize));
 
         /// <summary>
         /// Returns the list of [API credentials](https://docs.adyen.com/development-resources/api-credentials) for the company account. The list is grouped into pages as defined by the query parameters.
@@ -48,7 +48,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="pageSize">Optional parameter: The number of items to have on a page, maximum 100. The default is 10 items on a page..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.ListCompanyApiCredentialsResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.ListCompanyApiCredentialsResponse>> GetCompaniesCompanyIdApiCredentialsAsync(
+        public async Task<ApiResponse<Models.ListCompanyApiCredentialsResponse>> ListCompanyApiCredentialsAsync(
                 string companyId,
                 int? pageNumber = null,
                 int? pageSize = null,
@@ -87,10 +87,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CreateCompanyApiCredentialResponse response from the API call.</returns>
-        public ApiResponse<Models.CreateCompanyApiCredentialResponse> PostCompaniesCompanyIdApiCredentials(
+        public ApiResponse<Models.CreateCompanyApiCredentialResponse> CreateCompanyApiCredential(
                 string companyId,
                 Models.CreateCompanyApiCredentialRequest body = null)
-            => CoreHelper.RunTask(PostCompaniesCompanyIdApiCredentialsAsync(companyId, body));
+            => CoreHelper.RunTask(CreateCompanyApiCredentialAsync(companyId, body));
 
         /// <summary>
         /// Creates an [API credential](https://docs.adyen.com/development-resources/api-credentials) for the company account identified in the path. In the request, you can specify which merchant accounts the new API credential will have access to, as well as its roles and allowed origins.
@@ -107,7 +107,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CreateCompanyApiCredentialResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CreateCompanyApiCredentialResponse>> PostCompaniesCompanyIdApiCredentialsAsync(
+        public async Task<ApiResponse<Models.CreateCompanyApiCredentialResponse>> CreateCompanyApiCredentialAsync(
                 string companyId,
                 Models.CreateCompanyApiCredentialRequest body = null,
                 CancellationToken cancellationToken = default)
@@ -139,10 +139,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="companyId">Required parameter: The unique identifier of the company account..</param>
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <returns>Returns the ApiResponse of Models.CompanyApiCredential response from the API call.</returns>
-        public ApiResponse<Models.CompanyApiCredential> GetCompaniesCompanyIdApiCredentialsApiCredentialId(
+        public ApiResponse<Models.CompanyApiCredential> GetCompanyApiCredential(
                 string companyId,
                 string apiCredentialId)
-            => CoreHelper.RunTask(GetCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(companyId, apiCredentialId));
+            => CoreHelper.RunTask(GetCompanyApiCredentialAsync(companyId, apiCredentialId));
 
         /// <summary>
         /// Returns the [API credential](https://docs.adyen.com/development-resources/api-credentials) identified in the path.
@@ -153,7 +153,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CompanyApiCredential response from the API call.</returns>
-        public async Task<ApiResponse<Models.CompanyApiCredential>> GetCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(
+        public async Task<ApiResponse<Models.CompanyApiCredential>> GetCompanyApiCredentialAsync(
                 string companyId,
                 string apiCredentialId,
                 CancellationToken cancellationToken = default)
@@ -185,11 +185,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="apiCredentialId">Required parameter: Unique identifier of the API credential..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.CompanyApiCredential response from the API call.</returns>
-        public ApiResponse<Models.CompanyApiCredential> PatchCompaniesCompanyIdApiCredentialsApiCredentialId(
+        public ApiResponse<Models.CompanyApiCredential> UpdateCompanyApiCredential(
                 string companyId,
                 string apiCredentialId,
                 Models.UpdateCompanyApiCredentialRequest body = null)
-            => CoreHelper.RunTask(PatchCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(companyId, apiCredentialId, body));
+            => CoreHelper.RunTask(UpdateCompanyApiCredentialAsync(companyId, apiCredentialId, body));
 
         /// <summary>
         /// Changes the API credential's roles, merchant account access, or allowed origins. The request has the new values for the fields you want to change. The response contains the full updated API credential, including the new values from the request. .
@@ -201,7 +201,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CompanyApiCredential response from the API call.</returns>
-        public async Task<ApiResponse<Models.CompanyApiCredential>> PatchCompaniesCompanyIdApiCredentialsApiCredentialIdAsync(
+        public async Task<ApiResponse<Models.CompanyApiCredential>> UpdateCompanyApiCredentialAsync(
                 string companyId,
                 string apiCredentialId,
                 Models.UpdateCompanyApiCredentialRequest body = null,

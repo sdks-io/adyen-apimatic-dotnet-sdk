@@ -35,10 +35,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> GetMerchantsMerchantIdTerminalLogos(
+        public ApiResponse<Models.Logo> GetMerchantTerminalLogo(
                 string merchantId,
                 string model)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdTerminalLogosAsync(merchantId, model));
+            => CoreHelper.RunTask(GetMerchantTerminalLogoAsync(merchantId, model));
 
         /// <summary>
         /// Returns the logo that is configured for a specific payment terminal model at the merchant account identified in the path. .
@@ -53,7 +53,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> GetMerchantsMerchantIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> GetMerchantTerminalLogoAsync(
                 string merchantId,
                 string model,
                 CancellationToken cancellationToken = default)
@@ -89,11 +89,11 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="model">Required parameter: The terminal model. Allowed values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public ApiResponse<Models.Logo> PatchMerchantsMerchantIdTerminalLogos(
+        public ApiResponse<Models.Logo> UpdateMerchantTerminalLogo(
                 string merchantId,
                 string model,
                 Models.Logo body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdTerminalLogosAsync(merchantId, model, body));
+            => CoreHelper.RunTask(UpdateMerchantTerminalLogoAsync(merchantId, model, body));
 
         /// <summary>
         /// Updates the logo for a specific payment terminal model at the merchant account identified in the path. You can update the logo for only one terminal model at a time. .
@@ -109,7 +109,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.Logo response from the API call.</returns>
-        public async Task<ApiResponse<Models.Logo>> PatchMerchantsMerchantIdTerminalLogosAsync(
+        public async Task<ApiResponse<Models.Logo>> UpdateMerchantTerminalLogoAsync(
                 string merchantId,
                 string model,
                 Models.Logo body = null,
@@ -146,9 +146,9 @@ namespace AdyenApIs.Standard.Apis
         /// </summary>
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> GetMerchantsMerchantIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> GetMerchantTerminalSettings(
                 string merchantId)
-            => CoreHelper.RunTask(GetMerchantsMerchantIdTerminalSettingsAsync(merchantId));
+            => CoreHelper.RunTask(GetMerchantTerminalSettingsAsync(merchantId));
 
         /// <summary>
         /// Returns the payment terminal settings that are configured for the merchant account identified in the path. These settings apply to all terminals under the merchant account unless different values are configured at a lower level (store or individual terminal).
@@ -162,7 +162,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> GetMerchantsMerchantIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> GetMerchantTerminalSettingsAsync(
                 string merchantId,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.TerminalSettings>()
@@ -198,10 +198,10 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="merchantId">Required parameter: The unique identifier of the merchant account..</param>
         /// <param name="body">Optional parameter: .</param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public ApiResponse<Models.TerminalSettings> PatchMerchantsMerchantIdTerminalSettings(
+        public ApiResponse<Models.TerminalSettings> UpdateMerchantTerminalSettings(
                 string merchantId,
                 Models.TerminalSettings body = null)
-            => CoreHelper.RunTask(PatchMerchantsMerchantIdTerminalSettingsAsync(merchantId, body));
+            => CoreHelper.RunTask(UpdateMerchantTerminalSettingsAsync(merchantId, body));
 
         /// <summary>
         /// Updates payment terminal settings for the merchant account identified in the path.
@@ -219,7 +219,7 @@ namespace AdyenApIs.Standard.Apis
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.TerminalSettings response from the API call.</returns>
-        public async Task<ApiResponse<Models.TerminalSettings>> PatchMerchantsMerchantIdTerminalSettingsAsync(
+        public async Task<ApiResponse<Models.TerminalSettings>> UpdateMerchantTerminalSettingsAsync(
                 string merchantId,
                 Models.TerminalSettings body = null,
                 CancellationToken cancellationToken = default)
