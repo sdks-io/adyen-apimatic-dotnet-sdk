@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace AdyenApIs.Models;
+
+public record ListStoresResponse
+{
+    /// <summary>
+    /// Pagination references.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("_links")]
+    public PaginationLinksListStoresResponse? Links { get; init; }
+
+    /// <summary>
+    /// List of stores
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("data")]
+    public IReadOnlyList<Store>? Data { get; init; }
+
+    /// <summary>
+    /// Total number of items.
+    /// </summary>
+    [JsonPropertyName("itemsTotal")]
+    public required int ItemsTotal { get; init; }
+
+    /// <summary>
+    /// Total number of pages.
+    /// </summary>
+    [JsonPropertyName("pagesTotal")]
+    public required int PagesTotal { get; init; }
+}

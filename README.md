@@ -1,79 +1,21 @@
+# Adyen APIs
 
-# Getting Started with Adyen APIs
+[![Built with APIMatic][apimatic-badge]][apimatic-url] [![License: MIT][license-badge]][license-url]
 
-## Introduction
+The Adyen APIs SDK for .NET provides access to the Adyen APIs REST APIs from .NET applications.
 
-Adyen Checkout API provides a simple and flexible way to initiate and authorise online payments. You can use the same integration for payments made with cards (including 3D Secure), mobile wallets, and local payment methods (for example, iDEAL and Sofort).
+> [!TIP]
+> **Looking for a specific signature, model, enum, or error type?** This SDK ships a generated,
+> machine-readable **[SDK map](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/sdk-map.md)** — a lookup index of the SDK's entire C# surface. Consult it
+> **before** grepping or scanning the source tree; it answers most contract questions directly and,
+> when a source file is genuinely needed, names the exact one to open. Details under [SDK map](#sdk-map).
 
-This API reference provides information on available endpoints and how to interact with them. To learn more about the API, visit [online payments documentation](https://docs.adyen.com/online-payments).
-
-### Authentication
-
-Each request to Checkout API must be signed with an API key. For this, [get your API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key) from your Customer Area, and set this key to the `X-API-Key` header value, for example:
-
-```
-curl
--H "Content-Type: application/json" \
--H "X-API-Key: YOUR_API_KEY" \
-...
-```
-
-### Versioning
-
-Checkout API supports [versioning](https://docs.adyen.com/development-resources/versioning) using a version suffix in the endpoint URL. This suffix has the following format: "vXX", where XX is the version number.
-
-For example:
-
-```
-https://checkout-test.adyen.com/v71/payments
-```
-
-### Server-side API libraries
-
-We provide open-source [server-side API libraries](https://docs.adyen.com/development-resources/libraries/) in several languages:
-
-- PHP
-- Java
-- Node.js
-- .NET
-- Go
-- Python
-- Ruby
-- Apex (beta)
-
-See our [integration examples](https://github.com/adyen-examples#%EF%B8%8F-official-integration-examples) for example uses of the libraries.
-
-### Developer resources
-
-Checkout API is available through a Postman collection. Click the button below to create a fork, then set the environment variables at **Environments**&nbsp;>&nbsp;**Adyen&nbsp;APIs**.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/25716737-46ad970e-dc9e-4246-bac2-769c6083e7b5?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D25716737-46ad970e-dc9e-4246-bac2-769c6083e7b5%26entityType%3Dcollection%26workspaceId%3Da8d63f9f-cfc7-4810-90c5-9e0c60030d3e#?env%5BAdyen%20APIs%5D=W3sia2V5IjoiWC1BUEktS2V5IiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0In0seyJrZXkiOiJZT1VSX01FUkNIQU5UX0FDQ09VTlQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0In0seyJrZXkiOiJZT1VSX0NPTVBBTllfQUNDT1VOVCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQifSx7ImtleSI6IllPVVJfQkFMQU5DRV9QTEFURk9STSIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQifV0=)
-
-### Going live
-
-To access the live endpoints, you need an API key from your live Customer Area.
-
-The live endpoint URLs contain a prefix which is unique to your company account, for example:
-
-```
-https://{PREFIX}-checkout-live.adyenpayments.com/checkout/v71/payments
-```
-
-Get your `{PREFIX}` from your live Customer Area under **Developers** > **API URLs** > **Prefix**.
-
-When preparing to do live transactions with Checkout API, follow the [go-live checklist](https://docs.adyen.com/online-payments/go-live-checklist) to make sure you've got all the required configuration in place.
-
-### Release notes
-
-Have a look at the [release notes](https://docs.adyen.com/online-payments/release-notes?integration_type=api&version=71) to find out what changed in this version!, Configure and manage your Adyen company and merchant accounts, stores, and payment terminals.
-
-### Authentication
-
+Adyen Checkout API Configure and manage your Adyen company and merchant accounts, stores, and payment terminals.
+## Authentication
 Each request to the Management API must be signed with an API key. [Generate your API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key) in the Customer Area and then set this key to the `X-API-Key` header value.
 
 To access the live endpoints, you need to generate a new API key in your live Customer Area.
-
-### Versioning
+## Versioning
 
 Management API handles versioning as part of the endpoint URL. For example, to send a request to this version of the `/companies/{companyId}/webhooks` endpoint, use:
 
@@ -81,7 +23,7 @@ Management API handles versioning as part of the endpoint URL. For example, to s
 https://management-test.adyen.com/v3/companies/{companyId}/webhooks
 ```
 
-### Going live
+## Going live
 
 To access the live endpoints, you need an API key from your live Customer Area. Use this API key to make requests to:
 
@@ -89,172 +31,258 @@ To access the live endpoints, you need an API key from your live Customer Area. 
 https://management-live.adyen.com/v3
 ```
 
-### Release notes
-
+## Release notes
 Have a look at the [release notes](https://docs.adyen.com/release-notes/management-api) to find out what changed in this version!
 
-## Install the Package
+---
 
-If you are building with .NET CLI tools then you can also use the following command:
+## Installation
+
+To add the .NET SDK to your project from NuGet:
 
 ```bash
-dotnet add package AdyenApimaticSDK --version 1.0.1
+dotnet add package AdyenApimaticSDK
 ```
 
-You can also view the package at:
-https://www.nuget.org/packages/AdyenApimaticSDK/1.0.1
+To build against the SDK source instead, add it as a project reference into your solution:
 
-## Initialize the API Client
+```bash
+dotnet add reference <path-to-sdk>/src/AdyenApIs/AdyenApIs.csproj
+```
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/client.md)
+The project takes its build settings from the files around it, so reference it in place. Building from source needs the .NET 10 SDK (C# 14); the package itself targets netstandard2.0.
 
-The following parameters are configurable for the API Client:
+The assembly embeds its PDB, so stack traces carry SDK file and line numbers.
 
-| Parameter | Type | Description |
-|  --- | --- | --- |
-| Environment | [`Environment`](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/README.md#environments) | The API environment. <br> **Default: `Environment.Production`** |
-| Timeout | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(30)` |
-| HttpClientConfiguration | [`Action<HttpClientConfiguration.Builder>`](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-client-configuration-builder.md) | Action delegate that configures the HTTP client by using the HttpClientConfiguration.Builder for customizing API call settings.<br>*Default*: `new HttpClient()` |
-| LogBuilder | [`LogBuilder`](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/log-builder.md) | Represents the logging configuration builder for API calls |
-| ApiKeyAuthCredentials | [`ApiKeyAuthCredentials`](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/auth/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
-| BasicAuthCredentials | [`BasicAuthCredentials`](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/auth/basic-authentication.md) | The Credentials Setter for Basic Authentication |
+---
 
-The API client can be initialized as follows:
+## Building from source
 
-### Code-Based Initialization
+```bash
+dotnet pack src/AdyenApIs/AdyenApIs.csproj -c Release
+```
+
+Release packs come from CI, where `CI=true` makes the build deterministic; to reproduce that locally add `-p:ContinuousIntegrationBuild=true`.
+
+The generator never emits `Directory.Build.targets`, so a customer-owned one at the repo root is MSBuild's auto-imported customization seam. It imports after the props and the project body into every project under the root, so put SDK-only settings under `<PropertyGroup Condition="'$(MSBuildProjectName)' == 'AdyenApIs'">`.
+
+It overrides every property the SDK reads when targets run (package metadata, `Version`, `AssemblyVersion`, compiler warnings, package references, which under central package management use `VersionOverride`). It cannot change values the SDK derives earlier: `TargetFramework(s)`, `AssemblyName` and output paths stay generator settings; turning off `GenerateDocumentationFile` also needs `<DocumentationFile />`; a `ContinuousIntegrationBuild` set there also needs `<DeterministicSourcePaths>true</DeterministicSourcePaths>`.
+
+The SDK's props files are a boundary: a parent repository's `Directory.Build.props` does not apply, while a parent `Directory.Build.targets` does.
+
+APIMatic's delivery tools do not yet preserve `Directory.Build.targets` across regeneration — list it in `.codegenignore` when publishing to GitHub.
+
+---
+
+## Quick Start
+
+### Dependency Injection
+
+Register the client with `IServiceCollection` and resolve it from the container. The `HttpClient` is managed by `IHttpClientFactory`. Configure the client's behavior through [AdyenApIsClientOptions](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/src/AdyenApIs/AdyenApIsClientOptions.cs).
 
 ```csharp
-using AdyenApIs.Standard;
-using AdyenApIs.Standard.Authentication;
-using Microsoft.Extensions.Logging;
-
-namespace ConsoleApp;
-
-AdyenApIsClient client = new AdyenApIsClient.Builder()
-    .ApiKeyAuthCredentials(
-        new ApiKeyAuthModel.Builder(
-            "X-API-Key"
-        )
-        .Build())
-    .BasicAuthCredentials(
-        new BasicAuthModel.Builder(
-            "Username",
-            "Password"
-        )
-        .Build())
-    .HttpClientConfig(httpClientConfig =>
-        httpClientConfig.Timeout(TimeSpan.FromSeconds(100)))
-    .Environment(AdyenApIs.Standard.Environment.Production)
-    .LoggingConfig(config => config
-        .LogLevel(LogLevel.Information)
-        .RequestConfig(reqConfig => reqConfig.Body(true))
-        .ResponseConfig(respConfig => respConfig.Headers(true))
-    )
-    .Build();
+services.AddAdyenApIsClient(options =>
+{
+    options.ApiKeyAuth = "YOUR_API_KEY";
+    options.BasicAuth = new BasicAuthCredentials { Username = "YOUR_USERNAME", Password = "YOUR_PASSWORD" };
+    options.Environment = ServerEnvironment.Production;
+    // TODO: configure more client options here
+});
 ```
 
-### Configuration-Based Initialization
+### Direct Instantiation
+
+Create the client by passing an `HttpClient` you manage yourself. Configure the client's behavior through [AdyenApIsClientOptions](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/src/AdyenApIs/AdyenApIsClientOptions.cs).
 
 ```csharp
-using AdyenApIs.Standard;
-using Microsoft.Extensions.Configuration;
-
-namespace ConsoleApp;
-
-// Build the IConfiguration using .NET conventions (JSON, environment, etc.)
-var configuration = new ConfigurationBuilder()
-    .AddJsonFile("config.json")
-    .AddEnvironmentVariables() // [optional] read environment variables
-    .Build();
-
-// Instantiate your SDK and configure it from IConfiguration
-var client = AdyenApIsClient
-    .FromConfiguration(configuration.GetSection("AdyenApIs"));
+var httpClient = new HttpClient();
+// TODO: configure more client options here
+var options = new AdyenApIsClientOptions
+{
+    ApiKeyAuth = "YOUR_API_KEY",
+    BasicAuth = new BasicAuthCredentials { Username = "YOUR_USERNAME", Password = "YOUR_PASSWORD" },
+    Environment = ServerEnvironment.Production,
+};
+var client = new AdyenApIsClient(httpClient, options);
 ```
 
-See the [Configuration-Based Initialization](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/configuration-based-initialization.md) section for details.
+### Credentials, tokens and 401s
 
-## Environments
+Every credential is an option on `AdyenApIsClientOptions`. A static credential can also come from a provider that is asked on every request, so a rotated secret reaches the next call without rebuilding the client:
 
-The SDK can be configured to use a different environment for making API calls. Available environments are:
+```csharp
+var options = new AdyenApIsClientOptions { ApiKeyAuthProvider = async ct => await vault.ReadAsync("api-key", ct) };
+```
 
-### Fields
+When a server answers `401 Unauthorized`:
 
-| Name | Description |
-|  --- | --- |
-| Production | **Default** |
+- A call with a static credential (bearer token, API key, basic auth) is not retried; a provider, if you set one, is asked again on the next call, not on this one. A throwing operation raises `ApiException` with `StatusCode` 401.
 
-## Authorization
+### Required and optional auth
 
-This API uses the following authentication schemes.
+An operation sends only the credentials its API declares. If a required credential is not configured, the call fails before anything is sent with an `AuthSchemeException` that names the scheme (`… requires the ApiKeyAuth scheme, which is not configured.`). An operation that accepts any of several sends the first configured credential that applies, in the order the API lists them; a configured one that fails falls through to the next, and all of them are named when none is configured. A credential that is set but blank is treated as configured and sent as-is: the SDK checks presence, never content.
 
-* [`ApiKeyAuth (Custom Header Signature)`](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/auth/custom-header-signature.md)
-* [`BasicAuth (Basic Authentication)`](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/auth/basic-authentication.md)
+### Credentials from environment variables
 
-## List of APIs
+Any credential option left `null` is read from an environment variable when the client is constructed. The variable name is the SDK name and the option's name, each in upper snake case, plus the member name for multi-member credentials:
 
-* [Paymentlinks](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/paymentlinks.md)
-* [Account-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/account-companylevel.md)
-* [Account-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/account-merchantlevel.md)
-* [Account-Storelevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/account-storelevel.md)
-* [Payoutsettings-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/payoutsettings-merchantlevel.md)
-* [Users-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/users-companylevel.md)
-* [Users-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/users-merchantlevel.md)
-* [My AP Icredential](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/my-ap-icredential.md)
-* [AP Icredentials-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/ap-icredentials-companylevel.md)
-* [AP Icredentials-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/ap-icredentials-merchantlevel.md)
-* [AP Ikey-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/ap-ikey-companylevel.md)
-* [AP Ikey-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/ap-ikey-merchantlevel.md)
-* [Clientkey-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/clientkey-companylevel.md)
-* [Clientkey-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/clientkey-merchantlevel.md)
-* [Allowedorigins-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/allowedorigins-companylevel.md)
-* [Allowedorigins-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/allowedorigins-merchantlevel.md)
-* [Webhooks-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/webhooks-companylevel.md)
-* [Webhooks-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/webhooks-merchantlevel.md)
-* [Paymentmethods-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/paymentmethods-merchantlevel.md)
-* [Terminals-Terminallevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminals-terminallevel.md)
-* [Terminalactions-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalactions-companylevel.md)
-* [Terminalactions-Terminallevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalactions-terminallevel.md)
-* [Terminalorders-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalorders-companylevel.md)
-* [Terminalorders-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalorders-merchantlevel.md)
-* [Terminalsettings-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalsettings-companylevel.md)
-* [Terminalsettings-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalsettings-merchantlevel.md)
-* [Terminalsettings-Storelevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalsettings-storelevel.md)
-* [Terminalsettings-Terminallevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/terminalsettings-terminallevel.md)
-* [Androidfiles-Companylevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/androidfiles-companylevel.md)
-* [Splitconfiguration-Merchantlevel](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/splitconfiguration-merchantlevel.md)
-* [Payments](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/payments.md)
-* [Donations](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/donations.md)
-* [Modifications](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/modifications.md)
-* [Recurring](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/recurring.md)
-* [Orders](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/orders.md)
-* [Utility](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/controllers/utility.md)
+| Option | Environment variables |
+| --- | --- |
+| `ApiKeyAuth` | `ADYEN_AP_IS_API_KEY_AUTH` |
+| `BasicAuth` | `ADYEN_AP_IS_BASIC_AUTH_USERNAME`, `ADYEN_AP_IS_BASIC_AUTH_PASSWORD` |
+| logging | `ADYEN_AP_IS_LOG` = `info`, `debug` or `trace` (read only when no `ILoggerFactory` is set; `AddAdyenApIsClient` always supplies the container's) |
 
-## SDK Infrastructure
+Rules:
 
-### Configuration
+- A value set in code always wins over the environment, including the placeholder assignments in the Quick Start samples; delete the line for any credential you supply through an environment variable.
+- A variable that is unset, empty or whitespace counts as not configured.
+- A multi-member credential is used only when every required variable is set. If some are missing the option stays `null`; constructing the client never throws, and a call that requires that credential fails before anything is sent (see "Required and optional auth").
+- Variables are read once, when the client is constructed. Changing them afterwards has no effect on an existing client.
 
-* [Configuration-Based Initialization](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/configuration-based-initialization.md)
-* [HttpClientConfiguration](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-client-configuration.md)
-* [HttpClientConfigurationBuilder](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-client-configuration-builder.md)
-* [LogBuilder](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/log-builder.md)
-* [LogRequestBuilder](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/log-request-builder.md)
-* [LogResponseBuilder](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/log-response-builder.md)
-* [ProxyConfigurationBuilder](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/proxy-configuration-builder.md)
+Hosted applications that already use the .NET options pattern can bind the whole options object from `IConfiguration` instead, which picks up environment variables through the configuration provider (`AdyenApIs__ApiKeyAuth`, and so on):
 
-### HTTP
+```csharp
+services.AddAdyenApIsClient(options => configuration.GetSection("AdyenApIs").Bind(options));
+```
 
-* [HttpCallback](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-callback.md)
-* [HttpContext](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-context.md)
-* [HttpRequest](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-request.md)
-* [HttpResponse](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-response.md)
-* [HttpStringResponse](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/http-string-response.md)
+Both paths coexist: a slot the bound configuration leaves `null` still falls back to its environment variable.
 
-### Utilities
+---
 
-* [ApiException](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/api-exception.md)
-* [ApiResponse](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/api-response.md)
-* [ApiHelper](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/api-helper.md)
-* [CustomDateTimeConverter](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/custom-date-time-converter.md)
-* [UnixDateTimeConverter](https://www.github.com/sdks-io/adyen-apimatic-dotnet-sdk/tree/1.0.1/doc/unix-date-time-converter.md)
+## Usage
 
+For code examples and error responses, see [API Reference](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/api-reference.md).
+
+## Enums
+
+Every enum the spec declares is a sealed record with one `public static readonly` member per value (`TypeAffirm.Affirm`), a JSON converter, and a `Match` that makes handling exhaustive: one `on{Member}` arm per known value, then `otherwise`, which receives the raw wire value the server sent when it is one this SDK does not declare.
+
+```csharp
+var label = received.Match(onAffirm: () => "Affirm", otherwise: raw => $"undeclared ({raw})");
+```
+
+Prefer named arguments as above. The arms are positional, in the order the spec lists its values, and a regenerated SDK that adds or moves a value changes the `Match` signature: a positional call site compiled against the old shape either stops compiling or, if the assembly is not rebuilt, throws `MissingMethodException` at the first call, and a reordered value can rebind a positional argument to a different member without any diagnostic. Treat an added or moved enum value as a breaking change of that enum. Code that must survive regeneration untouched compares instead of matching: `received == TypeAffirm.Affirm` or `received.Is(rawValue)` against a raw wire value; neither reopens construction.
+
+A value the SDK does not declare still round-trips: `IsKnownValue()` tells you whether it is one of the generated members, and sending the instance back echoes the server's own casing. You cannot construct an undeclared value yourself — there is no public factory — so a typo cannot compile; resolve a raw value with `TypeAffirm.TryGetKnownValue("affirm", out var known)`.
+
+A spec value whose name would collide with the enum's own name, with a member every enum inherits or generates (such as `Value`, `Match` or `IsKnownValue`), or with a member of `object` takes a `Member` suffix — a value `value` becomes `ValueMember` — and the other members keep their plain names.
+
+## SDK map
+
+This SDK ships a generated **SDK map** — [`sdk-map.md`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/sdk-map.md) plus the [`map/`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/map/) pages — a deterministic, lookup-oriented table of contents of the SDK's C# surface, generated by APIMatic alongside this SDK.
+
+**Read it before scanning the source.** Whether you are an AI coding assistant or searching by hand, the map answers "what is the exact …" by lookup for every call-level contract, and for anything it does not carry it names the one file that does — so you never have to search the source tree:
+
+- **[`sdk-map.md`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/sdk-map.md)** — the index: client construction, servers/auth, the options/retry reference, the SDK-wide defaults the operation rows rely on, and link tables into [`map/`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/map/).
+- **[`map/operations/`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/map/operations/)** — one page per controller: the exact C# signature, the return type, the error type with its typed `TryGet…` accessors, and pagination — plus, per operation, a **Type sources** table naming the file that declares every type that operation mentions.
+
+Model shapes — record fields with their JSON wire names, enum member names and wire values, `OneOf`/`AnyOf` union variants — are **not** duplicated in the map. Take the path from the operation's Type sources table and read the declaring file; it is the single source of truth and cannot go stale against the code.
+
+**Each operation row states what is specific to that operation.** The SDK-wide defaults are stated once in [`sdk-map.md`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/sdk-map.md) — throw-only (no `Result`-style no-throw variants), no pagination, the four fixed `RawError` accessors, the `Default` server group — and a row appears only where its operation departs from one. A row silent on pagination is telling you that operation has none.
+
+The **HTTP verb and route**, and the endpoint's **behavioural prose**, live on the operation itself, in the source file named at the top of its operations page. Read them there when something needs them — wiring a mock, reading a provider log, or settling a rule about what you must pass.
+
+**Workflow:** look the fact up in the map → where the map leaves something ambiguous, open the **one** source file the row names → the compiler is the backstop (a name that isn't in the map won't build). Don't scan or grep the tree to find things — the map is the locator.
+
+### Which one to reach for
+
+The map and the [API Reference](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/api-reference.md) answer different questions, and the map is generated from this SDK's source so it stays in lockstep with the code it describes.
+
+| Use | For |
+| --- | --- |
+| **[`sdk-map.md`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/sdk-map.md) + [`map/`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/map/)** | Traversing the SDK and working out its surface — locating the operation you need (this SDK exposes **162 operations**), its exact signature and request record, the shape and JSON wire names of the models it takes and returns, which error type it throws and how to read it, and the source file behind any of it. This is the index to consume the SDK from, and the one to reach for first. |
+| **[`api-reference.md`](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/api-reference.md)** | Usage guidance for a single operation once you know which one you want — a runnable code sample, a link to its request record, and the error responses it can return. |
+
+## Error Handling
+
+Operations throw when the server answers with an error status. `TError` is the operation's error type from the spec — `RawError` (the status code plus the raw body) when the spec declares none.
+
+```csharp
+using AdyenApIs.Core.Exceptions;                       // the exception family
+using AdyenApIs.Errors;                                // generated error types such as CreateCompanyApiCredentialError
+using AdyenApIs.Requests.ApiCredentialsCompanyLevel;   // request records such as CreateCompanyApiCredentialOperationRequest
+using AdyenApIs.Models;                                // models such as CreateCompanyApiCredentialRequest
+
+try
+{
+    var response = await client.ApiCredentialsCompanyLevel.CreateCompanyApiCredential(
+        new CreateCompanyApiCredentialOperationRequest
+        {
+            CompanyId = "some example string",
+            Body = new CreateCompanyApiCredentialRequest
+            {
+                AllowedOrigins = ["https://www.mystore.com"],
+                AssociatedMerchantAccounts = [
+                    "YOUR_MERCHANT_ACCOUNT_AU",
+                    "YOUR_MERCHANT_ACCOUNT_EU",
+                    "YOUR_MERCHANT_ACCOUNT_US",
+                ],
+                Roles = ["Checkout webservice role"],
+            },
+        });
+}
+catch (ApiException<CreateCompanyApiCredentialError> ex)
+{
+    // "POST <server>/companies/{companyId}/apiCredentials returned 400 (BadRequest)."
+    Console.Error.WriteLine(ex.Message);
+    if (ex.Error.TryGetRestServiceError(out var restServiceError))
+    {
+        // TODO: handle 'restServiceError' of type RestServiceError
+    }
+}
+```
+
+Everything the SDK raises for a call derives from `SdkException`, which carries the failed call's `Method` and `RequestUri`. Every message starts with that call, and the underlying cause is always `InnerException`.
+
+| Exception | When | Extra members |
+| --- | --- | --- |
+| `ApiException<TError>` | The server answered with an error status | `Error`, plus `StatusCode`, `Headers` and `ContentType` from `ApiException` |
+| `ResponseDeserializationException` | A response body did not match the type the spec declares | `TargetType`, plus the `ApiException` members |
+| `SdkConnectionException` | The request could not be sent, or the response body could not be read |  |
+| `SdkTimeoutException` | An attempt, the transport, or a Server-Sent Events stream went silent (derives from `SdkConnectionException`) | `Timeout` |
+| `AuthSchemeException` | A required credential is not configured, a provider returned nothing, or a credential could not be applied — for example the OAuth2 token endpoint refused it | `SchemeFailures` |
+
+Catch from specific to general: `ApiException` means the server answered, `SdkConnectionException` means it did not, and `SdkException` is everything the SDK raises. Your own cancellation surfaces as the usual `OperationCanceledException`, never wrapped.
+
+---
+
+## Best Practices
+
+> [!TIP]
+> Use a **single `AdyenApIsClient` instance** for the lifetime of your application and
+> reuse it across all requests. Creating a new instance per request might exhaust the
+> connection pool.
+
+> [!TIP]
+> Let the SDK own timeouts. `RetryOptions.Timeout` bounds **each attempt** (default 100 s)
+> and a timed-out attempt is retried under the configured retry policy before it surfaces as
+> `SdkTimeoutException`; `Retry-After` response headers are honored when the server sends them.
+> Set `HttpClient.Timeout` to `Timeout.InfiniteTimeSpan` (or comfortably above
+> `RetryOptions.Timeout`) so the transport does not race the SDK — a transport-level timeout
+> surfaces as the same `SdkTimeoutException` but cannot be retried.
+
+> [!TIP]
+> The SDK reads time only through `AdyenApIsClientOptions.TimeProvider` (default
+> `TimeProvider.System`): retry backoff, `Retry-After`, the SSE idle timeout, OAuth2 token
+> expiry and the logged request durations all follow it. Under `AddAdyenApIsClient` a
+> `TimeProvider` registered in the container is picked up automatically, and setting the
+> option explicitly wins. To fake time in your own tests use a provider that implements
+> timers, such as `FakeTimeProvider` from `Microsoft.Extensions.TimeProvider.Testing`, so
+> retries and idle timeouts advance with it.
+
+## License
+
+This SDK is distributed under the [MIT License](https://licenses.nuget.org/MIT).
+
+---
+
+## Support
+
+Refer to the [API reference](https://github.com/sdks-io/adyen-apimatic-dotnet-sdk/blob/main/api-reference.md) for detailed information on available operations with code samples.
+
+---
+
+[license-url]: https://licenses.nuget.org/MIT
+[license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
+[apimatic-url]: https://www.apimatic.io
+[apimatic-badge]: https://img.shields.io/badge/Built%20with-APIMatic-blue.svg

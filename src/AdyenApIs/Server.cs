@@ -1,0 +1,19 @@
+using AdyenApIs.Core.Models;
+using AdyenApIs.Servers;
+
+namespace AdyenApIs;
+
+public class Server
+{
+    private readonly ServerEnvironment _environment;
+    private readonly ServerOptions _options;
+
+    internal Server(ServerEnvironment environment, ServerOptions options)
+    {
+        _environment = environment;
+        _options = options;
+    }
+
+    internal UrlTemplate Default(string path) => _options.Default.Resolve(_environment, path);
+    internal UrlTemplate DefaultManagementApi(string path) => _options.DefaultManagementApi.Resolve(_environment, path);
+}

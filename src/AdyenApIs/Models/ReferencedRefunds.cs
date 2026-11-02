@@ -1,0 +1,16 @@
+using System.Text.Json.Serialization;
+
+namespace AdyenApIs.Models;
+
+/// <summary>
+/// Settings for referenced refunds.
+/// </summary>
+public record ReferencedRefunds
+{
+    /// <summary>
+    /// Indicates whether referenced refunds are enabled on the standalone terminal.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("enableStandaloneRefunds")]
+    public bool? EnableStandaloneRefunds { get; init; }
+}
